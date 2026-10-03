@@ -91,32 +91,6 @@ def build():
            'accuracy or financial savings. Four Decision 2.0 models produced 70,304 saved predictions '
            'on an RTX 5070 Ti 16 GB. Full results at ' + PAGE)
     (OUT / 'alt-text.txt').write_text(alt+'\n', encoding='utf-8')
-    english = f'''I tested the new Decision 2.0 models alongside our existing decision-model benchmarks.
-
-The useful bit for a business: local AI can suggest where requests belong, so staff spend less time sorting and more time handling them.
-
-Nox 4B reached {nox['accuracy']:.1%} on our Norwegian routing test. The tested hosted API reached {measures[1][2]['accuracy']:.1%}, and Decider 4B reached {measures[0][2]['accuracy']:.1%}. A simple trained classifier still led at {supervised:.1%} when labelled training data was available.
-
-I'd start with suggestions that people review, then measure time saved and corrections. These results don't prove savings on a company's own data.
-
-We also tested load. More concurrent requests mostly meant longer queues in our native setup. Stock vLLM 0.30.0 could not load Decision 2.0 as published in the tested configuration.
-
-Full results, methods and stress tests: {PAGE}
-'''
-    norwegian = f'''Har testet de nye Decision 2.0-modellene sammen med resten av modellene i benchmarken.
-
-Det interessante for bedrifter er ganske enkelt: lokal AI som foreslår hvor henvendelser skal, så folk bruker mindre tid på sortering og mer tid på selve jobben.
-
-Nox 4B traff på {nox['accuracy']*100:.1f} % i den norske rutingtesten. API-et vi testet lå på {measures[1][2]['accuracy']*100:.1f} %, og Decider 4B på {measures[0][2]['accuracy']*100:.1f} %. En enkel klassifikator trent på merkede data gjorde det fortsatt best: {supervised*100:.1f} %.
-
-Jeg ville startet med forslag som folk godkjenner, og målt tid spart og feil som må rettes. Dette er en offentlig test, ikke dokumentert gevinst på bedriftens egne data.
-
-Vi testet også belastning. Flere samtidige forespørsler ga mest lengre kø i vårt lokale oppsett. Standard vLLM 0.30.0 klarte ikke å laste Decision 2.0 i konfigurasjonen vi testet.
-
-Resultater, metode og stresstest: {PAGE}
-'''
-    (OUT / 'sharing-text-en.txt').write_text(english, encoding='utf-8')
-    (OUT / 'sharing-text-no.txt').write_text(norwegian, encoding='utf-8')
     write_json(OUT / 'evidence.json', {
         'pages_url': PAGE, 'scope': 'MASSIVE Bokmål 18-scenario accuracy; identical 2,948 public test inputs.',
         'metrics': [{'model': label, 'deployment': kind, 'accuracy': v['accuracy'], 'n': v.get('attempted', v.get('n'))} for label, kind, v in measures],

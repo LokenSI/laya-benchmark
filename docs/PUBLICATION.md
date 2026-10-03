@@ -17,6 +17,6 @@ Build the public site without running inference:
 .venv\Scripts\python.exe scripts/build_pages.py --output .cache/pages-site
 ```
 
-The share-card generator verifies complete source reports and records their SHA-256 hashes in the share package. It exports a 1080×1350 PNG, a 2160×2700 master, editable SVG, alt text, and English/Norwegian sharing drafts. `build_pages.py` requires every public source to exist, builds the landing page from the recorded metrics, checks local report links and writes an asset checksum manifest. GitHub Actions repeats this check and deploys the static site on pushes to `main`.
+The share-card generator verifies complete source reports and records their SHA-256 hashes in the share package. It exports a 1080×1350 PNG, a 2160×2700 master, editable SVG and alt text. `build_pages.py` requires every public source to exist, builds the landing page from the recorded metrics, checks local report links and writes an asset checksum manifest. GitHub Actions repeats this check and deploys the static site on pushes to `main`.
 
 On a clean clone, the committed share card and aggregate results are sufficient to build the site with standard Python. Regenerating results requires datasets and models to be prepared locally. Model and dataset licences apply separately; this repository does not redistribute them.
