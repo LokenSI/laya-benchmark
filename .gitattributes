@@ -1,0 +1,9 @@
+* text=auto
+*.py text eol=lf
+*.ps1 text eol=crlf
+*.yml text eol=lf
+
+# Published evidence hashes refer to exact saved bytes, including line endings.
+results/** -text
+*.png -text
+*.zip -text
