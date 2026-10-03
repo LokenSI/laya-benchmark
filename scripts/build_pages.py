@@ -41,6 +41,9 @@ def build(output):
         shutil.copyfile(path, target)
     (output/'docs/public-files.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf-8')
     evidence = read(SHARE+'/evidence.json')
+    for source in evidence['sources'].values():
+        assert hashlib.sha256((ROOT/source['path']).read_bytes()).hexdigest() == source['sha256'], \
+            f"Stale share-card evidence: {source['path']}; regenerate the business summary"
     rows=''.join(f'<tr><th scope="row">{html.escape(m["model"])}</th><td>{m["deployment"]}</td><td><strong>{m["accuracy"]:.1%}</strong></td></tr>' for m in evidence['metrics'])
     document='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Local decision AI — benchmark and business value</title><meta name="description" content="English and Norwegian decision-model benchmarks, Decision 2.0 accuracy and load tests, and practical business implications.">
