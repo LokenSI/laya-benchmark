@@ -1,0 +1,11 @@
+Har testet de nye Decision 2.0-modellene sammen med resten av modellene i benchmarken.
+
+Det interessante for bedrifter er ganske enkelt: lokal AI som foreslår hvor henvendelser skal, så folk bruker mindre tid på sortering og mer tid på selve jobben.
+
+Nox 4B traff på 80.3 % i den norske rutingtesten. API-et vi testet lå på 81.8 %, og Decider 4B på 82.0 %. En enkel klassifikator trent på merkede data gjorde det fortsatt best: 89.1 %.
+
+Jeg ville startet med forslag som folk godkjenner, og målt tid spart og feil som må rettes. Dette er en offentlig test, ikke dokumentert gevinst på bedriftens egne data.
+
+Vi testet også belastning. Flere samtidige forespørsler ga mest lengre kø i vårt lokale oppsett. Standard vLLM 0.30.0 klarte ikke å laste Decision 2.0 i konfigurasjonen vi testet.
+
+Resultater, metode og stresstest: https://lokensi.github.io/laya-benchmark/

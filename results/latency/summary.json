@@ -1,0 +1,179 @@
+{
+  "complete": true,
+  "protocol": {
+    "created": "2026-10-01T08:48:37.794630+00:00",
+    "fixture_sha256": "72609218a89ca631fe32db60f8194ba5a79d3506e96d49690408ea41eef2b0d4",
+    "source_sha256": "42edfeea836817f5bcbd30dec7b7fd0fc62f196cfcde5d113e38b8d49f675679",
+    "cases": 80,
+    "passes": 3,
+    "warmup_calls": 8,
+    "models": [
+      "laya",
+      "laya-multilingual",
+      "decider-08b",
+      "decider-2b",
+      "decider-4b",
+      "von",
+      "gliner-decide",
+      "jev-1.13.0"
+    ],
+    "selection": "20 test messages per public task, serialized state at most 512 Unicode characters. Salted-ID selection and order independent of correctness. Narrow short-message workload, not long-document latency.",
+    "timing": "One outstanding request; local batch size one, loaded model, eight warm-up calls excluded, GPU synchronized before and after adapter call. API uses one persistent HTTPS Session with eight warm-up calls excluded. HTTP wall time includes transport, excludes ledger bookkeeping. No retries in timed calls. Three passes retained separately.",
+    "hardware": "Local RTX 5070 Ti 16 GB; 78% PyTorch allocation cap; Windows; recorded venv, checkpoint and precision. Hosted hardware unknown. Local timings include benchmark adapter tokenization and output processing.",
+    "limits": "Serial response time, not requests/second or vendor-H100 speed replication. API network location and backend cache behavior are uncontrolled. All model errors and native truncation counts reported; partial runs never ranked. Repeated passes are not independent accuracy cases."
+  },
+  "models": {
+    "laya": {
+      "calls": 240,
+      "successful": 240,
+      "errors": 0,
+      "median_ms": 25.932100019417703,
+      "p95_ms": 34.976350027136505,
+      "truncated_calls": 0,
+      "by_pass": {
+        "1": {
+          "median_ms": 26.01365011651069
+        },
+        "2": {
+          "median_ms": 25.770050124265254
+        },
+        "3": {
+          "median_ms": 26.10514999832958
+        }
+      }
+    },
+    "laya-multilingual": {
+      "calls": 240,
+      "successful": 240,
+      "errors": 0,
+      "median_ms": 21.6056500794366,
+      "p95_ms": 30.01490500755608,
+      "truncated_calls": 0,
+      "by_pass": {
+        "1": {
+          "median_ms": 21.99194999411702
+        },
+        "2": {
+          "median_ms": 21.389100118540227
+        },
+        "3": {
+          "median_ms": 20.792399998754263
+        }
+      }
+    },
+    "decider-08b": {
+      "calls": 240,
+      "successful": 240,
+      "errors": 0,
+      "median_ms": 47.783699934370816,
+      "p95_ms": 55.98304490558803,
+      "truncated_calls": 0,
+      "by_pass": {
+        "1": {
+          "median_ms": 47.31049994006753
+        },
+        "2": {
+          "median_ms": 48.11469989363104
+        },
+        "3": {
+          "median_ms": 47.916449955664575
+        }
+      }
+    },
+    "decider-2b": {
+      "calls": 240,
+      "successful": 240,
+      "errors": 0,
+      "median_ms": 47.666599857620895,
+      "p95_ms": 58.31933494191617,
+      "truncated_calls": 0,
+      "by_pass": {
+        "1": {
+          "median_ms": 48.721150029450655
+        },
+        "2": {
+          "median_ms": 47.16595006175339
+        },
+        "3": {
+          "median_ms": 47.555249999277294
+        }
+      }
+    },
+    "decider-4b": {
+      "calls": 240,
+      "successful": 240,
+      "errors": 0,
+      "median_ms": 64.56410011742264,
+      "p95_ms": 86.27821493428199,
+      "truncated_calls": 0,
+      "by_pass": {
+        "1": {
+          "median_ms": 64.4958500051871
+        },
+        "2": {
+          "median_ms": 61.9955500587821
+        },
+        "3": {
+          "median_ms": 69.62920003570616
+        }
+      }
+    },
+    "von": {
+      "calls": 240,
+      "successful": 240,
+      "errors": 0,
+      "median_ms": 19.13145009893924,
+      "p95_ms": 43.26326985610649,
+      "truncated_calls": 0,
+      "by_pass": {
+        "1": {
+          "median_ms": 21.86119998805225
+        },
+        "2": {
+          "median_ms": 18.441100022755563
+        },
+        "3": {
+          "median_ms": 18.906750017777085
+        }
+      }
+    },
+    "gliner-decide": {
+      "calls": 240,
+      "successful": 240,
+      "errors": 0,
+      "median_ms": 26.52455004863441,
+      "p95_ms": 37.18356001190841,
+      "truncated_calls": 0,
+      "by_pass": {
+        "1": {
+          "median_ms": 26.788100018166006
+        },
+        "2": {
+          "median_ms": 26.29164990503341
+        },
+        "3": {
+          "median_ms": 26.650100015103817
+        }
+      }
+    },
+    "jev-1.13.0": {
+      "calls": 240,
+      "successful": 240,
+      "errors": 0,
+      "median_ms": 261.21024996973574,
+      "p95_ms": 426.4934051083401,
+      "truncated_calls": 0,
+      "by_pass": {
+        "1": {
+          "median_ms": 258.5790000157431
+        },
+        "2": {
+          "median_ms": 258.1051499582827
+        },
+        "3": {
+          "median_ms": 267.47095002792776
+        }
+      }
+    }
+  }
+}

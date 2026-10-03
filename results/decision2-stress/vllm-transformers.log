@@ -1,0 +1,159 @@
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: "python": executable file not found in $PATH
+
+Run 'docker run --help' for more information
+INFO 10-03 09:51:15 [api_utils.py:286] non-default args: {'runner': 'pooling', 'trust_remote_code': True, 'max_model_len': 512, 'gpu_memory_utilization': 0.65, 'max_num_seqs': 32, 'disable_log_stats': True, 'enforce_eager': True, 'model_impl': 'transformers', 'model': '/workspace/.cache/huggingface/hub/models--vllm-sr--Decision-2.0-Sol-2B/snapshots/23cbe9f96dde4a7e1e6a238d576128bf73c5b09e'}
+INFO 10-03 09:51:23 [model.py:1250] Resolved `--convert auto` to `--convert embed`. Pass the value explicitly to silence this message.
+INFO 10-03 09:51:24 [model.py:692] Resolved architecture: TransformersEmbeddingModel
+INFO 10-03 09:51:24 [model.py:2361] Downcasting torch.float32 to torch.float16.
+INFO 10-03 09:51:24 [model.py:2030] Using max model len 512
+WARNING 10-03 09:51:24 [vllm.py:1547] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 10-03 09:51:24 [vllm.py:1570] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 10-03 09:51:24 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+INFO 10-03 09:51:24 [vllm.py:1780] Cudagraph is disabled under eager mode
+INFO 10-03 09:51:24 [compilation.py:336] Enabled custom fusions: norm_quant, act_quant
+[transformers] The tokenizer you are loading from '/workspace/.cache/huggingface/hub/models--vllm-sr--Decision-2.0-Sol-2B/snapshots/23cbe9f96dde4a7e1e6a238d576128bf73c5b09e' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+WARNING 10-03 09:51:28 [system_utils.py:157] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: CUDA is initialized; WSL is detected and NVML is not compatible with fork
+(EngineCore pid=133) INFO 10-03 09:51:33 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/workspace/.cache/huggingface/hub/models--vllm-sr--Decision-2.0-Sol-2B/snapshots/23cbe9f96dde4a7e1e6a238d576128bf73c5b09e', speculative_config=None, tokenizer='/workspace/.cache/huggingface/hub/models--vllm-sr--Decision-2.0-Sol-2B/snapshots/23cbe9f96dde4a7e1e6a238d576128bf73c5b09e', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.float16, max_seq_len=512, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/workspace/.cache/huggingface/hub/models--vllm-sr--Decision-2.0-Sol-2B/snapshots/23cbe9f96dde4a7e1e6a238d576128bf73c5b09e, enable_prefix_caching=False, enable_chunked_prefill=False, pooler_config=PoolerConfig(task=None, pooling_type=None, seq_pooling_type='CLS', tok_pooling_type='ALL', use_activation=None, dimensions=None, enable_chunked_processing=False, max_embed_len=None, logit_mean=None, logit_sigma=None, step_tag_id=None, returned_token_ids=None), compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=133) INFO 10-03 09:51:35 [parallel_state.py:1827] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_4497b880a875417899513f52bef4fc1d backend=nccl
+[rank0]:[W1003 09:51:35.279354307 ProcessGroupGloo.cpp:524] Warning: Unable to resolve hostname to a (local) address. Using the loopback address as fallback. Manually set the network interface to bind to with GLOO_SOCKET_IFNAME. (function operator())
+(EngineCore pid=133) INFO 10-03 09:51:35 [parallel_state.py:2267] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=133) INFO 10-03 09:51:35 [gpu_worker.py:441] Using V2 Model Runner
+(EngineCore pid=133) WARNING 10-03 09:51:36 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=133) INFO 10-03 09:51:38 [model_runner.py:396] Loading model from scratch...
+(EngineCore pid=133) INFO 10-03 09:51:38 [base.py:117] Using Transformers modeling backend.
+(EngineCore pid=133) Process EngineCore:
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366] EngineCore failed to start.
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366] Traceback (most recent call last):
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1328, in run_engine_core
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     return func(*args, **kwargs)
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1085, in __init__
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     super().__init__(
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 134, in __init__
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     return func(*args, **kwargs)
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 110, in __init__
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     self._init_executor()
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/uniproc_executor.py", line 74, in _init_executor
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     self.driver_worker.load_model()
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 507, in load_model
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     self.model_runner.load_model(load_dummy_weights=load_dummy_weights)
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 400, in load_model
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     self.model = model_loader.load_model(
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]                  ^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     return func(*args, **kwargs)
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/model_loader/base_loader.py", line 68, in load_model
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     model = self.create_model(
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]             ^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/model_loader/base_loader.py", line 46, in create_model
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     model = initialize_model(
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]             ^^^^^^^^^^^^^^^^^
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     return func(*args, **kwargs)
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/model_loader/utils.py", line 59, in initialize_model
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     model = model_class(vllm_config=vllm_config, prefix=prefix)
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/transformers/pooling.py", line 38, in __init__
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     super(VllmModelForPooling, self).__init__(
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/transformers/legacy.py", line 31, in __init__
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     super().__init__(vllm_config=vllm_config, prefix=prefix)
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/transformers/base.py", line 166, in __init__
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     self._decorate_for_torch_compile()
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/transformers/base.py", line 285, in _decorate_for_torch_compile
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     self._decorate_cls_for_torch_compile(
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/transformers/base.py", line 276, in _decorate_cls_for_torch_compile
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     support_torch_compile(
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/decorators.py", line 237, in cls_decorator_helper
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366]     raise ValueError(
+(EngineCore pid=133) ERROR 10-03 09:51:39 [core.py:1366] ValueError: Argument input_ids not found in the forward method of <class 'transformers_modules._23cbe9f96dde4a7e1e6a238d576128bf73c5b09e.4616ee1d85e89849.modeling_decision2.Decision2Model'>
+(EngineCore pid=133) Traceback (most recent call last):
+(EngineCore pid=133)   File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=133)     self.run()
+(EngineCore pid=133)   File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore pid=133)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1370, in run_engine_core
+(EngineCore pid=133)     raise e
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1328, in run_engine_core
+(EngineCore pid=133)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=133)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=133)     return func(*args, **kwargs)
+(EngineCore pid=133)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1085, in __init__
+(EngineCore pid=133)     super().__init__(
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 134, in __init__
+(EngineCore pid=133)     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=133)                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=133)     return func(*args, **kwargs)
+(EngineCore pid=133)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 110, in __init__
+(EngineCore pid=133)     self._init_executor()
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/uniproc_executor.py", line 74, in _init_executor
+(EngineCore pid=133)     self.driver_worker.load_model()
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 507, in load_model
+(EngineCore pid=133)     self.model_runner.load_model(load_dummy_weights=load_dummy_weights)
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 400, in load_model
+(EngineCore pid=133)     self.model = model_loader.load_model(
+(EngineCore pid=133)                  ^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=133)     return func(*args, **kwargs)
+(EngineCore pid=133)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/model_loader/base_loader.py", line 68, in load_model
+(EngineCore pid=133)     model = self.create_model(
+(EngineCore pid=133)             ^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/model_loader/base_loader.py", line 46, in create_model
+(EngineCore pid=133)     model = initialize_model(
+(EngineCore pid=133)             ^^^^^^^^^^^^^^^^^
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=133)     return func(*args, **kwargs)
+(EngineCore pid=133)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/model_loader/utils.py", line 59, in initialize_model
+(EngineCore pid=133)     model = model_class(vllm_config=vllm_config, prefix=prefix)
+(EngineCore pid=133)             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/transformers/pooling.py", line 38, in __init__
+(EngineCore pid=133)     super(VllmModelForPooling, self).__init__(
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/transformers/legacy.py", line 31, in __init__
+(EngineCore pid=133)     super().__init__(vllm_config=vllm_config, prefix=prefix)
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/transformers/base.py", line 166, in __init__
+(EngineCore pid=133)     self._decorate_for_torch_compile()
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/transformers/base.py", line 285, in _decorate_for_torch_compile
+(EngineCore pid=133)     self._decorate_cls_for_torch_compile(
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/transformers/base.py", line 276, in _decorate_cls_for_torch_compile
+(EngineCore pid=133)     support_torch_compile(
+(EngineCore pid=133)   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/decorators.py", line 237, in cls_decorator_helper
+(EngineCore pid=133)     raise ValueError(
+(EngineCore pid=133) ValueError: Argument input_ids not found in the forward method of <class 'transformers_modules._23cbe9f96dde4a7e1e6a238d576128bf73c5b09e.4616ee1d85e89849.modeling_decision2.Decision2Model'>
+[rank0]:[W1003 09:51:39.956522988 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+INFO 10-03 09:51:40 [utils.py:632] [shutdown] Process manager: send sigterm to process EngineCore
+{
+  "vllm_version": "0.30.0",
+  "model_path": "/workspace/.cache/huggingface/hub/models--vllm-sr--Decision-2.0-Sol-2B/snapshots/23cbe9f96dde4a7e1e6a238d576128bf73c5b09e",
+  "python": "3.12.3",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "torch": "2.13.0+cu130",
+  "transformers": "5.17.0",
+  "cuda": "13.0",
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 5070 Ti",
+  "model_revision": "23cbe9f96dde4a7e1e6a238d576128bf73c5b09e",
+  "manifest_sha256": "ec632dfbc0a83ac5368233073d9b983dac5ab6b2611e6868ea7e33dd90f5e2be",
+  "model_impl": "transformers",
+  "runner": "pooling",
+  "architecture": [
+    "Decision2Model"
+  ],
+  "scope": "Complete published Decision 2.0 package; no architecture override or backbone substitution",
+  "status": "unsupported",
+  "error": "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/laya_bench/decision2_vllm_probe.py\", line 29, in run\n    engine = LLM(model=model, trust_remote_code=True, model_impl=implementation,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/llm.py\", line 343, in __init__\n    self.llm_engine = LLMEngine.from_engine_args(\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 184, in from_engine_args\n    return cls(\n           ^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 109, in __init__\n    self.engine_core = EngineCoreClient.make_client(\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 122, in make_client\n    return SyncMPClient(\n           ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py\", line 178, in sync_wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 880, in __init__\n    super().__init__(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 656, in __init__\n    with launch_core_engines(\n  File \"/usr/lib/python3.12/contextlib.py\", line 144, in __exit__\n    next(self.gen)\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 1240, in launch_core_engines\n    wait_for_engine_startup(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 1320, in wait_for_engine_startup\n    raise RuntimeError(\nRuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}\n"
+}

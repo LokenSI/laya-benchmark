@@ -1,0 +1,11 @@
+I tested the new Decision 2.0 models alongside our existing decision-model benchmarks.
+
+The useful bit for a business: local AI can suggest where requests belong, so staff spend less time sorting and more time handling them.
+
+Nox 4B reached 80.3% on our Norwegian routing test. The tested hosted API reached 81.8%, and Decider 4B reached 82.0%. A simple trained classifier still led at 89.1% when labelled training data was available.
+
+I'd start with suggestions that people review, then measure time saved and corrections. These results don't prove savings on a company's own data.
+
+We also tested load. More concurrent requests mostly meant longer queues in our native setup. Stock vLLM 0.30.0 could not load Decision 2.0 as published in the tested configuration.
+
+Full results, methods and stress tests: https://lokensi.github.io/laya-benchmark/

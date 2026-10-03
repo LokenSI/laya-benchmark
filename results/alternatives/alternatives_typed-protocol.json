@@ -1,0 +1,12 @@
+{
+  "fixture_sha256": "20777e876cb45f5a6d90c597802771fe6cfd432a3eb39590bc5787abccf787e5",
+  "n": 400,
+  "heads": 2000,
+  "suites": {
+    "intern_claim/typed_decisions-test": 400
+  },
+  "source": "https://raw.githubusercontent.com/InternLM/Intern-Decision/3572c8a68b5df5dafe02d0e093989ba8ec0183bc/benchmarks/accuracy-v1/",
+  "revision": "3572c8a68b5df5dafe02d0e093989ba8ec0183bc",
+  "manifest_sha256": "fb77cf303bac4fe917a300641022c3110849928ae425f415708b2aa885db98a7",
+  "scoring": "All public test records, per-question hard-label accuracy; preserve supplied Noul criteria. Targets never enter inference requests. Typed labels are teacher agreement, not independently verified human truth. Other publishers may use different preprocessing."
+}

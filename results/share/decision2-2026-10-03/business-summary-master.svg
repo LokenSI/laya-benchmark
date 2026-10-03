@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="777.6pt" height="972pt" viewBox="0 0 777.6 972" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-03T15:36:37.497131</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 972 
+L 777.6 972 
+L 777.6 0 
+L 0 0 
+z
+" style="fill: #fcfdfc"/>
+  </g>
+  <g id="patch_2">
+   <path d="M 330.48 366.444 
+L 633.744 366.444 
+L 633.744 347.004 
+L 330.48 347.004 
+z
+" style="fill: #edf3f3"/>
+  </g>
+  <g id="patch_3">
+   <path d="M 330.48 366.444 
+L 579.222318 366.444 
+L 579.222318 347.004 
+L 330.48 347.004 
+z
+" style="fill: #4a789a"/>
+  </g>
+  <g id="patch_4">
+   <path d="M 330.48 443.232 
+L 633.744 443.232 
+L 633.744 423.792 
+L 330.48 423.792 
+z
+" style="fill: #edf3f3"/>
+  </g>
+  <g id="patch_5">
+   <path d="M 330.48 443.232 
+L 578.399349 443.232 
+L 578.399349 423.792 
+L 330.48 423.792 
+z
+" style="fill: #4a789a"/>
+  </g>
+  <g id="patch_6">
+   <path d="M 330.48 520.02 
+L 633.744 520.02 
+L 633.744 500.58 
+L 330.48 500.58 
+z
+" style="fill: #edf3f3"/>
+  </g>
+  <g id="patch_7">
+   <path d="M 330.48 520.02 
+L 573.975891 520.02 
+L 573.975891 500.58 
+L 330.48 500.58 
+z
+" style="fill: #187c76"/>
+  </g>
+  <g id="patch_8">
+   <path d="M 330.48 596.808 
+L 633.744 596.808 
+L 633.744 577.368 
+L 330.48 577.368 
+z
+" style="fill: #edf3f3"/>
+  </g>
+  <g id="patch_9">
+   <path d="M 330.48 596.808 
+L 485.918231 596.808 
+L 485.918231 577.368 
+L 330.48 577.368 
+z
+" style="fill: #4a789a"/>
+  </g>
+  <g id="patch_10">
+   <path d="M 42.768 857.304 
+L 734.832 857.304 
+L 734.832 718.308 
+L 42.768 718.308 
+z
+" style="fill: #edf3f3"/>
+  </g>
+  <g id="text_1">
+   <text style="font-weight: 600; font-size: 11px; font-family: 'Segoe UI'; text-anchor: start; fill: #187c76" x="54.432" y="53.827438" transform="rotate(-0 54.432 53.827438)">LOCAL AI / PRACTICAL BUSINESS VALUE</text>
+  </g>
+  <g id="text_2">
+   <text style="font-weight: 600; font-size: 35px; font-family: 'Segoe UI'; fill: #152d3b" transform="translate(54.432 115.149)">Less sorting.</text>
+   <text style="font-weight: 600; font-size: 35px; font-family: 'Segoe UI'; fill: #152d3b" transform="translate(54.432 156.550937)">More time for the work.</text>
+  </g>
+  <g id="text_3">
+   <text style="font-size: 17px; font-family: 'Segoe UI'; fill: #526671" transform="translate(54.432 200.181312)">Use AI to suggest where requests belong.</text>
+   <text style="font-size: 17px; font-family: 'Segoe UI'; fill: #526671" transform="translate(54.432 220.522025)">Keep the final decision with your team.</text>
+  </g>
+  <g id="text_4">
+   <text style="font-weight: 600; font-size: 11.5px; font-family: 'Segoe UI'; text-anchor: start; fill: #187c76" x="54.432" y="272.897594" transform="rotate(-0 54.432 272.897594)">NORWEGIAN REQUEST ROUTING</text>
+  </g>
+  <g id="text_5">
+   <text style="font-size: 13px; font-family: 'Segoe UI'; text-anchor: start; fill: #526671" x="54.432" y="297.64075" transform="rotate(-0 54.432 297.64075)">2,948 Bokmål test cases · 18 assistant-service categories</text>
+  </g>
+  <g id="text_6">
+   <text style="font-weight: 600; font-size: 15.5px; font-family: 'Segoe UI'; text-anchor: start; fill: #152d3b" x="54.432" y="341.954844" transform="rotate(-0 54.432 341.954844)">Decider 4B v2.1</text>
+  </g>
+  <g id="text_7">
+   <text style="font-size: 11px; font-family: 'Segoe UI'; text-anchor: start; fill: #526671" x="54.432" y="362.923437" transform="rotate(-0 54.432 362.923437)">local / zero-shot</text>
+  </g>
+  <g id="text_8">
+   <text style="font-weight: 600; font-size: 21px; font-family: 'Segoe UI'; text-anchor: end; fill: #4a789a" x="723.168" y="353.802563" transform="rotate(-0 723.168 353.802563)">82.0%</text>
+  </g>
+  <g id="text_9">
+   <text style="font-weight: 600; font-size: 15.5px; font-family: 'Segoe UI'; text-anchor: start; fill: #152d3b" x="54.432" y="418.742844" transform="rotate(-0 54.432 418.742844)">Jev 1.13.0</text>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 11px; font-family: 'Segoe UI'; text-anchor: start; fill: #526671" x="54.432" y="439.711437" transform="rotate(-0 54.432 439.711437)">hosted API / zero-shot</text>
+  </g>
+  <g id="text_11">
+   <text style="font-weight: 600; font-size: 21px; font-family: 'Segoe UI'; text-anchor: end; fill: #4a789a" x="723.168" y="430.590563" transform="rotate(-0 723.168 430.590563)">81.8%</text>
+  </g>
+  <g id="text_12">
+   <text style="font-weight: 600; font-size: 15.5px; font-family: 'Segoe UI'; text-anchor: start; fill: #152d3b" x="54.432" y="495.530844" transform="rotate(-0 54.432 495.530844)">Decision 2.0 Nox 4B</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 11px; font-family: 'Segoe UI'; text-anchor: start; fill: #526671" x="54.432" y="516.499437" transform="rotate(-0 54.432 516.499437)">local / zero-shot</text>
+  </g>
+  <g id="text_14">
+   <text style="font-weight: 600; font-size: 21px; font-family: 'Segoe UI'; text-anchor: end; fill: #187c76" x="723.168" y="507.378562" transform="rotate(-0 723.168 507.378562)">80.3%</text>
+  </g>
+  <g id="text_15">
+   <text style="font-weight: 600; font-size: 15.5px; font-family: 'Segoe UI'; text-anchor: start; fill: #152d3b" x="54.432" y="572.318844" transform="rotate(-0 54.432 572.318844)">Laya Multilingual</text>
+  </g>
+  <g id="text_16">
+   <text style="font-size: 11px; font-family: 'Segoe UI'; text-anchor: start; fill: #526671" x="54.432" y="593.287438" transform="rotate(-0 54.432 593.287438)">local / zero-shot</text>
+  </g>
+  <g id="text_17">
+   <text style="font-weight: 600; font-size: 21px; font-family: 'Segoe UI'; text-anchor: end; fill: #4a789a" x="723.168" y="584.166562" transform="rotate(-0 723.168 584.166562)">51.3%</text>
+  </g>
+  <g id="text_18">
+   <text style="font-size: 12.5px; font-family: 'Segoe UI'; fill: #526671" transform="translate(54.432 662.570719)">Also test a simple trained classifier: 89.1% here.</text>
+   <text style="font-size: 12.5px; font-family: 'Segoe UI'; fill: #526671" transform="translate(54.432 677.290719)">It used labelled training data; the models above did not.</text>
+  </g>
+  <g id="text_19">
+   <text style="font-weight: 600; font-size: 11.5px; font-family: 'Segoe UI'; text-anchor: start; fill: #187c76" x="58.32" y="742.373594" transform="rotate(-0 58.32 742.373594)">PILOT THE WORKFLOW, THEN MEASURE THE VALUE</text>
+  </g>
+  <g id="text_20">
+   <text style="font-size: 13.5px; font-family: 'Segoe UI'; fill: #152d3b" transform="translate(58.32 772.042219)">Local processing can keep messages in your environment.</text>
+   <text style="font-size: 13.5px; font-family: 'Segoe UI'; fill: #152d3b" transform="translate(58.32 788.011538)">Track time saved, corrections and the cost of mistakes.</text>
+   <text style="font-size: 13.5px; font-family: 'Segoe UI'; fill: #152d3b" transform="translate(58.32 803.909138)">Higher load needs a serving plan — queueing grew in our tests.</text>
+  </g>
+  <g id="text_21">
+   <text style="font-size: 10.5px; font-family: 'Segoe UI'; fill: #526671" transform="translate(54.432 888.405281)">Public test results ≠ production accuracy or proven ROI.</text>
+   <text style="font-size: 10.5px; font-family: 'Segoe UI'; fill: #526671" transform="translate(54.432 900.825862)">Decision 2.0: 4 models · 70,304 saved predictions · RTX 5070 Ti 16 GB</text>
+  </g>
+  <g id="text_22">
+   <text style="font-weight: 600; font-size: 14px; font-family: 'Segoe UI'; text-anchor: start; fill: #187c76" x="54.432" y="942.512375" transform="rotate(-0 54.432 942.512375)">lokensi.github.io/laya-benchmark</text>
+  </g>
+  <g id="text_23">
+   <text style="font-size: 10.5px; font-family: 'Segoe UI'; text-anchor: end; fill: #526671" x="723.168" y="939.921281" transform="rotate(-0 723.168 939.921281)">03 OCT 2026</text>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,22 @@
+{
+  "created": "2026-10-01T08:48:37.794630+00:00",
+  "fixture_sha256": "72609218a89ca631fe32db60f8194ba5a79d3506e96d49690408ea41eef2b0d4",
+  "source_sha256": "42edfeea836817f5bcbd30dec7b7fd0fc62f196cfcde5d113e38b8d49f675679",
+  "cases": 80,
+  "passes": 3,
+  "warmup_calls": 8,
+  "models": [
+    "laya",
+    "laya-multilingual",
+    "decider-08b",
+    "decider-2b",
+    "decider-4b",
+    "von",
+    "gliner-decide",
+    "jev-1.13.0"
+  ],
+  "selection": "20 test messages per public task, serialized state at most 512 Unicode characters. Salted-ID selection and order independent of correctness. Narrow short-message workload, not long-document latency.",
+  "timing": "One outstanding request; local batch size one, loaded model, eight warm-up calls excluded, GPU synchronized before and after adapter call. API uses one persistent HTTPS Session with eight warm-up calls excluded. HTTP wall time includes transport, excludes ledger bookkeeping. No retries in timed calls. Three passes retained separately.",
+  "hardware": "Local RTX 5070 Ti 16 GB; 78% PyTorch allocation cap; Windows; recorded venv, checkpoint and precision. Hosted hardware unknown. Local timings include benchmark adapter tokenization and output processing.",
+  "limits": "Serial response time, not requests/second or vendor-H100 speed replication. API network location and backend cache behavior are uncontrolled. All model errors and native truncation counts reported; partial runs never ranked. Repeated passes are not independent accuracy cases."
+}

@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "primary_model_test_decisions": 14138,
+  "all_prediction_records": 34013,
+  "model_suite_groups_checked": 6,
+  "summary_sha256": "dc720be7579d4b3c0cc683af935142495b6ded86773fc3975ea430d07fd1a950",
+  "predictions_sha256": "19a514aaf6c18fbc2a133d7056d2f56dfb3ba061a1539ad8a5d21c78d7956345",
+  "prepared_data_sha256": "9301766783b38ac56ca66c1a9ccd68797c9196a8f1dad0a4993077fa512f115f",
+  "checks": [
+    "complete status",
+    "frozen data hash",
+    "unique prediction IDs",
+    "all validation/test rows present",
+    "gold labels, groups and inputs unchanged",
+    "valid probabilities",
+    "independently recomputed accuracy",
+    "independently recomputed macro F1 and confusion matrices",
+    "truncation counts",
+    "diagnostic accuracy"
+  ]
+}

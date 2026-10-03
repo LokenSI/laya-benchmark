@@ -1,0 +1,41 @@
+{
+  "created": "2026-10-03T09:43:31.426365+00:00",
+  "fixture_sha256": "72609218a89ca631fe32db60f8194ba5a79d3506e96d49690408ea41eef2b0d4",
+  "unique_cases": 80,
+  "concurrency_levels": [
+    1,
+    8,
+    32,
+    128,
+    512
+  ],
+  "passes": 3,
+  "requests_per_pass": "80 * ceil(max(80, 2*concurrency)/80); complete workload cycles at every level",
+  "warmup": "All 80 cases run once before serial reference; initial compilation excluded.",
+  "client": "Persistent localhost HTTP session; closed-loop bounded concurrency; no timed retries; timeout 180 seconds.",
+  "native_service": "One loaded publisher exact-path model; one GPU executor; bounded FIFO queue of 1024 requests. HTTP wall time includes queueing. This baseline does not perform continuous batching.",
+  "question_capacity": "1, 4, 16, 64, 128, 512 named questions about one state; repeated existing question templates, share_context=False. Capacity/consistency diagnostic, not an accuracy benchmark.",
+  "question_capacity_repeats": 3,
+  "metrics": [
+    "requests/s",
+    "decisions/s",
+    "p50/p95/p99 HTTP latency",
+    "native compute time",
+    "queue wait",
+    "failures",
+    "peak client concurrency",
+    "answer flips",
+    "probability drift",
+    "GPU peak allocated/reserved"
+  ],
+  "claims": {
+    "source": "https://vllm-sr.ai/blog/decision-models/",
+    "scope": "Decision 1.0 Kai/Lex: up to 128 requests and 512 decisions in one SDK submission; explicitly not simultaneous forwards or measured throughput. Decision 2.0 cards publish single-request latency."
+  },
+  "limits": [
+    "Local 16 GB RTX 5070 Ti; different hardware/runtime from publisher speed results.",
+    "Native service and direct-vLLM compatibility are reported separately.",
+    "Repeated cases measure stability; they do not increase the accuracy sample size."
+  ],
+  "gpu_allocation_cap": "78% of local VRAM, matching the standard benchmark; resource failures remain visible."
+}

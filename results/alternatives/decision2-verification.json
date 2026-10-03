@@ -1,0 +1,201 @@
+{
+  "verified": "2026-10-03T13:09:19.845470+00:00",
+  "status": "complete",
+  "models": {
+    "decision2-kai-06b": {
+      "jev_verified": {
+        "cases": 300,
+        "errors": 0,
+        "fixture_sha256": "7747998e26856957763070d8fb6fbffd2b2aff8857e3ad6767874dccb492c58a",
+        "predictions_sha256": "98f124be2a8395a97788b6db32d9433fb52d2385a7edd8da7a5b55c70c1c5a5e"
+      },
+      "jev_fresh": {
+        "cases": 1264,
+        "errors": 0,
+        "fixture_sha256": "42edfeea836817f5bcbd30dec7b7fd0fc62f196cfcde5d113e38b8d49f675679",
+        "predictions_sha256": "891d960b5192380d1ecf26aece509416903cb5b87f2a560a370a976f118639f4"
+      },
+      "alternatives": {
+        "cases": 12341,
+        "errors": 0,
+        "fixture_sha256": "e9153b431a60ec1562c13d704126def5bbb53d5cc2e71ffa984069f4a1ccf324",
+        "predictions_sha256": "8435ec2b0997ff5fcb5c7d241bc76de52d9ee02f410d2f147d87d942889b6187"
+      },
+      "alternatives_claims": {
+        "cases": 3271,
+        "errors": 0,
+        "fixture_sha256": "8825e4e9785f4f34dbaa996d8b4d1e313d095d8eafc8f865c966914fed85c5a7",
+        "predictions_sha256": "641e266e1951d12b0e965ea7e27085b24f0f193db59cb507531e7e8dd4958eec"
+      },
+      "alternatives_typed": {
+        "cases": 400,
+        "errors": 0,
+        "fixture_sha256": "20777e876cb45f5a6d90c597802771fe6cfd432a3eb39590bc5787abccf787e5",
+        "predictions_sha256": "30bf7462ec289533927b72549085c0779216c8854dcc7179e8f325c989eb568d"
+      }
+    },
+    "decision2-eos-08b": {
+      "jev_verified": {
+        "cases": 300,
+        "errors": 0,
+        "fixture_sha256": "7747998e26856957763070d8fb6fbffd2b2aff8857e3ad6767874dccb492c58a",
+        "predictions_sha256": "dd2c7a9439cbb035ff81599914e2efc361ef45fbfbc30e708285a291b71baa6d"
+      },
+      "jev_fresh": {
+        "cases": 1264,
+        "errors": 0,
+        "fixture_sha256": "42edfeea836817f5bcbd30dec7b7fd0fc62f196cfcde5d113e38b8d49f675679",
+        "predictions_sha256": "5893d19bb9c192b46734db4179266067d5aade39a1e089eaaeb14aefdfabffde"
+      },
+      "alternatives": {
+        "cases": 12341,
+        "errors": 0,
+        "fixture_sha256": "e9153b431a60ec1562c13d704126def5bbb53d5cc2e71ffa984069f4a1ccf324",
+        "predictions_sha256": "d84eb3c26e6b9f9ec2e62046e2b917cab4ad7e4abc16cb22524a2817a7063adb"
+      },
+      "alternatives_claims": {
+        "cases": 3271,
+        "errors": 0,
+        "fixture_sha256": "8825e4e9785f4f34dbaa996d8b4d1e313d095d8eafc8f865c966914fed85c5a7",
+        "predictions_sha256": "ef171cf677e932df2f973deb649120a69b3b08764ad2e26fb9ba23061eb74a04"
+      },
+      "alternatives_typed": {
+        "cases": 400,
+        "errors": 0,
+        "fixture_sha256": "20777e876cb45f5a6d90c597802771fe6cfd432a3eb39590bc5787abccf787e5",
+        "predictions_sha256": "b2c250db8dcc9a994a5288bad975f8b958a51b9292e0430f55d319d7d64eedac"
+      }
+    },
+    "decision2-sol-2b": {
+      "jev_verified": {
+        "cases": 300,
+        "errors": 0,
+        "fixture_sha256": "7747998e26856957763070d8fb6fbffd2b2aff8857e3ad6767874dccb492c58a",
+        "predictions_sha256": "ef3a02da988274dd1e2f114d15844bb8046cd0914a73c21b4f91b783dca60035"
+      },
+      "jev_fresh": {
+        "cases": 1264,
+        "errors": 0,
+        "fixture_sha256": "42edfeea836817f5bcbd30dec7b7fd0fc62f196cfcde5d113e38b8d49f675679",
+        "predictions_sha256": "0a9c9ecb8b24d974bb2ce896caab340d1853519984f351f00a47bd1c05dfcd2e"
+      },
+      "alternatives": {
+        "cases": 12341,
+        "errors": 0,
+        "fixture_sha256": "e9153b431a60ec1562c13d704126def5bbb53d5cc2e71ffa984069f4a1ccf324",
+        "predictions_sha256": "320eb502e1b1816a38aecbeef08507b61e0dce375a9b17aa97fe15766ade58f1"
+      },
+      "alternatives_claims": {
+        "cases": 3271,
+        "errors": 0,
+        "fixture_sha256": "8825e4e9785f4f34dbaa996d8b4d1e313d095d8eafc8f865c966914fed85c5a7",
+        "predictions_sha256": "f6439713d2fc11cfe4beb2fc05b57abb2afc5d89f9fa603eb1f5c9f7d97d24f9"
+      },
+      "alternatives_typed": {
+        "cases": 400,
+        "errors": 0,
+        "fixture_sha256": "20777e876cb45f5a6d90c597802771fe6cfd432a3eb39590bc5787abccf787e5",
+        "predictions_sha256": "cfcf94bf65eb4ddafcc5a05be9a8505e23c7c0dbdf525aa0e209fbd1c27619da"
+      }
+    },
+    "decision2-nox-4b": {
+      "jev_verified": {
+        "cases": 300,
+        "errors": 0,
+        "fixture_sha256": "7747998e26856957763070d8fb6fbffd2b2aff8857e3ad6767874dccb492c58a",
+        "predictions_sha256": "da509d78bd62b14231c1cb7128d2365b09e40899ed0404d35cbe4634c9373568"
+      },
+      "jev_fresh": {
+        "cases": 1264,
+        "errors": 0,
+        "fixture_sha256": "42edfeea836817f5bcbd30dec7b7fd0fc62f196cfcde5d113e38b8d49f675679",
+        "predictions_sha256": "09279c65dc7e3565061325c3047f9dd95d74ae7cea37d9204c6b9be014dcde8b"
+      },
+      "alternatives": {
+        "cases": 12341,
+        "errors": 0,
+        "fixture_sha256": "e9153b431a60ec1562c13d704126def5bbb53d5cc2e71ffa984069f4a1ccf324",
+        "predictions_sha256": "3f6407f83aee884e9df8017a0c8168640b3192f44b417346698cb6a6f96c87e6"
+      },
+      "alternatives_claims": {
+        "cases": 3271,
+        "errors": 0,
+        "fixture_sha256": "8825e4e9785f4f34dbaa996d8b4d1e313d095d8eafc8f865c966914fed85c5a7",
+        "predictions_sha256": "e6a311a1818b68c022d1390c19039b82e6ef9ad17f2674f03330f50f885297ed"
+      },
+      "alternatives_typed": {
+        "cases": 400,
+        "errors": 0,
+        "fixture_sha256": "20777e876cb45f5a6d90c597802771fe6cfd432a3eb39590bc5787abccf787e5",
+        "predictions_sha256": "775db666659dd1049b73f4e9e5d525085b5156a2c2e43659f8012b95198940ad"
+      }
+    }
+  },
+  "stress": {
+    "decision2-eos-08b": {
+      "requests": 4800,
+      "errors": 0,
+      "label_flips": 0,
+      "requests_sha256": "3b381793fb8ca77006d4cbc1373464344661f3daa4bcb165b06fb07168cf40ca",
+      "question_capacity_sha256": "9deacdca83aa44baea81650b3dcfaa082738fe7a0a2e587165a5542e92aedf66"
+    },
+    "decision2-sol-2b": {
+      "requests": 4800,
+      "errors": 0,
+      "label_flips": 0,
+      "requests_sha256": "0e4810c7dde549f1ded4df16ad3cef9f6ab042204518ddbc578f586a1872cffc",
+      "question_capacity_sha256": "aaec8864fb1855a9a03570395c365087b3fdd7cfe1c32d635dd16a792c0f2119"
+    }
+  },
+  "saved_case_predictions": 70304,
+  "saved_prediction_errors": 0,
+  "runtime_events": [
+    {
+      "queue": "queue-decision2.json",
+      "model": "decision2-nox-4b",
+      "stage": "jev_fresh",
+      "status": "needs_repair",
+      "started": "2026-10-03T09:23:14.093798+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-jev_fresh.log",
+      "worker_pid": 59724,
+      "exit_code": 1,
+      "finished": "2026-10-03T09:24:46.625275+00:00"
+    },
+    {
+      "queue": "queue-decision2.json",
+      "model": "decision2-sol-2b",
+      "stage": "alternatives",
+      "status": "needs_repair",
+      "started": "2026-10-03T10:03:29.063205+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-sol-2b-alternatives.log",
+      "worker_pid": 56564,
+      "exit_code": 3221225477,
+      "finished": "2026-10-03T10:08:38.209539+00:00"
+    },
+    {
+      "queue": "queue-decision2-retry.json",
+      "model": "decision2-nox-4b",
+      "fixture": "alternatives",
+      "attempt": 1,
+      "started": "2026-10-03T10:32:33.206029+00:00",
+      "status": "needs_repair",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-alternatives.log",
+      "worker_pid": 51264,
+      "exit_code": 3221225477,
+      "finished": "2026-10-03T10:47:34.189917+00:00"
+    },
+    {
+      "queue": "queue-decision2-retry.json",
+      "model": "decision2-nox-4b",
+      "fixture": "alternatives_claims",
+      "attempt": 1,
+      "started": "2026-10-03T10:50:25.595840+00:00",
+      "status": "needs_repair",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-alternatives_claims.log",
+      "worker_pid": 30344,
+      "exit_code": 3221225477,
+      "finished": "2026-10-03T10:55:26.219835+00:00"
+    }
+  ],
+  "note": "Final prediction coverage and process stability are separate; interrupted attempts remain in supervisor logs."
+}

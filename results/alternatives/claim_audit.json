@@ -1,0 +1,511 @@
+{
+  "updated": "2026-10-03T11:01:27.049908+00:00",
+  "claims": [
+    {
+      "model": "decider-4b",
+      "claim": "JevBench public easy",
+      "published_accuracy": 1.0,
+      "expected_cases": 48,
+      "measured_accuracy": 1.0,
+      "difference_pp": 0.0,
+      "verdict": "matches_published_rounding",
+      "source": {
+        "url": "https://huggingface.co/Mapika/decider-4b/blob/eb5fbdfc9448473ec25e399882912863afbdb70e/README.md",
+        "sha256": "3a4a82d78e0adcfb84bc7a9691f8a79b0f54a5c1efd8379621a9dbf1d6de980b",
+        "model_revision": "eb5fbdfc9448473ec25e399882912863afbdb70e"
+      },
+      "scope": "Same verified public cases and native scorer; bf16 Windows/RTX runtime, graphs disabled. The 2pp band is an engineering check, not a significance test."
+    },
+    {
+      "model": "decider-4b",
+      "claim": "JevBench public original",
+      "published_accuracy": 0.986,
+      "expected_cases": 72,
+      "measured_accuracy": 0.9861111111111112,
+      "difference_pp": 0.011111111111117289,
+      "verdict": "matches_published_rounding",
+      "source": {
+        "url": "https://huggingface.co/Mapika/decider-4b/blob/eb5fbdfc9448473ec25e399882912863afbdb70e/README.md",
+        "sha256": "3a4a82d78e0adcfb84bc7a9691f8a79b0f54a5c1efd8379621a9dbf1d6de980b",
+        "model_revision": "eb5fbdfc9448473ec25e399882912863afbdb70e"
+      },
+      "scope": "Same verified public cases and native scorer; bf16 Windows/RTX runtime, graphs disabled. The 2pp band is an engineering check, not a significance test."
+    },
+    {
+      "model": "decider-4b",
+      "claim": "JevBench public hard",
+      "published_accuracy": 0.649,
+      "expected_cases": 111,
+      "measured_accuracy": 0.6486486486486487,
+      "difference_pp": -0.035135135135133666,
+      "verdict": "matches_published_rounding",
+      "source": {
+        "url": "https://huggingface.co/Mapika/decider-4b/blob/eb5fbdfc9448473ec25e399882912863afbdb70e/README.md",
+        "sha256": "3a4a82d78e0adcfb84bc7a9691f8a79b0f54a5c1efd8379621a9dbf1d6de980b",
+        "model_revision": "eb5fbdfc9448473ec25e399882912863afbdb70e"
+      },
+      "scope": "Same verified public cases and native scorer; bf16 Windows/RTX runtime, graphs disabled. The 2pp band is an engineering check, not a significance test."
+    },
+    {
+      "model": "decider-2b",
+      "claim": "JevBench public easy",
+      "published_accuracy": 1.0,
+      "expected_cases": 48,
+      "measured_accuracy": 1.0,
+      "difference_pp": 0.0,
+      "verdict": "matches_published_rounding",
+      "source": {
+        "url": "https://huggingface.co/Mapika/decider-2b/blob/533964dae8be954c5b5e19fa4948e48408094c1e/README.md",
+        "sha256": "d736f764f9e6f62b2da816b14090b307dc796fbbdebca081d000b90d4217caab",
+        "model_revision": "533964dae8be954c5b5e19fa4948e48408094c1e"
+      },
+      "scope": "Same verified public cases and native scorer; bf16 Windows/RTX runtime, graphs disabled. The 2pp band is an engineering check, not a significance test."
+    },
+    {
+      "model": "decider-2b",
+      "claim": "JevBench public original",
+      "published_accuracy": 0.889,
+      "expected_cases": 72,
+      "measured_accuracy": 0.8888888888888888,
+      "difference_pp": -0.011111111111117289,
+      "verdict": "matches_published_rounding",
+      "source": {
+        "url": "https://huggingface.co/Mapika/decider-2b/blob/533964dae8be954c5b5e19fa4948e48408094c1e/README.md",
+        "sha256": "d736f764f9e6f62b2da816b14090b307dc796fbbdebca081d000b90d4217caab",
+        "model_revision": "533964dae8be954c5b5e19fa4948e48408094c1e"
+      },
+      "scope": "Same verified public cases and native scorer; bf16 Windows/RTX runtime, graphs disabled. The 2pp band is an engineering check, not a significance test."
+    },
+    {
+      "model": "decider-2b",
+      "claim": "JevBench public hard",
+      "published_accuracy": 0.577,
+      "expected_cases": 111,
+      "measured_accuracy": 0.5675675675675675,
+      "difference_pp": -0.9432432432432414,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://huggingface.co/Mapika/decider-2b/blob/533964dae8be954c5b5e19fa4948e48408094c1e/README.md",
+        "sha256": "d736f764f9e6f62b2da816b14090b307dc796fbbdebca081d000b90d4217caab",
+        "model_revision": "533964dae8be954c5b5e19fa4948e48408094c1e"
+      },
+      "scope": "Same verified public cases and native scorer; bf16 Windows/RTX runtime, graphs disabled. The 2pp band is an engineering check, not a significance test."
+    },
+    {
+      "model": "laya",
+      "claim": "Publisher news.replication",
+      "published_accuracy": 0.95,
+      "measured_accuracy": 0.9525,
+      "difference_pp": 0.2500000000000058,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya",
+      "claim": "Publisher emotion.replication",
+      "published_accuracy": 0.595,
+      "measured_accuracy": 0.5975,
+      "difference_pp": 0.2500000000000058,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya",
+      "claim": "Publisher spam.replication",
+      "published_accuracy": 0.9925,
+      "measured_accuracy": 0.9975,
+      "difference_pp": 0.5000000000000004,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya",
+      "claim": "Publisher phishing.replication",
+      "published_accuracy": 0.98,
+      "measured_accuracy": 0.9775,
+      "difference_pp": -0.24999999999999467,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya",
+      "claim": "Publisher jailbreaking",
+      "published_accuracy": 0.7075,
+      "measured_accuracy": 0.7125,
+      "difference_pp": 0.5000000000000004,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya",
+      "claim": "Publisher toxicity",
+      "published_accuracy": 0.53,
+      "measured_accuracy": 0.53,
+      "difference_pp": 0.0,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya",
+      "claim": "Publisher intent",
+      "published_accuracy": 0.7833333333333333,
+      "measured_accuracy": 0.78,
+      "difference_pp": -0.33333333333332993,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya",
+      "claim": "Publisher scenario",
+      "published_accuracy": 0.6033333333333334,
+      "measured_accuracy": 0.5966666666666667,
+      "difference_pp": -0.666666666666671,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya-multilingual",
+      "claim": "Publisher news.replication",
+      "published_accuracy": 0.93,
+      "measured_accuracy": 0.9375,
+      "difference_pp": 0.7499999999999951,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya-multilingual",
+      "claim": "Publisher emotion.replication",
+      "published_accuracy": 0.53,
+      "measured_accuracy": 0.5375,
+      "difference_pp": 0.7499999999999951,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya-multilingual",
+      "claim": "Publisher spam.replication",
+      "published_accuracy": 0.9925,
+      "measured_accuracy": 0.9975,
+      "difference_pp": 0.5000000000000004,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya-multilingual",
+      "claim": "Publisher phishing.replication",
+      "published_accuracy": 0.9925,
+      "measured_accuracy": 0.9925,
+      "difference_pp": 0.0,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya-multilingual",
+      "claim": "Publisher jailbreaking",
+      "published_accuracy": 0.755,
+      "measured_accuracy": 0.805,
+      "difference_pp": 5.000000000000004,
+      "verdict": "outside_2pp_repeatability_band",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya-multilingual",
+      "claim": "Publisher toxicity",
+      "published_accuracy": 0.525,
+      "measured_accuracy": 0.535,
+      "difference_pp": 1.0000000000000009,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya-multilingual",
+      "claim": "Publisher intent",
+      "published_accuracy": 0.6566666666666666,
+      "measured_accuracy": 0.6533333333333333,
+      "difference_pp": -0.33333333333332993,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "laya-multilingual",
+      "claim": "Publisher scenario",
+      "published_accuracy": 0.56,
+      "measured_accuracy": 0.56,
+      "difference_pp": 0.0,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/4066d5d5fbf08b66c6757ddeedbd797bd7655bc0/BENCHMARKS.md",
+        "sha256": "1180c5babf599380d8ddffd23f13cd1d11e0df30cdb5b55be08b89b16dc75a1d"
+      },
+      "scope": "Reconstructed publisher questions and sampling. Publisher did not pin dataset revisions; our source revisions are fixed. SDK and device differ. Task training exposure is explicitly reported."
+    },
+    {
+      "model": "gliner-decide",
+      "claim": "Fast Decisions advertised 5100-example held-out average",
+      "verdict": "not_independently_verifiable_with_public_fixture",
+      "source": {
+        "url": "https://huggingface.co/fastino/GLiNER2.5-Decide/blob/5a7adf72a23b4d311abae6ce050d7f0012bb3416/README.md",
+        "sha256": "c92f9ada7e7a5af1620d59fa29b69920c7d1d3851f61e547ddc9d8c2ce5a1b95",
+        "model_revision": "5a7adf72a23b4d311abae6ce050d7f0012bb3416"
+      },
+      "scope": "The accessible fixture has 1700 development examples. Its results cannot verify or refute a claim on 5100 different held-out examples."
+    },
+    {
+      "model": "gliner-decide-1b",
+      "claim": "Fast Decisions advertised 5100-example held-out average",
+      "verdict": "not_independently_verifiable_with_public_fixture",
+      "source": {
+        "url": "https://huggingface.co/fastino/GLiNER2.5-Decide-1B/blob/688cd7ba8917a0855ad3ce929cba5a9998932e79/README.md",
+        "sha256": "6bbd1372fed6bca6523fd442df7e7365e63a07f6109436ba385720f19503b00d",
+        "model_revision": "688cd7ba8917a0855ad3ce929cba5a9998932e79"
+      },
+      "scope": "The accessible fixture has 1700 development examples. Its results cannot verify or refute a claim on 5100 different held-out examples."
+    },
+    {
+      "model": "gliner-decide-multi",
+      "claim": "Fast Decisions advertised 5100-example held-out average",
+      "verdict": "not_independently_verifiable_with_public_fixture",
+      "source": {
+        "url": "https://huggingface.co/fastino/GLiNER2.5-multi-Decide/blob/a35a0cd3b7a0f00f2effc576f454cd48fa98aa5f/README.md",
+        "sha256": "989d19265d83c9a3886577b5d3851e6c58b585f15d5b2912e925655b201fc42d",
+        "model_revision": "a35a0cd3b7a0f00f2effc576f454cd48fa98aa5f"
+      },
+      "scope": "The accessible fixture has 1700 development examples. Its results cannot verify or refute a claim on 5100 different held-out examples."
+    },
+    {
+      "model": "kev-08b",
+      "claim": "documents-v1 locked test / question accuracy",
+      "published_accuracy": 0.851,
+      "measured_accuracy": 0.8504273504273504,
+      "difference_pp": -0.057264957264957506,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://huggingface.co/jaredpalmer/kev-0.8b/blob/9a45d25eb2ab761841196625383fa1dff0e56c1e/README.md",
+        "sha256": "5c0408069bf3882c758ccc10a8351a4fba6a66e5cdce0ae6b3c320f4a50c0afb",
+        "model_revision": "9a45d25eb2ab761841196625383fa1dff0e56c1e"
+      },
+      "details": {
+        "complete": true,
+        "heads": 936,
+        "correct": 796,
+        "accuracy": 0.8504273504273504,
+        "source_sha256": "742d04a1abc2207bd3e4f24b281f483cdc69238e4da747cbbc3774e836f2e557",
+        "excluded_duplicate_source_ids": []
+      },
+      "scope": "Same pinned public test and question metric; bf16 local serving instead of publisher fp32 claim evaluation. Devtools uses the publisher amendment: remove both rows sharing the duplicated CodeReviewer source ID (1071 questions). The common cross-model benchmark retains all 1073 questions. Hard-v1 holds out templates of trained skills; devtools labels are public proxies; documents use the same CFPB source and question templates as training."
+    },
+    {
+      "model": "kev-08b",
+      "claim": "hard-v1 locked test / question accuracy",
+      "published_accuracy": 0.665,
+      "measured_accuracy": 0.6636029411764706,
+      "difference_pp": -0.13970588235294734,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://huggingface.co/jaredpalmer/kev-0.8b/blob/9a45d25eb2ab761841196625383fa1dff0e56c1e/README.md",
+        "sha256": "5c0408069bf3882c758ccc10a8351a4fba6a66e5cdce0ae6b3c320f4a50c0afb",
+        "model_revision": "9a45d25eb2ab761841196625383fa1dff0e56c1e"
+      },
+      "details": {
+        "complete": true,
+        "heads": 1088,
+        "correct": 722,
+        "accuracy": 0.6636029411764706,
+        "source_sha256": "246ee92234d33f8e3f10ac6e1542651531b128fd7cc66f3a9964589b77dfa22b",
+        "excluded_duplicate_source_ids": []
+      },
+      "scope": "Same pinned public test and question metric; bf16 local serving instead of publisher fp32 claim evaluation. Devtools uses the publisher amendment: remove both rows sharing the duplicated CodeReviewer source ID (1071 questions). The common cross-model benchmark retains all 1073 questions. Hard-v1 holds out templates of trained skills; devtools labels are public proxies; documents use the same CFPB source and question templates as training."
+    },
+    {
+      "model": "kev-08b",
+      "claim": "devtools-v1 locked test / question accuracy",
+      "published_accuracy": 0.637,
+      "measured_accuracy": 0.6377217553688141,
+      "difference_pp": 0.07217553688141365,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://huggingface.co/jaredpalmer/kev-0.8b/blob/9a45d25eb2ab761841196625383fa1dff0e56c1e/README.md",
+        "sha256": "5c0408069bf3882c758ccc10a8351a4fba6a66e5cdce0ae6b3c320f4a50c0afb",
+        "model_revision": "9a45d25eb2ab761841196625383fa1dff0e56c1e"
+      },
+      "details": {
+        "complete": true,
+        "heads": 1071,
+        "correct": 683,
+        "accuracy": 0.6377217553688141,
+        "source_sha256": "2fb7c2a239fef923bcb62c0eee9d6884a608ce30e5e74a4e6b9082787679767f",
+        "excluded_duplicate_source_ids": [
+          {
+            "row": 570,
+            "source_id": "codereviewer/cls-test/19245",
+            "heads": 1
+          },
+          {
+            "row": 622,
+            "source_id": "codereviewer/cls-test/19245",
+            "heads": 1
+          }
+        ]
+      },
+      "scope": "Same pinned public test and question metric; bf16 local serving instead of publisher fp32 claim evaluation. Devtools uses the publisher amendment: remove both rows sharing the duplicated CodeReviewer source ID (1071 questions). The common cross-model benchmark retains all 1073 questions. Hard-v1 holds out templates of trained skills; devtools labels are public proxies; documents use the same CFPB source and question templates as training."
+    },
+    {
+      "model": "kev-4b",
+      "claim": "hard-v1 locked test / question accuracy",
+      "published_accuracy": 0.803,
+      "measured_accuracy": 0.8051470588235294,
+      "difference_pp": 0.21470588235293908,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://huggingface.co/jaredpalmer/kev-4b/blob/139fdd94f1b6a6ad80cc15e08fcb99cac885a101/README.md",
+        "sha256": "3eac08b65ac314e0ee1b4ae7ddda9440e39310effa5da3a2cdcb56a9f1249e76",
+        "model_revision": "139fdd94f1b6a6ad80cc15e08fcb99cac885a101"
+      },
+      "details": {
+        "complete": true,
+        "heads": 1088,
+        "correct": 876,
+        "accuracy": 0.8051470588235294,
+        "source_sha256": "246ee92234d33f8e3f10ac6e1542651531b128fd7cc66f3a9964589b77dfa22b",
+        "excluded_duplicate_source_ids": []
+      },
+      "scope": "Same pinned public test and question metric; bf16 local serving instead of publisher fp32 claim evaluation. Devtools uses the publisher amendment: remove both rows sharing the duplicated CodeReviewer source ID (1071 questions). The common cross-model benchmark retains all 1073 questions. Hard-v1 holds out templates of trained skills; devtools labels are public proxies; documents use the same CFPB source and question templates as training."
+    },
+    {
+      "model": "kev-4b",
+      "claim": "devtools-v1 locked test / question accuracy",
+      "published_accuracy": 0.756,
+      "measured_accuracy": 0.7553688141923436,
+      "difference_pp": -0.06311858076564203,
+      "verdict": "near_reproduction_within_2pp",
+      "source": {
+        "url": "https://huggingface.co/jaredpalmer/kev-4b/blob/139fdd94f1b6a6ad80cc15e08fcb99cac885a101/README.md",
+        "sha256": "3eac08b65ac314e0ee1b4ae7ddda9440e39310effa5da3a2cdcb56a9f1249e76",
+        "model_revision": "139fdd94f1b6a6ad80cc15e08fcb99cac885a101"
+      },
+      "details": {
+        "complete": true,
+        "heads": 1071,
+        "correct": 809,
+        "accuracy": 0.7553688141923436,
+        "source_sha256": "2fb7c2a239fef923bcb62c0eee9d6884a608ce30e5e74a4e6b9082787679767f",
+        "excluded_duplicate_source_ids": [
+          {
+            "row": 570,
+            "source_id": "codereviewer/cls-test/19245",
+            "heads": 1
+          },
+          {
+            "row": 622,
+            "source_id": "codereviewer/cls-test/19245",
+            "heads": 1
+          }
+        ]
+      },
+      "scope": "Same pinned public test and question metric; bf16 local serving instead of publisher fp32 claim evaluation. Devtools uses the publisher amendment: remove both rows sharing the duplicated CodeReviewer source ID (1071 questions). The common cross-model benchmark retains all 1073 questions. Hard-v1 holds out templates of trained skills; devtools labels are public proxies; documents use the same CFPB source and question templates as training."
+    },
+    {
+      "model": "kev-4b",
+      "claim": "Previous round-8 documents-v1 locked test 90.4%",
+      "verdict": "different_checkpoint_version",
+      "source": {
+        "url": "https://huggingface.co/jaredpalmer/kev-4b/blob/139fdd94f1b6a6ad80cc15e08fcb99cac885a101/README.md",
+        "sha256": "3eac08b65ac314e0ee1b4ae7ddda9440e39310effa5da3a2cdcb56a9f1249e76",
+        "model_revision": "139fdd94f1b6a6ad80cc15e08fcb99cac885a101"
+      },
+      "scope": "The tested checkpoint is the later round-10 skills release. Its model card also documents older results. A round-10 score cannot verify or refute the older round-8 90.4% claim."
+    },
+    {
+      "model": "von",
+      "claim": "Jabr v2 macro accuracy 72.0% on 869 cases",
+      "verdict": "fixture_count_mismatch",
+      "source": {
+        "url": "https://huggingface.co/wfzyx/von/blob/411c44401cccddd792f341edfe033ea834557d13/README.md",
+        "sha256": "ab7ecf4b0ff8e03cf9b503360929f79047979d15f021fe6e9932e57f1d2252e5",
+        "model_revision": "411c44401cccddd792f341edfe033ea834557d13"
+      },
+      "scope": "Our pinned complete TOML contains 866 cases. Report it as a transfer result, not an exact replication. Von reports fitting its confidence map on the public JevBench cases and emotion in training."
+    },
+    {
+      "model": "julia",
+      "claim": "Native typed-decisions 2000 heads",
+      "verdict": "Near reproduction within the predeclared 2 percentage point band; not exact numerical equality",
+      "correct": 1451,
+      "n": 2000,
+      "accuracy": 0.7255,
+      "published_accuracy": 0.7315,
+      "difference_percentage_points": -0.6000000000000005,
+      "method": "Unmodified publisher reproduce_typed.py; verified model and Parquet hashes; CPU fp32 native Torch backend, batch one, 1024-token context",
+      "source": "https://huggingface.co/SupersonicLabs/Julia-1/blob/a85b127321d580d65176c89ced8273f305745d85/metrics/accuracy-20260924.json",
+      "result": "julia-native-typed/results.json"
+    },
+    {
+      "model": "clm-int8",
+      "claim": "CLM DeepSWE best-of-N 31/38 (81.6%)",
+      "verdict": "exact_downstream_reproduction_from_published_embeddings",
+      "scope": "Earlier local run used the authors' evaluator and public precomputed embeddings. This confirms the downstream evaluation, not full encoder/runtime equivalence. INT8 local classification is a separate test.",
+      "evidence": "../clm/FINDINGS_CLM.md"
+    }
+  ],
+  "principle": "Only matching data, metric, model version and protocol support a reproduction verdict. A failed portability test or a different private fixture is not a refutation."
+}

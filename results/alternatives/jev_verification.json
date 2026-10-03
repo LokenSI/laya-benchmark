@@ -1,0 +1,41 @@
+{
+  "reference_model": "jev-1.13.0",
+  "public_revision": "bb05a335bc809e61b20c0f745d25499a82b326fc",
+  "public_artifact_revision": "v1.3.0",
+  "public_source": "https://github.com/fstandhartinger/jevbench/blob/bb05a335bc809e61b20c0f745d25499a82b326fc/results/v1.2/jevbench-v1.2-per-task.json",
+  "public_case_count": 231,
+  "public_jev_correct": 200,
+  "public_jev_correct_by_tier": {
+    "easy": 48,
+    "original": 71,
+    "hard": 81
+  },
+  "public_cases_match_existing_fixture": true,
+  "pilot_revision": "0d610cc53e79bcbec691312b0c4adb4a0e371642",
+  "pilot_source": "https://github.com/AbdelStark/jev-benchmarks/blob/0d610cc53e79bcbec691312b0c4adb4a0e371642/results/reports/btzsc-pilot-v1.md",
+  "pilot_case_count": 300,
+  "pilot_manifest_matches_published_hash": true,
+  "pilot_published_accuracy": {
+    "agnews": 0.91,
+    "banking77": 0.87,
+    "emotiondair": 0.48
+  },
+  "verified_source_sha256": {
+    "results/v1.2/jevbench-v1.2-per-task.json": "c772b3b85809f483449ec2a6ae0272347371ed5f40f7faff8394ecf4ee22ae7c",
+    "datasets/manifest.json": "0983ad3e73a34e7c55b02b5d09ed983aeccabef0253bb31be43a2e6230d58f7b",
+    "datasets/public/easy.jsonl": "231df3c2c8e88a1a8c137ebe85de96ba70fabd330849098ac7b3c52c70b7172b",
+    "datasets/public/original.jsonl": "5c2414edb3006b8bfcb70fda433f0f9ca015759433849f8d3104328a1f7c4180",
+    "datasets/public/hard.jsonl": "89e9e6becb33ed88c1de7d42dcc87531b2fb64cfaef4e1986faf7c37b3f80ebb",
+    "pilot/configs/pilot-v1.yaml": "bb9172b7b8d92331ab166f13642ecc8aac4d447f111a0daf3285ab31439c05ef",
+    "pilot/results/reports/btzsc-pilot-v1.json": "292db65ade535b9cd9c06477b6f7863e03a6106ec0a5fa56378a08164ee14598",
+    "pilot/src/jev_benchmarks/adapters/jev.py": "5055ff17fe88120a18cbeda9ecfa5f7bf3111c8d53cb20fecc8b8657099e083b",
+    "pilot/src/jev_benchmarks/metrics.py": "bd36d82ad3525ad2cc16284cf720d3d29aa0669f1d7a48a8dc5846217d04173b",
+    "pilot/src/jev_benchmarks/runner.py": "e6a3075cfc23818de59f121e21799d5e3ee25b00be95f0c7d1d28a95f85627e6"
+  },
+  "limitations": [
+    "Reference outcomes are independently published observations, not a new Jev API run.",
+    "Public and sealed JevBench scores must not be conflated.",
+    "Public outcomes permit paired correctness comparisons, but not paired calibration without Jev probability vectors.",
+    "Pilot per-case predictions are not published; aggregate differences only."
+  ]
+}

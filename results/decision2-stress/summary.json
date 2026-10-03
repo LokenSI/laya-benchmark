@@ -1,0 +1,915 @@
+{
+  "updated": "2026-10-03T13:09:30.029062+00:00",
+  "fixture_sha256": "72609218a89ca631fe32db60f8194ba5a79d3506e96d49690408ea41eef2b0d4",
+  "scope": "Local RTX 5070 Ti 16 GB with the standard 78% VRAM allocation cap; Windows CUDA/Transformers/FLA with reference causal-convolution fallback; localhost HTTP; native publisher models with one FIFO GPU executor, no continuous batching.",
+  "vllm": {
+    "auto": {
+      "vllm_version": "0.30.0",
+      "model_path": "/workspace/.cache/huggingface/hub/models--vllm-sr--Decision-2.0-Sol-2B/snapshots/23cbe9f96dde4a7e1e6a238d576128bf73c5b09e",
+      "python": "3.12.3",
+      "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "torch": "2.13.0+cu130",
+      "transformers": "5.17.0",
+      "cuda": "13.0",
+      "cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 5070 Ti",
+      "model_revision": "23cbe9f96dde4a7e1e6a238d576128bf73c5b09e",
+      "manifest_sha256": "ec632dfbc0a83ac5368233073d9b983dac5ab6b2611e6868ea7e33dd90f5e2be",
+      "model_impl": "auto",
+      "runner": "pooling",
+      "architecture": [
+        "Decision2Model"
+      ],
+      "scope": "Complete published Decision 2.0 package; no architecture override or backbone substitution",
+      "status": "unsupported",
+      "error": "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/laya_bench/decision2_vllm_probe.py\", line 29, in run\n    engine = LLM(model=model, trust_remote_code=True, model_impl=implementation,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/llm.py\", line 343, in __init__\n    self.llm_engine = LLMEngine.from_engine_args(\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 184, in from_engine_args\n    return cls(\n           ^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 109, in __init__\n    self.engine_core = EngineCoreClient.make_client(\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 122, in make_client\n    return SyncMPClient(\n           ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py\", line 178, in sync_wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 880, in __init__\n    super().__init__(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 656, in __init__\n    with launch_core_engines(\n  File \"/usr/lib/python3.12/contextlib.py\", line 144, in __exit__\n    next(self.gen)\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 1240, in launch_core_engines\n    wait_for_engine_startup(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 1320, in wait_for_engine_startup\n    raise RuntimeError(\nRuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}\n",
+      "root_cause": "ValueError: Argument input_ids not found in the forward method of <class 'transformers_modules._23cbe9f96dde4a7e1e6a238d576128bf73c5b09e.4616ee1d85e89849.modeling_decision2.Decision2Model'>",
+      "engine_log": "vllm-auto.log"
+    },
+    "transformers": {
+      "vllm_version": "0.30.0",
+      "model_path": "/workspace/.cache/huggingface/hub/models--vllm-sr--Decision-2.0-Sol-2B/snapshots/23cbe9f96dde4a7e1e6a238d576128bf73c5b09e",
+      "python": "3.12.3",
+      "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "torch": "2.13.0+cu130",
+      "transformers": "5.17.0",
+      "cuda": "13.0",
+      "cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 5070 Ti",
+      "model_revision": "23cbe9f96dde4a7e1e6a238d576128bf73c5b09e",
+      "manifest_sha256": "ec632dfbc0a83ac5368233073d9b983dac5ab6b2611e6868ea7e33dd90f5e2be",
+      "model_impl": "transformers",
+      "runner": "pooling",
+      "architecture": [
+        "Decision2Model"
+      ],
+      "scope": "Complete published Decision 2.0 package; no architecture override or backbone substitution",
+      "status": "unsupported",
+      "error": "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/laya_bench/decision2_vllm_probe.py\", line 29, in run\n    engine = LLM(model=model, trust_remote_code=True, model_impl=implementation,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/llm.py\", line 343, in __init__\n    self.llm_engine = LLMEngine.from_engine_args(\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 184, in from_engine_args\n    return cls(\n           ^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 109, in __init__\n    self.engine_core = EngineCoreClient.make_client(\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 122, in make_client\n    return SyncMPClient(\n           ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py\", line 178, in sync_wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 880, in __init__\n    super().__init__(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 656, in __init__\n    with launch_core_engines(\n  File \"/usr/lib/python3.12/contextlib.py\", line 144, in __exit__\n    next(self.gen)\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 1240, in launch_core_engines\n    wait_for_engine_startup(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 1320, in wait_for_engine_startup\n    raise RuntimeError(\nRuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}\n",
+      "root_cause": "ValueError: Argument input_ids not found in the forward method of <class 'transformers_modules._23cbe9f96dde4a7e1e6a238d576128bf73c5b09e.4616ee1d85e89849.modeling_decision2.Decision2Model'>",
+      "engine_log": "vllm-transformers.log"
+    }
+  },
+  "native": {
+    "decision2-eos-08b": {
+      "model": "decision2-eos-08b",
+      "started": "2026-10-03T09:52:05.177841+00:00",
+      "status": "complete",
+      "fixture_sha256": "72609218a89ca631fe32db60f8194ba5a79d3506e96d49690408ea41eef2b0d4",
+      "transport": "localhost HTTP",
+      "concurrency": [
+        {
+          "concurrency": 1,
+          "requests": 240,
+          "passes": [
+            {
+              "pass": 1,
+              "requests": 80,
+              "seconds": 6.707561800023541,
+              "requests_per_second": 11.926837558130174,
+              "peak_client_concurrency": 1
+            },
+            {
+              "pass": 2,
+              "requests": 80,
+              "seconds": 6.7108273999765515,
+              "requests_per_second": 11.921033761094725,
+              "peak_client_concurrency": 1
+            },
+            {
+              "pass": 3,
+              "requests": 80,
+              "seconds": 6.694217799929902,
+              "requests_per_second": 11.950612064166439,
+              "peak_client_concurrency": 1
+            }
+          ],
+          "successful_requests_per_second": 11.932814080284837,
+          "successful_decisions_per_second": 11.932814080284837,
+          "latency_ms": {
+            "p50": 79.69285000581294,
+            "p95": 112.38901489414275,
+            "p99": 120.79925907542928
+          },
+          "errors": {},
+          "label_flips": 0,
+          "max_probability_delta": 0,
+          "queue_seconds": {
+            "p50": 6.714998744428158e-05,
+            "p95": 0.0001160049578174948,
+            "p99": 0.000175118956249207
+          },
+          "compute_seconds": {
+            "p50": 0.07863545010332018,
+            "p95": 0.11124452002113684,
+            "p99": 0.11936600991524755
+          }
+        },
+        {
+          "concurrency": 8,
+          "requests": 240,
+          "passes": [
+            {
+              "pass": 1,
+              "requests": 80,
+              "seconds": 6.791859799996018,
+              "requests_per_second": 11.778806152630963,
+              "peak_client_concurrency": 8
+            },
+            {
+              "pass": 2,
+              "requests": 80,
+              "seconds": 6.910662199836224,
+              "requests_per_second": 11.576314640570324,
+              "peak_client_concurrency": 8
+            },
+            {
+              "pass": 3,
+              "requests": 80,
+              "seconds": 6.769815300125629,
+              "requests_per_second": 11.817161392647659,
+              "peak_client_concurrency": 8
+            }
+          ],
+          "successful_requests_per_second": 11.72313627328199,
+          "successful_decisions_per_second": 11.72313627328199,
+          "latency_ms": {
+            "p50": 657.0737499278039,
+            "p95": 770.8962249918841,
+            "p99": 792.8237309353425
+          },
+          "errors": {},
+          "label_flips": 0,
+          "max_probability_delta": 0,
+          "queue_seconds": {
+            "p50": 0.577855599927716,
+            "p95": 0.6815291650244035,
+            "p99": 0.7001340179285033
+          },
+          "compute_seconds": {
+            "p50": 0.083367699990049,
+            "p95": 0.10964573002420365,
+            "p99": 0.11603934900369492
+          }
+        },
+        {
+          "concurrency": 32,
+          "requests": 240,
+          "passes": [
+            {
+              "pass": 1,
+              "requests": 80,
+              "seconds": 6.885491400025785,
+              "requests_per_second": 11.618633348333049,
+              "peak_client_concurrency": 32
+            },
+            {
+              "pass": 2,
+              "requests": 80,
+              "seconds": 6.651685799937695,
+              "requests_per_second": 12.027026291703276,
+              "peak_client_concurrency": 32
+            },
+            {
+              "pass": 3,
+              "requests": 80,
+              "seconds": 6.748842699918896,
+              "requests_per_second": 11.853884222395848,
+              "peak_client_concurrency": 32
+            }
+          ],
+          "successful_requests_per_second": 11.83080767861179,
+          "successful_decisions_per_second": 11.83080767861179,
+          "latency_ms": {
+            "p50": 2609.0054999804124,
+            "p95": 2827.512895129621,
+            "p99": 2931.781127024442
+          },
+          "errors": {},
+          "label_flips": 0,
+          "max_probability_delta": 0,
+          "queue_seconds": {
+            "p50": 2.51713440020103,
+            "p95": 2.743756244960241,
+            "p99": 2.844247767990455
+          },
+          "compute_seconds": {
+            "p50": 0.08283365005627275,
+            "p95": 0.10831191989127545,
+            "p99": 0.11802157392492515
+          }
+        },
+        {
+          "concurrency": 128,
+          "requests": 960,
+          "passes": [
+            {
+              "pass": 1,
+              "requests": 320,
+              "seconds": 25.746396399801597,
+              "requests_per_second": 12.428923839705424,
+              "peak_client_concurrency": 128
+            },
+            {
+              "pass": 2,
+              "requests": 320,
+              "seconds": 22.589388499967754,
+              "requests_per_second": 14.165943447316282,
+              "peak_client_concurrency": 128
+            },
+            {
+              "pass": 3,
+              "requests": 320,
+              "seconds": 20.551995899993926,
+              "requests_per_second": 15.570263908046739,
+              "peak_client_concurrency": 128
+            }
+          ],
+          "successful_requests_per_second": 13.935708029126973,
+          "successful_decisions_per_second": 13.935708029126973,
+          "latency_ms": {
+            "p50": 8258.234950015321,
+            "p95": 10606.099815003108,
+            "p99": 10665.963126891293
+          },
+          "errors": {},
+          "label_flips": 0,
+          "max_probability_delta": 0,
+          "queue_seconds": {
+            "p50": 8.193719299975783,
+            "p95": 10.518723065021913,
+            "p99": 10.58184929101495
+          },
+          "compute_seconds": {
+            "p50": 0.06804989988449961,
+            "p95": 0.09971534488722682,
+            "p99": 0.1096645649219863
+          }
+        },
+        {
+          "concurrency": 512,
+          "requests": 3120,
+          "passes": [
+            {
+              "pass": 1,
+              "requests": 1040,
+              "seconds": 69.03591419989243,
+              "requests_per_second": 15.064622697523726,
+              "peak_client_concurrency": 512
+            },
+            {
+              "pass": 2,
+              "requests": 1040,
+              "seconds": 69.01323239994235,
+              "requests_per_second": 15.06957381698975,
+              "peak_client_concurrency": 512
+            },
+            {
+              "pass": 3,
+              "requests": 1040,
+              "seconds": 74.33423629985191,
+              "requests_per_second": 13.990861435702568,
+              "peak_client_concurrency": 512
+            }
+          ],
+          "successful_requests_per_second": 14.690414840381576,
+          "successful_decisions_per_second": 14.690414840381576,
+          "latency_ms": {
+            "p50": 33200.74780005962,
+            "p95": 39019.98909985414,
+            "p99": 39368.81858092034
+          },
+          "errors": {},
+          "label_flips": 0,
+          "max_probability_delta": 0,
+          "queue_seconds": {
+            "p50": 33.09257074992638,
+            "p95": 38.91927599485497,
+            "p99": 39.27859488498885
+          },
+          "compute_seconds": {
+            "p50": 0.06491244991775602,
+            "p95": 0.09246569498209282,
+            "p99": 0.10667230804683639
+          }
+        }
+      ],
+      "question_capacity": [
+        {
+          "questions": 1,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 0.06035630009137094,
+              "error": null,
+              "max_probability_delta": 0.0,
+              "label_flips": 0,
+              "decisions_per_second": 16.56827867987502
+            },
+            {
+              "pass": 2,
+              "seconds": 0.06798589997924864,
+              "error": null,
+              "max_probability_delta": 0.0,
+              "label_flips": 0,
+              "decisions_per_second": 14.708932297803372
+            },
+            {
+              "pass": 3,
+              "seconds": 0.06458009989000857,
+              "error": null,
+              "max_probability_delta": 0.0,
+              "label_flips": 0,
+              "decisions_per_second": 15.484646225434435
+            }
+          ]
+        },
+        {
+          "questions": 4,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 0.07269910001195967,
+              "error": null,
+              "max_probability_delta": 4.453878367027819e-05,
+              "label_flips": 0,
+              "decisions_per_second": 55.021313872413316
+            },
+            {
+              "pass": 2,
+              "seconds": 0.06875679991208017,
+              "error": null,
+              "max_probability_delta": 4.453878367027819e-05,
+              "label_flips": 0,
+              "decisions_per_second": 58.17606411460146
+            },
+            {
+              "pass": 3,
+              "seconds": 0.0709469998255372,
+              "error": null,
+              "max_probability_delta": 4.453878367027819e-05,
+              "label_flips": 0,
+              "decisions_per_second": 56.38011487217546
+            }
+          ]
+        },
+        {
+          "questions": 16,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 0.11734650004655123,
+              "error": null,
+              "max_probability_delta": 1.911933977438718e-05,
+              "label_flips": 0,
+              "decisions_per_second": 136.34833585707983
+            },
+            {
+              "pass": 2,
+              "seconds": 0.11047110008075833,
+              "error": null,
+              "max_probability_delta": 1.911933977438718e-05,
+              "label_flips": 0,
+              "decisions_per_second": 144.8342597141101
+            },
+            {
+              "pass": 3,
+              "seconds": 0.12067049997858703,
+              "error": null,
+              "max_probability_delta": 1.911933977438718e-05,
+              "label_flips": 0,
+              "decisions_per_second": 132.59247291458308
+            }
+          ]
+        },
+        {
+          "questions": 64,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 0.5028856999706477,
+              "error": null,
+              "max_probability_delta": 1.91200400397884e-05,
+              "label_flips": 0,
+              "decisions_per_second": 127.26549990134048
+            },
+            {
+              "pass": 2,
+              "seconds": 0.4975011998321861,
+              "error": null,
+              "max_probability_delta": 1.91200400397884e-05,
+              "label_flips": 0,
+              "decisions_per_second": 128.64290582934888
+            },
+            {
+              "pass": 3,
+              "seconds": 0.5026954999193549,
+              "error": null,
+              "max_probability_delta": 1.91200400397884e-05,
+              "label_flips": 0,
+              "decisions_per_second": 127.31365212194504
+            }
+          ]
+        },
+        {
+          "questions": 128,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 1.0002594001125544,
+              "error": null,
+              "max_probability_delta": 1.91200400397884e-05,
+              "label_flips": 0,
+              "decisions_per_second": 127.96680539627698
+            },
+            {
+              "pass": 2,
+              "seconds": 0.9791031000204384,
+              "error": null,
+              "max_probability_delta": 1.91200400397884e-05,
+              "label_flips": 0,
+              "decisions_per_second": 130.73189125570948
+            },
+            {
+              "pass": 3,
+              "seconds": 0.9651721999980509,
+              "error": null,
+              "max_probability_delta": 1.91200400397884e-05,
+              "label_flips": 0,
+              "decisions_per_second": 132.6188218022219
+            }
+          ]
+        },
+        {
+          "questions": 512,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 0.25245329993776977,
+              "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 1.24 GiB. GPU 0 has a total capacity of 15.92 GiB of which 2.29 GiB is free. 12.42 GiB allowed; Of the allocated memory 9.73 GiB is allocated by PyTorch, and 1.53 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+              "max_probability_delta": null,
+              "label_flips": null,
+              "decisions_per_second": 0
+            },
+            {
+              "pass": 2,
+              "seconds": 0.24332710006274283,
+              "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 1.24 GiB. GPU 0 has a total capacity of 15.92 GiB of which 2.29 GiB is free. 12.42 GiB allowed; Of the allocated memory 9.73 GiB is allocated by PyTorch, and 1.53 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+              "max_probability_delta": null,
+              "label_flips": null,
+              "decisions_per_second": 0
+            },
+            {
+              "pass": 3,
+              "seconds": 0.24454420013353229,
+              "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 1.24 GiB. GPU 0 has a total capacity of 15.92 GiB of which 2.29 GiB is free. 12.42 GiB allowed; Of the allocated memory 9.73 GiB is allocated by PyTorch, and 1.53 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+              "max_probability_delta": null,
+              "label_flips": null,
+              "decisions_per_second": 0
+            }
+          ]
+        }
+      ],
+      "server_final": {
+        "model": "decision2-eos-08b",
+        "queued_requests": 0,
+        "peak_allocated_gib": 10.968156337738037,
+        "peak_reserved_gib": 11.27734375
+      },
+      "finished": "2026-10-03T09:58:52.341421+00:00",
+      "requests_sha256": "3b381793fb8ca77006d4cbc1373464344661f3daa4bcb165b06fb07168cf40ca",
+      "question_capacity_sha256": "9deacdca83aa44baea81650b3dcfaa082738fe7a0a2e587165a5542e92aedf66"
+    },
+    "decision2-sol-2b": {
+      "model": "decision2-sol-2b",
+      "started": "2026-10-03T09:59:14.595728+00:00",
+      "status": "complete",
+      "fixture_sha256": "72609218a89ca631fe32db60f8194ba5a79d3506e96d49690408ea41eef2b0d4",
+      "transport": "localhost HTTP",
+      "concurrency": [
+        {
+          "concurrency": 1,
+          "requests": 240,
+          "passes": [
+            {
+              "pass": 1,
+              "requests": 80,
+              "seconds": 3.5257802999112755,
+              "requests_per_second": 22.690012761717785,
+              "peak_client_concurrency": 1
+            },
+            {
+              "pass": 2,
+              "requests": 80,
+              "seconds": 3.5000334000214934,
+              "requests_per_second": 22.856924736635005,
+              "peak_client_concurrency": 1
+            },
+            {
+              "pass": 3,
+              "requests": 80,
+              "seconds": 3.5526560998987406,
+              "requests_per_second": 22.518363092414205,
+              "peak_client_concurrency": 1
+            }
+          ],
+          "successful_requests_per_second": 22.68759135691087,
+          "successful_decisions_per_second": 22.68759135691087,
+          "latency_ms": {
+            "p50": 42.729100096039474,
+            "p95": 53.06582011980936,
+            "p99": 57.749209969770156
+          },
+          "errors": {},
+          "label_flips": 0,
+          "max_probability_delta": 0,
+          "queue_seconds": {
+            "p50": 4.455004818737507e-05,
+            "p95": 6.362479180097579e-05,
+            "p99": 9.599896147847167e-05
+          },
+          "compute_seconds": {
+            "p50": 0.04195029998663813,
+            "p95": 0.052202460076659914,
+            "p99": 0.05693844786379485
+          }
+        },
+        {
+          "concurrency": 8,
+          "requests": 240,
+          "passes": [
+            {
+              "pass": 1,
+              "requests": 80,
+              "seconds": 3.520199599908665,
+              "requests_per_second": 22.725984061266207,
+              "peak_client_concurrency": 8
+            },
+            {
+              "pass": 2,
+              "requests": 80,
+              "seconds": 3.4748650998808444,
+              "requests_per_second": 23.022476470451547,
+              "peak_client_concurrency": 8
+            },
+            {
+              "pass": 3,
+              "requests": 80,
+              "seconds": 3.4754421999678016,
+              "requests_per_second": 23.018653568959127,
+              "peak_client_concurrency": 8
+            }
+          ],
+          "successful_requests_per_second": 22.921526369039764,
+          "successful_decisions_per_second": 22.921526369039764,
+          "latency_ms": {
+            "p50": 346.1650999961421,
+            "p95": 361.01350489770994,
+            "p99": 368.85957987047726
+          },
+          "errors": {},
+          "label_flips": 0,
+          "max_probability_delta": 0,
+          "queue_seconds": {
+            "p50": 0.30203879985492676,
+            "p95": 0.3170115501852706,
+            "p99": 0.32376067204633724
+          },
+          "compute_seconds": {
+            "p50": 0.04199230007361621,
+            "p95": 0.05217332498868926,
+            "p99": 0.056134978921618305
+          }
+        },
+        {
+          "concurrency": 32,
+          "requests": 240,
+          "passes": [
+            {
+              "pass": 1,
+              "requests": 80,
+              "seconds": 3.5016632999759167,
+              "requests_per_second": 22.846285649608348,
+              "peak_client_concurrency": 32
+            },
+            {
+              "pass": 2,
+              "requests": 80,
+              "seconds": 3.495864599943161,
+              "requests_per_second": 22.884181498705846,
+              "peak_client_concurrency": 32
+            },
+            {
+              "pass": 3,
+              "requests": 80,
+              "seconds": 3.552511799847707,
+              "requests_per_second": 22.519277769444574,
+              "peak_client_concurrency": 32
+            }
+          ],
+          "successful_requests_per_second": 22.748729562155614,
+          "successful_decisions_per_second": 22.748729562155614,
+          "latency_ms": {
+            "p50": 1387.1350002009422,
+            "p95": 1436.3990200683475,
+            "p99": 1441.8476669862866
+          },
+          "errors": {},
+          "label_flips": 0,
+          "max_probability_delta": 0,
+          "queue_seconds": {
+            "p50": 1.3400713499868289,
+            "p95": 1.391791705135256,
+            "p99": 1.3961046989378518
+          },
+          "compute_seconds": {
+            "p50": 0.042194449924863875,
+            "p95": 0.050941629917360835,
+            "p99": 0.060237239920534175
+          }
+        },
+        {
+          "concurrency": 128,
+          "requests": 960,
+          "passes": [
+            {
+              "pass": 1,
+              "requests": 320,
+              "seconds": 14.4937823000364,
+              "requests_per_second": 22.078432901479164,
+              "peak_client_concurrency": 128
+            },
+            {
+              "pass": 2,
+              "requests": 320,
+              "seconds": 14.730317699955776,
+              "requests_per_second": 21.723903483830544,
+              "peak_client_concurrency": 128
+            },
+            {
+              "pass": 3,
+              "requests": 320,
+              "seconds": 14.160339999943972,
+              "requests_per_second": 22.598327441379666,
+              "peak_client_concurrency": 128
+            }
+          ],
+          "successful_requests_per_second": 22.127749027103103,
+          "successful_decisions_per_second": 22.127749027103103,
+          "latency_ms": {
+            "p50": 5618.654399993829,
+            "p95": 5942.048944951966,
+            "p99": 5961.8631511041895
+          },
+          "errors": {},
+          "label_flips": 0,
+          "max_probability_delta": 0,
+          "queue_seconds": {
+            "p50": 5.574615849880502,
+            "p95": 5.897796384966933,
+            "p99": 5.913152505112812
+          },
+          "compute_seconds": {
+            "p50": 0.04266870010178536,
+            "p95": 0.056082074972800905,
+            "p99": 0.0685271649318747
+          }
+        },
+        {
+          "concurrency": 512,
+          "requests": 3120,
+          "passes": [
+            {
+              "pass": 1,
+              "requests": 1040,
+              "seconds": 46.748062499798834,
+              "requests_per_second": 22.246911302569497,
+              "peak_client_concurrency": 512
+            },
+            {
+              "pass": 2,
+              "requests": 1040,
+              "seconds": 49.874395499937236,
+              "requests_per_second": 20.852383062994893,
+              "peak_client_concurrency": 512
+            },
+            {
+              "pass": 3,
+              "requests": 1040,
+              "seconds": 62.3257098000031,
+              "requests_per_second": 16.686532786184944,
+              "peak_client_concurrency": 512
+            }
+          ],
+          "successful_requests_per_second": 19.629040354406147,
+          "successful_decisions_per_second": 19.629040354406147,
+          "latency_ms": {
+            "p50": 22801.3271499658,
+            "p95": 34161.26435993938,
+            "p99": 34526.73359296983
+          },
+          "errors": {},
+          "label_flips": 0,
+          "max_probability_delta": 0,
+          "queue_seconds": {
+            "p50": 22.756770749925636,
+            "p95": 34.10978889483958,
+            "p99": 34.47094378700713
+          },
+          "compute_seconds": {
+            "p50": 0.04693500010762364,
+            "p95": 0.07563806989928706,
+            "p99": 0.09945208389544859
+          }
+        }
+      ],
+      "question_capacity": [
+        {
+          "questions": 1,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 0.05066539999097586,
+              "error": null,
+              "max_probability_delta": 0.0,
+              "label_flips": 0,
+              "decisions_per_second": 19.73733554216709
+            },
+            {
+              "pass": 2,
+              "seconds": 0.04837179998867214,
+              "error": null,
+              "max_probability_delta": 0.0,
+              "label_flips": 0,
+              "decisions_per_second": 20.673202159815908
+            },
+            {
+              "pass": 3,
+              "seconds": 0.05811430001631379,
+              "error": null,
+              "max_probability_delta": 0.0,
+              "label_flips": 0,
+              "decisions_per_second": 17.207468724896987
+            }
+          ]
+        },
+        {
+          "questions": 4,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 0.055589300114661455,
+              "error": null,
+              "max_probability_delta": 0.00019404023942026782,
+              "label_flips": 0,
+              "decisions_per_second": 71.95629359875707
+            },
+            {
+              "pass": 2,
+              "seconds": 0.0544382999651134,
+              "error": null,
+              "max_probability_delta": 0.00019404023942026782,
+              "label_flips": 0,
+              "decisions_per_second": 73.47768028324518
+            },
+            {
+              "pass": 3,
+              "seconds": 0.05481990007683635,
+              "error": null,
+              "max_probability_delta": 0.00019404023942026782,
+              "label_flips": 0,
+              "decisions_per_second": 72.96620377624811
+            }
+          ]
+        },
+        {
+          "questions": 16,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 0.1791264999192208,
+              "error": null,
+              "max_probability_delta": 0.001804788592688844,
+              "label_flips": 0,
+              "decisions_per_second": 89.32235044627896
+            },
+            {
+              "pass": 2,
+              "seconds": 0.17742469999939203,
+              "error": null,
+              "max_probability_delta": 0.001804788592688844,
+              "label_flips": 0,
+              "decisions_per_second": 90.17910133174708
+            },
+            {
+              "pass": 3,
+              "seconds": 0.17800579988397658,
+              "error": null,
+              "max_probability_delta": 0.001804788592688844,
+              "label_flips": 0,
+              "decisions_per_second": 89.88471168034262
+            }
+          ]
+        },
+        {
+          "questions": 64,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 0.7676466999109834,
+              "error": null,
+              "max_probability_delta": 0.0018047955318147846,
+              "label_flips": 0,
+              "decisions_per_second": 83.37168648991972
+            },
+            {
+              "pass": 2,
+              "seconds": 0.7634849001187831,
+              "error": null,
+              "max_probability_delta": 0.0018047955318147846,
+              "label_flips": 0,
+              "decisions_per_second": 83.82615031422739
+            },
+            {
+              "pass": 3,
+              "seconds": 0.7626541999634355,
+              "error": null,
+              "max_probability_delta": 0.0018047955318147846,
+              "label_flips": 0,
+              "decisions_per_second": 83.91745564774756
+            }
+          ]
+        },
+        {
+          "questions": 128,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 1.4977652998641133,
+              "error": null,
+              "max_probability_delta": 0.0018047955318147846,
+              "label_flips": 0,
+              "decisions_per_second": 85.46065262135059
+            },
+            {
+              "pass": 2,
+              "seconds": 1.4913618999999017,
+              "error": null,
+              "max_probability_delta": 0.0018047955318147846,
+              "label_flips": 0,
+              "decisions_per_second": 85.82759154569285
+            },
+            {
+              "pass": 3,
+              "seconds": 1.500845099799335,
+              "error": null,
+              "max_probability_delta": 0.0018047955318147846,
+              "label_flips": 0,
+              "decisions_per_second": 85.28528361595329
+            }
+          ]
+        },
+        {
+          "questions": 512,
+          "passes": [
+            {
+              "pass": 1,
+              "seconds": 0.28483979986049235,
+              "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 1.22 GiB. GPU 0 has a total capacity of 15.92 GiB of which 1.27 GiB is free. 12.42 GiB allowed; Of the allocated memory 12.29 GiB is allocated by PyTorch, and 50.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+              "max_probability_delta": null,
+              "label_flips": null,
+              "decisions_per_second": 0
+            },
+            {
+              "pass": 2,
+              "seconds": 0.42225520010106266,
+              "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 1.22 GiB. GPU 0 has a total capacity of 15.92 GiB of which 1.24 GiB is free. 12.42 GiB allowed; Of the allocated memory 12.29 GiB is allocated by PyTorch, and 50.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+              "max_probability_delta": null,
+              "label_flips": null,
+              "decisions_per_second": 0
+            },
+            {
+              "pass": 3,
+              "seconds": 0.4374788000714034,
+              "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 1.22 GiB. GPU 0 has a total capacity of 15.92 GiB of which 1.24 GiB is free. 12.42 GiB allowed; Of the allocated memory 12.29 GiB is allocated by PyTorch, and 50.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+              "max_probability_delta": null,
+              "label_flips": null,
+              "decisions_per_second": 0
+            }
+          ]
+        }
+      ],
+      "server_final": {
+        "model": "decision2-sol-2b",
+        "queued_requests": 0,
+        "peak_allocated_gib": 12.292211055755615,
+        "peak_reserved_gib": 12.341796875
+      },
+      "finished": "2026-10-03T10:03:29.001780+00:00",
+      "requests_sha256": "0e4810c7dde549f1ded4df16ad3cef9f6ab042204518ddbc578f586a1872cffc",
+      "question_capacity_sha256": "aaec8864fb1855a9a03570395c365087b3fdd7cfe1c32d635dd16a792c0f2119"
+    }
+  }
+}

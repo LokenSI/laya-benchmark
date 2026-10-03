@@ -1,0 +1,249 @@
+{
+  "pid": 46724,
+  "started": "2026-10-03T09:06:15.448800+00:00",
+  "status": "needs_repair",
+  "jobs": [
+    {
+      "model": "decision2-kai-06b",
+      "stage": "integration",
+      "status": "finished",
+      "started": "2026-10-03T09:06:15.449799+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-kai-06b-integration.log",
+      "worker_pid": 46608,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:06:29.538962+00:00"
+    },
+    {
+      "model": "decision2-kai-06b",
+      "stage": "public231",
+      "status": "finished",
+      "started": "2026-10-03T09:06:29.539962+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-kai-06b-public231.log",
+      "worker_pid": 664,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:06:31.763195+00:00"
+    },
+    {
+      "model": "decision2-eos-08b",
+      "stage": "integration",
+      "status": "finished",
+      "started": "2026-10-03T09:06:31.765196+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-eos-08b-integration.log",
+      "worker_pid": 45900,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:07:29.768390+00:00"
+    },
+    {
+      "model": "decision2-eos-08b",
+      "stage": "public231",
+      "status": "finished",
+      "started": "2026-10-03T09:07:29.768891+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-eos-08b-public231.log",
+      "worker_pid": 53880,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:08:01.382467+00:00"
+    },
+    {
+      "model": "decision2-sol-2b",
+      "stage": "integration",
+      "status": "finished",
+      "started": "2026-10-03T09:08:01.383470+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-sol-2b-integration.log",
+      "worker_pid": 6816,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:08:33.929792+00:00"
+    },
+    {
+      "model": "decision2-sol-2b",
+      "stage": "public231",
+      "status": "finished",
+      "started": "2026-10-03T09:08:33.930792+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-sol-2b-public231.log",
+      "worker_pid": 51728,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:09:32.716384+00:00"
+    },
+    {
+      "model": "decision2-nox-4b",
+      "stage": "integration",
+      "status": "finished",
+      "started": "2026-10-03T09:09:32.717885+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-integration.log",
+      "worker_pid": 34504,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:11:17.555808+00:00"
+    },
+    {
+      "model": "decision2-nox-4b",
+      "stage": "public231",
+      "status": "finished",
+      "started": "2026-10-03T09:11:17.556810+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-public231.log",
+      "worker_pid": 33188,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:12:50.399552+00:00"
+    },
+    {
+      "model": "decision2-kai-06b",
+      "stage": "jev_verified",
+      "status": "finished",
+      "started": "2026-10-03T09:12:50.399552+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-kai-06b-jev_verified.log",
+      "worker_pid": 58784,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:13:23.341646+00:00"
+    },
+    {
+      "model": "decision2-eos-08b",
+      "stage": "jev_verified",
+      "status": "finished",
+      "started": "2026-10-03T09:13:23.341646+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-eos-08b-jev_verified.log",
+      "worker_pid": 34568,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:13:59.254508+00:00"
+    },
+    {
+      "model": "decision2-sol-2b",
+      "stage": "jev_verified",
+      "status": "finished",
+      "started": "2026-10-03T09:13:59.255013+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-sol-2b-jev_verified.log",
+      "worker_pid": 10408,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:14:48.251260+00:00"
+    },
+    {
+      "model": "decision2-nox-4b",
+      "stage": "jev_verified",
+      "status": "finished",
+      "started": "2026-10-03T09:14:48.252261+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-jev_verified.log",
+      "worker_pid": 46908,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:16:15.559428+00:00"
+    },
+    {
+      "model": "decision2-kai-06b",
+      "stage": "jev_fresh",
+      "status": "finished",
+      "started": "2026-10-03T09:16:44.870784+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-kai-06b-jev_fresh.log",
+      "worker_pid": 34048,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:18:24.927621+00:00"
+    },
+    {
+      "model": "decision2-eos-08b",
+      "stage": "jev_fresh",
+      "status": "finished",
+      "started": "2026-10-03T09:18:24.928153+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-eos-08b-jev_fresh.log",
+      "worker_pid": 46668,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:20:32.108051+00:00"
+    },
+    {
+      "model": "decision2-sol-2b",
+      "stage": "jev_fresh",
+      "status": "finished",
+      "started": "2026-10-03T09:20:32.108552+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-sol-2b-jev_fresh.log",
+      "worker_pid": 31980,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:23:14.092793+00:00"
+    },
+    {
+      "model": "decision2-nox-4b",
+      "stage": "jev_fresh",
+      "status": "needs_repair",
+      "started": "2026-10-03T09:23:14.093798+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-jev_fresh.log",
+      "worker_pid": 59724,
+      "exit_code": 1,
+      "finished": "2026-10-03T09:24:46.625275+00:00"
+    },
+    {
+      "model": "decision2-kai-06b",
+      "stage": "alternatives",
+      "status": "finished",
+      "started": "2026-10-03T09:25:14.424200+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-kai-06b-alternatives.log",
+      "worker_pid": 12900,
+      "exit_code": 0,
+      "finished": "2026-10-03T09:33:38.393273+00:00"
+    },
+    {
+      "model": "decision2-eos-08b",
+      "stage": "alternatives",
+      "status": "finished",
+      "started": "2026-10-03T09:33:38.394276+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-eos-08b-alternatives.log",
+      "worker_pid": 6952,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:03:29.062207+00:00"
+    },
+    {
+      "model": "decision2-sol-2b",
+      "stage": "alternatives",
+      "status": "needs_repair",
+      "started": "2026-10-03T10:03:29.063205+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-sol-2b-alternatives.log",
+      "worker_pid": 56564,
+      "exit_code": 3221225477,
+      "finished": "2026-10-03T10:08:38.209539+00:00"
+    },
+    {
+      "model": "decision2-kai-06b",
+      "stage": "alternatives_claims",
+      "status": "finished",
+      "started": "2026-10-03T10:08:58.994199+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-kai-06b-alternatives_claims.log",
+      "worker_pid": 56296,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:11:43.034197+00:00"
+    },
+    {
+      "model": "decision2-eos-08b",
+      "stage": "alternatives_claims",
+      "status": "finished",
+      "started": "2026-10-03T10:11:43.036037+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-eos-08b-alternatives_claims.log",
+      "worker_pid": 54476,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:15:00.920269+00:00"
+    },
+    {
+      "model": "decision2-kai-06b",
+      "stage": "alternatives_typed",
+      "status": "finished",
+      "started": "2026-10-03T10:15:17.096359+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-kai-06b-alternatives_typed.log",
+      "worker_pid": 40812,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:15:46.815531+00:00"
+    },
+    {
+      "model": "decision2-eos-08b",
+      "stage": "alternatives_typed",
+      "status": "finished",
+      "started": "2026-10-03T10:15:46.815531+00:00",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-eos-08b-alternatives_typed.log",
+      "worker_pid": 27664,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:16:27.679758+00:00"
+    }
+  ],
+  "models": [
+    "decision2-kai-06b",
+    "decision2-eos-08b",
+    "decision2-sol-2b",
+    "decision2-nox-4b"
+  ],
+  "scope": "Pinned native weights, existing frozen fixtures; one GPU worker at a time",
+  "deferred": {
+    "Decision-2.0-Lux-9B": "Native weights exceed local GPU budget",
+    "Decision-2.0-Vega-27B": "Native weights exceed local GPU budget"
+  },
+  "finished": "2026-10-03T10:16:44.160924+00:00"
+}

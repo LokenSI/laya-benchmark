@@ -1,0 +1,51 @@
+{
+  "sources": [
+    {
+      "model": "laya",
+      "url": "https://huggingface.co/convaiinnovations/laya/blob/55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851/README.md",
+      "sha256": "00355613796b3f5860b0d5b20392381d26580ec242e04a1fd150c7f116858602"
+    },
+    {
+      "model": "laya-multilingual",
+      "url": "https://huggingface.co/convaiinnovations/laya-multilingual/blob/e4e9ddf21a7b1903b7acffd8814ad4307bf63a67/README.md",
+      "sha256": "e85d16c3fe35fe7094ef51a7cfa81144a5cc07558e5faddcff753a8153e38a0b"
+    },
+    {
+      "model": "gliner-decide",
+      "url": "https://huggingface.co/fastino/GLiNER2.5-Decide/blob/5a7adf72a23b4d311abae6ce050d7f0012bb3416/README.md",
+      "sha256": "c92f9ada7e7a5af1620d59fa29b69920c7d1d3851f61e547ddc9d8c2ce5a1b95"
+    },
+    {
+      "model": "julia",
+      "url": "https://huggingface.co/SupersonicLabs/Julia-1/blob/a85b127321d580d65176c89ced8273f305745d85/README.md",
+      "sha256": "bc46a6785ddbae32b769591841954393510b073f148aa9f7e4fced5a1bba9a81"
+    },
+    {
+      "model": "von",
+      "url": "https://huggingface.co/wfzyx/von/blob/411c44401cccddd792f341edfe033ea834557d13/README.md",
+      "sha256": "ab7ecf4b0ff8e03cf9b503360929f79047979d15f021fe6e9932e57f1d2252e5"
+    },
+    {
+      "model": "decider-4b",
+      "url": "https://huggingface.co/Mapika/decider-4b/blob/eb5fbdfc9448473ec25e399882912863afbdb70e/README.md",
+      "sha256": "3a4a82d78e0adcfb84bc7a9691f8a79b0f54a5c1efd8379621a9dbf1d6de980b"
+    },
+    {
+      "model": "kev-4b",
+      "url": "https://huggingface.co/jaredpalmer/kev-4b/blob/139fdd94f1b6a6ad80cc15e08fcb99cac885a101/README.md",
+      "sha256": "3eac08b65ac314e0ee1b4ae7ddda9440e39310effa5da3a2cdcb56a9f1249e76"
+    },
+    {
+      "model": "jevk5",
+      "url": "https://huggingface.co/alibiserikbay/JevK5/blob/c4f7fdb3aeab5582336406e78d3bef11bf98833d/README.md",
+      "sha256": "ae04e164af42c70837b1e79a5d5414c3b9c5641a7651047223756404fd6a2786"
+    },
+    {
+      "model": "clm-int8",
+      "url": "https://huggingface.co/Contrastive-LM/CLM-v0.1-8B/blob/e939398d4556fcd9400c76fa8c5a513202f42b0a/README.md",
+      "sha256": "4e738e65332f1cd55fb2767c37e634f1f650388cf42c2675b38291a1bedfb660"
+    }
+  ],
+  "jev_contract": "https://api.typesafe.ai/openapi.json",
+  "note": "Architecture descriptions come from pinned model cards and native code. Business implications are engineering interpretations, not measured performance guarantees."
+}

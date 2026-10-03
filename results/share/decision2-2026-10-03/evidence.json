@@ -1,0 +1,69 @@
+{
+  "pages_url": "https://lokensi.github.io/laya-benchmark/",
+  "scope": "MASSIVE Bokmål 18-scenario accuracy; identical 2,948 public test inputs.",
+  "metrics": [
+    {
+      "model": "Decider 4B v2.1",
+      "deployment": "local / zero-shot",
+      "accuracy": 0.8202170963364993,
+      "n": 2948
+    },
+    {
+      "model": "Jev 1.13.0",
+      "deployment": "hosted API / zero-shot",
+      "accuracy": 0.8175033921302578,
+      "n": 2948
+    },
+    {
+      "model": "Decision 2.0 Nox 4B",
+      "deployment": "local / zero-shot",
+      "accuracy": 0.8029172320217096,
+      "n": 2948
+    },
+    {
+      "model": "Laya Multilingual",
+      "deployment": "local / zero-shot",
+      "accuracy": 0.512550881953867,
+      "n": 2948
+    }
+  ],
+  "supervised_baseline_accuracy": 0.8914518317503393,
+  "sources": {
+    "decision2": {
+      "path": "results/alternatives/decision2-summary.json",
+      "sha256": "5c1a8d526f49743a8e3914b46b430f8a99b2b8901c8b919a61d574217cb021fb"
+    },
+    "verification": {
+      "path": "results/alternatives/decision2-verification.json",
+      "sha256": "45a8e95e0ceece1ac9a9f78d08db01cc45bbbd505d72f12135fe359e9e912698"
+    },
+    "comparison": {
+      "path": "results/jev_live/comparison.json",
+      "sha256": "f33ecc399da1076c407c29cc2bf829376d9376d984d8eacc98a99453adfab9fe"
+    },
+    "stress": {
+      "path": "results/decision2-stress/summary.json",
+      "sha256": "7a2a80f76b9dbc4a5459e0490ce73d5c5ae23a6fd9256da9baf9cc2418eccdd8"
+    },
+    "full": {
+      "path": "results/full/summary.json",
+      "sha256": "dc720be7579d4b3c0cc683af935142495b6ded86773fc3975ea430d07fd1a950"
+    }
+  },
+  "png_pixels": [
+    1080,
+    1350
+  ],
+  "master_pixels": [
+    2160,
+    2700
+  ],
+  "text_bounds": "passed",
+  "limitations": [
+    "Different training conditions for supervised baseline.",
+    "No paired equivalence claim.",
+    "No measured staff-time savings or ROI.",
+    "Standard-run process interruptions required resumable retries.",
+    "Native stress queue has one GPU executor and no continuous batching; direct stock vLLM unsupported in tested setup."
+  ]
+}

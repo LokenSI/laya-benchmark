@@ -1,0 +1,34 @@
+{
+  "updated": "2026-10-01T08:44:07.727706+00:00",
+  "expected": 312,
+  "completed": 312,
+  "by_variant": {
+    "repeat1": {
+      "n": 112,
+      "valid": 112,
+      "same_decision": 111,
+      "changed_decisions": [
+        "jevbench_public/hard/hard-opus-c-temporal_numeric-12"
+      ],
+      "max_probability_change": 0.09000000000000002
+    },
+    "repeat2": {
+      "n": 112,
+      "valid": 112,
+      "same_decision": 111,
+      "changed_decisions": [
+        "jevbench_public/hard/hard-opus-c-temporal_numeric-12"
+      ],
+      "max_probability_change": 0.14
+    },
+    "reversed_choices": {
+      "n": 88,
+      "valid": 88,
+      "same_decision": 87,
+      "changed_decisions": [
+        "jevbench_public/hard/hard-opus-a-probability-07"
+      ],
+      "max_probability_change": 0.26
+    }
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "pid": 47908,
+  "started": "2026-10-03T10:16:44.218826+00:00",
+  "status": "finished",
+  "models": [
+    "decision2-sol-2b",
+    "decision2-nox-4b"
+  ],
+  "jobs": [
+    {
+      "model": "decision2-sol-2b",
+      "fixture": "jev_fresh",
+      "attempt": 1,
+      "started": "2026-10-03T10:16:44.219826+00:00",
+      "status": "finished",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-sol-2b-jev_fresh.log",
+      "worker_pid": 18880,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:16:46.011286+00:00"
+    },
+    {
+      "model": "decision2-sol-2b",
+      "fixture": "jev_verified",
+      "attempt": 1,
+      "started": "2026-10-03T10:17:02.930369+00:00",
+      "status": "finished",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-sol-2b-jev_verified.log",
+      "worker_pid": 42100,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:17:04.741394+00:00"
+    },
+    {
+      "model": "decision2-sol-2b",
+      "fixture": "alternatives",
+      "attempt": 1,
+      "started": "2026-10-03T10:17:21.052021+00:00",
+      "status": "finished",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-sol-2b-alternatives.log",
+      "worker_pid": 27208,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:24:12.446396+00:00"
+    },
+    {
+      "model": "decision2-sol-2b",
+      "fixture": "alternatives_claims",
+      "attempt": 1,
+      "started": "2026-10-03T10:24:29.343547+00:00",
+      "status": "finished",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-sol-2b-alternatives_claims.log",
+      "worker_pid": 22856,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:28:17.937069+00:00"
+    },
+    {
+      "model": "decision2-sol-2b",
+      "fixture": "alternatives_typed",
+      "attempt": 1,
+      "started": "2026-10-03T10:28:34.666211+00:00",
+      "status": "finished",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-sol-2b-alternatives_typed.log",
+      "worker_pid": 41328,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:29:37.683697+00:00"
+    },
+    {
+      "model": "decision2-nox-4b",
+      "fixture": "jev_fresh",
+      "attempt": 1,
+      "started": "2026-10-03T10:29:54.644661+00:00",
+      "status": "finished",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-jev_fresh.log",
+      "worker_pid": 37164,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:31:57.236159+00:00"
+    },
+    {
+      "model": "decision2-nox-4b",
+      "fixture": "jev_verified",
+      "attempt": 1,
+      "started": "2026-10-03T10:32:14.505829+00:00",
+      "status": "finished",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-jev_verified.log",
+      "worker_pid": 15744,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:32:16.234372+00:00"
+    },
+    {
+      "model": "decision2-nox-4b",
+      "fixture": "alternatives",
+      "attempt": 1,
+      "started": "2026-10-03T10:32:33.206029+00:00",
+      "status": "needs_repair",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-alternatives.log",
+      "worker_pid": 51264,
+      "exit_code": 3221225477,
+      "finished": "2026-10-03T10:47:34.189917+00:00"
+    },
+    {
+      "model": "decision2-nox-4b",
+      "fixture": "alternatives",
+      "attempt": 2,
+      "started": "2026-10-03T10:47:54.780178+00:00",
+      "status": "finished",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-alternatives.log",
+      "worker_pid": 25084,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:50:07.531829+00:00"
+    },
+    {
+      "model": "decision2-nox-4b",
+      "fixture": "alternatives_claims",
+      "attempt": 1,
+      "started": "2026-10-03T10:50:25.595840+00:00",
+      "status": "needs_repair",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-alternatives_claims.log",
+      "worker_pid": 30344,
+      "exit_code": 3221225477,
+      "finished": "2026-10-03T10:55:26.219835+00:00"
+    },
+    {
+      "model": "decision2-nox-4b",
+      "fixture": "alternatives_claims",
+      "attempt": 2,
+      "started": "2026-10-03T10:55:44.429263+00:00",
+      "status": "finished",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-alternatives_claims.log",
+      "worker_pid": 32676,
+      "exit_code": 0,
+      "finished": "2026-10-03T10:58:40.147299+00:00"
+    },
+    {
+      "model": "decision2-nox-4b",
+      "fixture": "alternatives_typed",
+      "attempt": 1,
+      "started": "2026-10-03T10:59:00.613902+00:00",
+      "status": "finished",
+      "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision2-nox-4b-alternatives_typed.log",
+      "worker_pid": 13684,
+      "exit_code": 0,
+      "finished": "2026-10-03T11:01:25.650733+00:00"
+    }
+  ],
+  "policy": "Same checkpoint/runtime/math; resume saved IDs. One process retry for a Windows access violation only. Other frozen suites continue after a failed fixture. No crash is converted into a prediction.",
+  "finished": "2026-10-03T11:01:44.075330+00:00"
+}

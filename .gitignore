@@ -1,0 +1,16 @@
+.venv*/
+.cache/
+data/
+__pycache__/
+.pytest_cache/
+*.pyc
+results/
+*.log
+*.pid
+.env
+.env.*
+*.pem
+*.key
+.agents/
+.codex/
+.aws/

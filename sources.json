@@ -1,0 +1,10 @@
+{
+  "models": {
+    "laya": {"repo": "convaiinnovations/laya", "revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851"},
+    "laya-multilingual": {"repo": "convaiinnovations/laya-multilingual", "revision": "e4e9ddf21a7b1903b7acffd8814ad4307bf63a67"}
+  },
+  "datasets": {
+    "massive": {"repo": "AmazonScience/massive", "revision": "ed58ac423a2f4121720918bf5301577edce4ffd3", "source_revision": "ff6bd8e4b27c3543e4f8fe2108f32bb95a6f8740", "license": "CC-BY-4.0", "url": "https://huggingface.co/datasets/AmazonScience/massive"},
+    "norec": {"repo": "ltg/norec_sentence", "revision": "5326d626b35e6da3a503e5303e39adf11250ba3d", "license": "CC-BY-NC-4.0", "url": "https://huggingface.co/datasets/ltg/norec_sentence"}
+  }
+}

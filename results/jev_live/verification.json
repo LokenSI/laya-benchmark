@@ -1,0 +1,61 @@
+{
+  "updated": "2026-10-01T08:53:44.265356+00:00",
+  "status": "verified",
+  "main_cases": 17576,
+  "diagnostic_cases": 312,
+  "latency_calls_including_warmup": 248,
+  "diagnostics_expected": 312,
+  "model": "jev-1.13.0",
+  "fixture_sha256": "7726ab88c63977be98ded59aa3cd9d4e37aa7cc1a870c0fcf04e240b00667f05",
+  "checks": [
+    "All frozen source hashes match",
+    "No duplicate case IDs",
+    "Exact ordered API payloads match frozen inputs",
+    "No labels or provenance added to request envelope",
+    "Saved correctness reconciles with frozen gold",
+    "Every raw successful response uses the pinned model",
+    "Each API attempt reconciles with the budget ledger",
+    "No observed ledger balance exceeded the cap",
+    "Available local predictions match shared input hashes"
+  ],
+  "errors_including_diagnostics": {
+    "HTTP 520": 2
+  },
+  "extra_probe_case_ids": [
+    "integration-probe",
+    "version-probe/jev-1.13.0",
+    "version-probe/jev-preview"
+  ],
+  "local_prediction_counts": {
+    "clm-int8": 0,
+    "decider-08b": 17176,
+    "decider-2b": 17176,
+    "decider-4b": 17176,
+    "gliner-decide-1b": 15612,
+    "gliner-decide-multi": 14352,
+    "gliner-decide": 17176,
+    "imajev-2b": 0,
+    "imajev-4b": 0,
+    "intern-decision-4b": 0,
+    "jevk5-2b": 6352,
+    "jevk5": 0,
+    "julia": 0,
+    "kev-08b": 15612,
+    "kev-4b": 17176,
+    "laya-multilingual": 4836,
+    "laya": 4836,
+    "nev-2b": 0,
+    "nimble-9b": 0,
+    "plumb-4b": 0,
+    "tev1": 0,
+    "von": 17176,
+    "wald-4b-v12": 0
+  },
+  "billable_input_tokens": 10570245,
+  "estimated_cost_usd": 0.44395028999999997,
+  "unconfirmed_attempts": 3,
+  "reserved_unconfirmed_usd": 0.126,
+  "peak_budget_accounted_usd": 0.7256124120000786,
+  "cap_usd": 25.0,
+  "limits": "This audit verifies execution and accounting, not human label correctness, training-data independence or production readiness."
+}

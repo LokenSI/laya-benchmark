@@ -1,0 +1,91 @@
+{
+  "fixture_sha256": "42edfeea836817f5bcbd30dec7b7fd0fc62f196cfcde5d113e38b8d49f675679",
+  "n": 1264,
+  "heads": 1264,
+  "suites": {
+    "fresh/news": 300,
+    "fresh/emotion": 300,
+    "fresh/spam": 300,
+    "fresh/phishing": 300,
+    "fresh_business/routing/en": 16,
+    "fresh_business/routing/nb": 16,
+    "fresh_business/documents/en": 16,
+    "fresh_business/documents/nb": 16
+  },
+  "split_counts": {
+    "fresh/news/development": 100,
+    "fresh/news/test": 200,
+    "fresh/emotion/development": 100,
+    "fresh/emotion/test": 200,
+    "fresh/spam/development": 100,
+    "fresh/spam/test": 200,
+    "fresh/phishing/development": 100,
+    "fresh/phishing/test": 200,
+    "fresh_business/routing/en/development": 4,
+    "fresh_business/routing/nb/development": 4,
+    "fresh_business/routing/en/test": 12,
+    "fresh_business/routing/nb/test": 12,
+    "fresh_business/documents/en/development": 4,
+    "fresh_business/documents/nb/development": 4,
+    "fresh_business/documents/en/test": 12,
+    "fresh_business/documents/nb/test": 12
+  },
+  "frozen_before_model_calls": true,
+  "seed": 20261001,
+  "source_revisions": {
+    "news": {
+      "repo": "fancyzhx/ag_news",
+      "revision": "eb185aade064a813bc0b7f42de02595523103ca4",
+      "file": "data/test-00000-of-00001.parquet",
+      "sha256": "71de87ec66bc5737752a2502204dfa6d7fe9856ade3ea444dc6317789a4f13fb"
+    },
+    "emotion": {
+      "repo": "dair-ai/emotion",
+      "revision": "cab853a1dbdf4c42c2b3ef2173804746df8825fe",
+      "file": "split/test-00000-of-00001.parquet",
+      "sha256": "6f8407fa1ca9c310f55781f082ed73812f6551e8dda2c61973123a121869245b"
+    },
+    "spam": {
+      "repo": "SetFit/enron_spam",
+      "revision": "1916f66c89d52221ae33eb57d44498b4f3a5df22",
+      "file": "test.jsonl",
+      "sha256": "f07a4cca7bfc1d845d4ff59650e69a0ad31d9b5c0409ddad088219f7fc32bb52"
+    },
+    "phishing": {
+      "repo": "zefang-liu/phishing-email-dataset",
+      "revision": "34085a032c123ca237f314a01a67909cdea35e34",
+      "file": "Phishing_Email.csv",
+      "sha256": "18ef4fff1acb8986f0ab01e83ede6025420c829656af5a377560fce17e153b97"
+    },
+    "toxic": {
+      "repo": "lmsys/toxic-chat",
+      "revision": "29df8e4dba60e1f4af4b4075c0705c5b313548a8",
+      "file": "data/0124/toxic-chat_annotation_test.csv",
+      "sha256": "3c2e49889626f7738dca0a29bface0ba0a0595b2ffdd17f0e02f19df7c3c4c9b"
+    },
+    "intent": {
+      "repo": "mteb/amazon_massive_intent",
+      "revision": "940fd47a81eaa7f2cc7b129674d945d618ac38c2",
+      "file": "test/en.json.gz",
+      "sha256": "6dd692a9c188f395956b0534b70486c8ed959fd6d7e50d26d419ff169d213894"
+    },
+    "scenario": {
+      "repo": "mteb/amazon_massive_scenario",
+      "revision": "58871793b91addb7c5f7afff26ccf08737fb6697",
+      "file": "test/en.json.gz",
+      "sha256": "00cb0649c4159b42fd7ff0c3dd82211e355371fa60dbb3373850c822f42d44e6"
+    }
+  },
+  "exclusion_file_sha256": {
+    "alternatives.jsonl": "e9153b431a60ec1562c13d704126def5bbb53d5cc2e71ffa984069f4a1ccf324",
+    "alternatives_claims.jsonl": "8825e4e9785f4f34dbaa996d8b4d1e313d095d8eafc8f865c966914fed85c5a7",
+    "alternatives_typed.jsonl": "20777e876cb45f5a6d90c597802771fe6cfd432a3eb39590bc5787abccf787e5",
+    "jev_manifest.jsonl": "ec064c52b149de458344cd4b4a44c158460f30b3bbb7fe8b2e7ec72d0abf3ba5",
+    "jev_verified.jsonl": "7747998e26856957763070d8fb6fbffd2b2aff8857e3ad6767874dccb492c58a",
+    "claims.json": "b8bb96e3bb48baea595ea0df793190aad9d98cf817634b551ac9aa83e58a221f"
+  },
+  "selection": "Entire news, emotion, spam and phishing task groups selected after earlier local results; 300 new cases each, excluding previous source indices and normalized prior input text. 100 development + 200 test, sampled without model outputs. The separately planned, not-yet-run full Intern claim fixture includes the entire AG News test corpus and is excluded from prior-evidence exclusions; its overlapping results are not additional independent confirmation. Public training exposure unknown. Phishing dataset labels may include broad spam; results do not establish credential-theft detection.",
+  "business": "32 new bilingual scenario families (64 records), eight development families and 24 test families; assistant-authored labels, not real operating records or SME validation. Each language reported separately; translations are paired, not independent observations.",
+  "metrics": "Per-task test accuracy including failures; macro F1, confusion matrices, paired family bootstrap 95% intervals; Brier/NLL/ECE on valid predictions with coverage. No pooled headline ranking. Decision thresholds selected on development only, then applied unchanged to test.",
+  "business_scope": "Queue suggestions, document filing suggestions and screening for human review. No equipment control, work-permit approval or autonomous safety decision."
+}

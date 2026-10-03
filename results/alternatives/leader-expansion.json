@@ -1,0 +1,535 @@
+{
+  "updated": "2026-10-03T11:01:43.921452+00:00",
+  "leaderboard_release": "v1.5.4",
+  "source_url": "https://benchmarkheaven.com/jev-models",
+  "source_sha256": "0cf210b76bf85084a5f3fb40fb109e9a2c2f93df42ff6628696377666e89db45",
+  "eligibility": "Publicly licensed inference code and model weights/adapters; this does not assert that all training data is released.",
+  "selection": "Union of top ten overall and top ten Jev-class capability entries, with duplicate versions identified.",
+  "added": [
+    {
+      "id": "decision-4b-v12",
+      "name": "Decision 4B v1.2",
+      "license": "Apache 2.0 code, adapter and base",
+      "source": "https://huggingface.co/flymy-ai/decision-4b-v1.2",
+      "fit": "4B BF16; native verified package, eager GPU",
+      "claim_correct": [
+        203
+      ],
+      "claim_n": 231,
+      "claim_scope": "Publisher merged-model public JevBench result. CUDA graphs disabled locally.",
+      "business": "Ticket and document routing; compare accuracy and calibrated review thresholds.",
+      "checkpoint_ready": true,
+      "integration_passed": true,
+      "status": "Public JevBench complete; see other suite progress",
+      "public_jevbench": {
+        "complete": true,
+        "attempted": 231,
+        "correct": 203,
+        "tiers": {
+          "jevbench_public/easy": {
+            "n": 48,
+            "correct": 48,
+            "accuracy": 1.0,
+            "strict_valid": 48,
+            "valid": 48,
+            "renormalized": 0
+          },
+          "jevbench_public/original": {
+            "n": 72,
+            "correct": 69,
+            "accuracy": 0.9583333333333334,
+            "strict_valid": 72,
+            "valid": 72,
+            "renormalized": 0
+          },
+          "jevbench_public/hard": {
+            "n": 111,
+            "correct": 86,
+            "accuracy": 0.7747747747747747,
+            "strict_valid": 111,
+            "valid": 111,
+            "renormalized": 0
+          }
+        },
+        "accuracy": 0.8787878787878788,
+        "matches_published_count": true
+      }
+    },
+    {
+      "id": "winnow-12b-q8",
+      "name": "Winnow-12B Q8",
+      "license": "Apache 2.0 weights; MIT inference engine",
+      "source": "https://huggingface.co/EldanRing/Winnow-12B",
+      "fit": "Publisher Q8 GGUF; native CUDA engine ported to Windows",
+      "code": "https://github.com/EldanRing/winnow-inference",
+      "claim_correct": [
+        198
+      ],
+      "claim_n": 231,
+      "claim_scope": "Published Q8 public-set accuracy; local Windows/context settings differ. Vision and 64K capacity are outside this text evaluation.",
+      "business": "Potentially stronger local decisions where data residency and offline operation matter.",
+      "checkpoint_ready": true,
+      "integration_passed": true,
+      "status": "Public JevBench complete; see other suite progress",
+      "public_jevbench": {
+        "complete": true,
+        "attempted": 231,
+        "correct": 199,
+        "tiers": {
+          "jevbench_public/easy": {
+            "n": 48,
+            "correct": 48,
+            "accuracy": 1.0,
+            "strict_valid": 48,
+            "valid": 48,
+            "renormalized": 0
+          },
+          "jevbench_public/original": {
+            "n": 72,
+            "correct": 69,
+            "accuracy": 0.9583333333333334,
+            "strict_valid": 72,
+            "valid": 72,
+            "renormalized": 0
+          },
+          "jevbench_public/hard": {
+            "n": 111,
+            "correct": 82,
+            "accuracy": 0.7387387387387387,
+            "strict_valid": 111,
+            "valid": 111,
+            "renormalized": 0
+          }
+        },
+        "accuracy": 0.8614718614718615,
+        "matches_published_count": false
+      }
+    },
+    {
+      "id": "cygnet-12b-nf4",
+      "name": "Cygnet 12B NF4 — local variant",
+      "license": "MIT recipe; Apache 2.0 Gemma weights",
+      "source": "https://github.com/blockbrain-ai/cygnet-recipe",
+      "fit": "4-bit NF4 / Transformers adaptation for 16 GB",
+      "claim_correct": [
+        203,
+        204
+      ],
+      "claim_n": 231,
+      "claim_scope": "Publisher BF16/vLLM claim is a reference only. Quantization and the local letter-readout backend differ; this run cannot verify or refute the exact published configuration.",
+      "business": "Tests whether an untuned general model with constrained decisions is competitive locally.",
+      "checkpoint_ready": true,
+      "integration_passed": true,
+      "status": "Public JevBench complete; see other suite progress",
+      "public_jevbench": {
+        "complete": true,
+        "attempted": 231,
+        "correct": 195,
+        "tiers": {
+          "jevbench_public/easy": {
+            "n": 48,
+            "correct": 48,
+            "accuracy": 1.0,
+            "strict_valid": 48,
+            "valid": 48,
+            "renormalized": 0
+          },
+          "jevbench_public/original": {
+            "n": 72,
+            "correct": 65,
+            "accuracy": 0.9027777777777778,
+            "strict_valid": 72,
+            "valid": 72,
+            "renormalized": 0
+          },
+          "jevbench_public/hard": {
+            "n": 111,
+            "correct": 82,
+            "accuracy": 0.7387387387387387,
+            "strict_valid": 111,
+            "valid": 111,
+            "renormalized": 0
+          }
+        },
+        "accuracy": 0.8441558441558441,
+        "matches_published_count": false
+      }
+    },
+    {
+      "id": "jev-omni-12b-nf4",
+      "name": "Jev-Omni 12B NF4 — local variant",
+      "license": "Apache 2.0 code and weights",
+      "source": "https://huggingface.co/akhilaaa3/Jev-Omni",
+      "fit": "4-bit backbone; original FP32 classifier head",
+      "claim_correct": [
+        202
+      ],
+      "claim_n": 231,
+      "claim_scope": "Publisher micro accuracy is a BF16 reference; local NF4 text-only results cannot verify or refute that configuration or multimodal claims.",
+      "business": "Tests the value of a learned classifier head on a larger local backbone.",
+      "checkpoint_ready": true,
+      "integration_passed": true,
+      "status": "Public JevBench complete; see other suite progress",
+      "public_jevbench": {
+        "complete": true,
+        "attempted": 231,
+        "correct": 198,
+        "tiers": {
+          "jevbench_public/easy": {
+            "n": 48,
+            "correct": 48,
+            "accuracy": 1.0,
+            "strict_valid": 48,
+            "valid": 48,
+            "renormalized": 0
+          },
+          "jevbench_public/original": {
+            "n": 72,
+            "correct": 69,
+            "accuracy": 0.9583333333333334,
+            "strict_valid": 72,
+            "valid": 72,
+            "renormalized": 0
+          },
+          "jevbench_public/hard": {
+            "n": 111,
+            "correct": 81,
+            "accuracy": 0.7297297297297297,
+            "strict_valid": 111,
+            "valid": 111,
+            "renormalized": 0
+          }
+        },
+        "accuracy": 0.8571428571428571,
+        "matches_published_count": false
+      }
+    }
+  ],
+  "existing": [
+    {
+      "name": "JevK5 v0.3",
+      "status": "Already in the queue; pinned checkpoint verified as v0.3."
+    },
+    {
+      "name": "Plumb-4B",
+      "status": "Already in the queue; native readout/calibration details retained."
+    },
+    {
+      "name": "Imajev-4B",
+      "status": "Already prepared and queued; publisher abstentions remain unanswered."
+    },
+    {
+      "name": "Decider 4B",
+      "status": "Already tested; local v2.1 differs from the leaderboard v2 checkpoint."
+    }
+  ],
+  "deferred": [
+    {
+      "name": "Surogate Rune 26B-A4B v3",
+      "license": "Apache 2.0",
+      "source": "https://huggingface.co/surogate/rune-26b-a4b-GGUF",
+      "reason": "Official v3 weights are gated and require contact-information sharing; BF16 weights alone are about 51.6 GB. No gate accepted and no external compute provisioned."
+    },
+    {
+      "name": "djev / DiffusionGemma",
+      "license": "Apache 2.0 code and weights",
+      "source": "https://github.com/Davipar/djev-dev",
+      "reason": "Reference is a 26B BF16 model with a patched Linux vLLM runtime; weights exceed the 16 GB GPU. No faithful supported 16 GB path established."
+    },
+    {
+      "name": "Decision 4B v1.1",
+      "license": "Apache 2.0",
+      "source": "https://huggingface.co/flymy-ai/decision-4b-v1.1",
+      "reason": "Older version of the same family; v1.2 selected to avoid duplicating the first expansion."
+    }
+  ],
+  "closed": "No new closed-source systems added. Existing paid Jev results remain the comparison reference.",
+  "queue-leaders-priority": {
+    "pid": 27248,
+    "models": [
+      "decision-4b-v12",
+      "winnow-12b-q8",
+      "cygnet-12b-nf4",
+      "jev-omni-12b-nf4"
+    ],
+    "started": "2026-10-01T09:29:54.264776+00:00",
+    "supervisor_pid": 19888,
+    "status": "finished",
+    "jobs": [
+      {
+        "model": "decision-4b-v12",
+        "stage": "integration",
+        "status": "finished",
+        "started": "2026-10-01T09:43:40.412180+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-decision-4b-v12-integration.log",
+        "worker_pid": 23288,
+        "exit_code": 0,
+        "finished": "2026-10-01T09:44:01.246090+00:00"
+      },
+      {
+        "model": "decision-4b-v12",
+        "stage": "jev_verified",
+        "status": "finished",
+        "started": "2026-10-01T09:44:24.012443+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-decision-4b-v12-jev_verified.log",
+        "worker_pid": 48632,
+        "exit_code": 0,
+        "finished": "2026-10-01T09:44:49.592955+00:00"
+      },
+      {
+        "model": "decision-4b-v12",
+        "stage": "jev_fresh",
+        "status": "finished",
+        "started": "2026-10-01T09:45:09.530292+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-decision-4b-v12-jev_fresh.log",
+        "worker_pid": 51436,
+        "exit_code": 0,
+        "finished": "2026-10-01T09:46:47.203088+00:00"
+      },
+      {
+        "model": "winnow-12b-q8",
+        "stage": "integration",
+        "status": "finished",
+        "started": "2026-10-01T09:47:06.908355+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-winnow-12b-q8-integration.log",
+        "worker_pid": 48496,
+        "exit_code": 0,
+        "finished": "2026-10-01T09:47:17.894405+00:00"
+      },
+      {
+        "model": "winnow-12b-q8",
+        "stage": "jev_verified",
+        "status": "finished",
+        "started": "2026-10-01T09:47:38.256585+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-winnow-12b-q8-jev_verified.log",
+        "worker_pid": 54440,
+        "exit_code": 0,
+        "finished": "2026-10-01T09:48:04.040917+00:00"
+      },
+      {
+        "model": "winnow-12b-q8",
+        "stage": "jev_fresh",
+        "status": "finished",
+        "started": "2026-10-01T09:48:24.319812+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-winnow-12b-q8-jev_fresh.log",
+        "worker_pid": 10560,
+        "exit_code": 0,
+        "finished": "2026-10-01T09:50:40.651947+00:00"
+      },
+      {
+        "model": "cygnet-12b-nf4",
+        "stage": "integration",
+        "status": "finished",
+        "started": "2026-10-01T09:51:00.706375+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-cygnet-12b-nf4-integration.log",
+        "worker_pid": 38724,
+        "exit_code": 0,
+        "finished": "2026-10-01T09:51:35.567721+00:00"
+      },
+      {
+        "model": "cygnet-12b-nf4",
+        "stage": "jev_verified",
+        "status": "finished",
+        "started": "2026-10-01T09:51:56.547132+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-cygnet-12b-nf4-jev_verified.log",
+        "worker_pid": 15344,
+        "exit_code": 0,
+        "finished": "2026-10-01T09:52:53.869994+00:00"
+      },
+      {
+        "model": "cygnet-12b-nf4",
+        "stage": "jev_fresh",
+        "status": "finished",
+        "started": "2026-10-01T09:53:14.149985+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-cygnet-12b-nf4-jev_fresh.log",
+        "worker_pid": 13060,
+        "exit_code": 0,
+        "finished": "2026-10-01T09:57:27.576326+00:00"
+      },
+      {
+        "model": "jev-omni-12b-nf4",
+        "stage": "integration",
+        "status": "finished",
+        "started": "2026-10-01T09:57:50.308595+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-jev-omni-12b-nf4-integration.log",
+        "worker_pid": 35884,
+        "exit_code": 0,
+        "finished": "2026-10-01T09:58:25.495159+00:00"
+      },
+      {
+        "model": "jev-omni-12b-nf4",
+        "stage": "jev_verified",
+        "status": "finished",
+        "started": "2026-10-01T09:58:45.592134+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-jev-omni-12b-nf4-jev_verified.log",
+        "worker_pid": 38052,
+        "exit_code": 0,
+        "finished": "2026-10-01T10:00:25.782173+00:00"
+      },
+      {
+        "model": "jev-omni-12b-nf4",
+        "stage": "jev_fresh",
+        "status": "finished",
+        "started": "2026-10-01T10:00:45.882280+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\leader-jev-omni-12b-nf4-jev_fresh.log",
+        "worker_pid": 6140,
+        "exit_code": 0,
+        "finished": "2026-10-01T10:04:45.379586+00:00"
+      }
+    ],
+    "finished": "2026-10-01T10:05:05.386115+00:00"
+  },
+  "queue-leaders-full": {
+    "pid": 51692,
+    "started": "2026-10-01T15:01:39.651050+00:00",
+    "models": [
+      "decision-4b-v12",
+      "winnow-12b-q8",
+      "cygnet-12b-nf4",
+      "jev-omni-12b-nf4"
+    ],
+    "jobs": [
+      {
+        "model": "decision-4b-v12",
+        "fixture": "jev_fresh",
+        "status": "finished",
+        "started": "2026-10-01T15:01:39.651050+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision-4b-v12-jev_fresh.log",
+        "worker_pid": 19244,
+        "exit_code": 0,
+        "finished": "2026-10-01T15:01:41.231736+00:00"
+      },
+      {
+        "model": "decision-4b-v12",
+        "fixture": "jev_verified",
+        "status": "finished",
+        "started": "2026-10-01T15:01:53.648826+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision-4b-v12-jev_verified.log",
+        "worker_pid": 43336,
+        "exit_code": 0,
+        "finished": "2026-10-01T15:01:55.315896+00:00"
+      },
+      {
+        "model": "decision-4b-v12",
+        "fixture": "alternatives",
+        "status": "needs_repair",
+        "started": "2026-10-01T15:02:08.270233+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\decision-4b-v12-alternatives.log",
+        "worker_pid": 33280,
+        "exit_code": 3221225477,
+        "finished": "2026-10-01T15:12:15.019195+00:00"
+      },
+      {
+        "model": "winnow-12b-q8",
+        "fixture": "jev_fresh",
+        "status": "finished",
+        "started": "2026-10-01T15:12:26.519182+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\winnow-12b-q8-jev_fresh.log",
+        "worker_pid": 59924,
+        "exit_code": 0,
+        "finished": "2026-10-01T15:12:28.187817+00:00"
+      },
+      {
+        "model": "winnow-12b-q8",
+        "fixture": "jev_verified",
+        "status": "finished",
+        "started": "2026-10-01T15:12:39.770634+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\winnow-12b-q8-jev_verified.log",
+        "worker_pid": 45788,
+        "exit_code": 0,
+        "finished": "2026-10-01T15:12:41.220708+00:00"
+      },
+      {
+        "model": "winnow-12b-q8",
+        "fixture": "alternatives",
+        "status": "finished",
+        "started": "2026-10-01T15:12:52.849395+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\winnow-12b-q8-alternatives.log",
+        "worker_pid": 49000,
+        "exit_code": 0,
+        "finished": "2026-10-01T15:33:04.649816+00:00"
+      },
+      {
+        "model": "winnow-12b-q8",
+        "fixture": "alternatives_claims",
+        "status": "finished",
+        "started": "2026-10-01T15:33:16.634444+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\winnow-12b-q8-alternatives_claims.log",
+        "worker_pid": 11320,
+        "exit_code": 0,
+        "finished": "2026-10-01T15:41:34.117105+00:00"
+      },
+      {
+        "model": "winnow-12b-q8",
+        "fixture": "alternatives_typed",
+        "status": "finished",
+        "started": "2026-10-01T15:41:46.157926+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\winnow-12b-q8-alternatives_typed.log",
+        "worker_pid": 45812,
+        "exit_code": 0,
+        "finished": "2026-10-01T15:43:38.623917+00:00"
+      },
+      {
+        "model": "cygnet-12b-nf4",
+        "fixture": "jev_fresh",
+        "status": "finished",
+        "started": "2026-10-01T15:43:50.766419+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\cygnet-12b-nf4-jev_fresh.log",
+        "worker_pid": 54632,
+        "exit_code": 0,
+        "finished": "2026-10-01T15:43:52.333711+00:00"
+      },
+      {
+        "model": "cygnet-12b-nf4",
+        "fixture": "jev_verified",
+        "status": "finished",
+        "started": "2026-10-01T15:44:04.560259+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\cygnet-12b-nf4-jev_verified.log",
+        "worker_pid": 56368,
+        "exit_code": 0,
+        "finished": "2026-10-01T15:44:06.089743+00:00"
+      },
+      {
+        "model": "cygnet-12b-nf4",
+        "fixture": "alternatives",
+        "status": "needs_repair",
+        "started": "2026-10-01T15:44:18.210833+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\cygnet-12b-nf4-alternatives.log",
+        "worker_pid": 47488,
+        "exit_code": 3221225477,
+        "finished": "2026-10-01T16:19:24.241655+00:00"
+      },
+      {
+        "model": "jev-omni-12b-nf4",
+        "fixture": "jev_fresh",
+        "status": "finished",
+        "started": "2026-10-01T16:19:36.646973+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\jev-omni-12b-nf4-jev_fresh.log",
+        "worker_pid": 18372,
+        "exit_code": 0,
+        "finished": "2026-10-01T16:19:38.355613+00:00"
+      },
+      {
+        "model": "jev-omni-12b-nf4",
+        "fixture": "jev_verified",
+        "status": "finished",
+        "started": "2026-10-01T16:19:50.873282+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\jev-omni-12b-nf4-jev_verified.log",
+        "worker_pid": 58804,
+        "exit_code": 0,
+        "finished": "2026-10-01T16:19:52.410492+00:00"
+      },
+      {
+        "model": "jev-omni-12b-nf4",
+        "fixture": "alternatives",
+        "status": "needs_repair",
+        "started": "2026-10-01T16:20:04.850638+00:00",
+        "log": "D:\\git\\laya_benchmark\\results\\alternatives\\logs\\jev-omni-12b-nf4-alternatives.log",
+        "worker_pid": 48576,
+        "exit_code": 3221225477,
+        "finished": "2026-10-01T16:35:09.425672+00:00"
+      }
+    ],
+    "finished": "2026-10-01T16:35:21.748701+00:00"
+  }
+}

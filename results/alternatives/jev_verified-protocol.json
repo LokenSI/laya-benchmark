@@ -1,0 +1,17 @@
+{
+  "fixture_sha256": "7747998e26856957763070d8fb6fbffd2b2aff8857e3ad6767874dccb492c58a",
+  "n": 300,
+  "heads": 300,
+  "suites": {
+    "jev_verified/agnews": 100,
+    "jev_verified/emotiondair": 100,
+    "jev_verified/banking77": 100
+  },
+  "source_manifest_sha256": "ec064c52b149de458344cd4b4a44c158460f30b3bbb7fe8b2e7ec72d0abf3ba5",
+  "source": "https://github.com/AbdelStark/jev-benchmarks/blob/0d610cc53e79bcbec691312b0c4adb4a0e371642/results/reports/btzsc-pilot-v1.md",
+  "revision": "0d610cc53e79bcbec691312b0c4adb4a0e371642",
+  "reference_model": "jev-1.13.0",
+  "selection": "Exact published 300-example manifest: 100 each AG News, DAIR Emotion and Banking77/BTZSC. Same state, instructions, option descriptions, identifiers and order; all 72 banking options retained. No prompt selection or shortlist.",
+  "scoring": "Publisher argmax in option order and probability validation/normalization; publisher metric code for accuracy, full-label macro F1, Brier, NLL and ECE. Failed requests remain incorrect.",
+  "limits": "Historical published Jev 1.13.0 API run, not a fresh call or current Jev claim. No public per-case pilot outputs, so no paired pilot significance test. Timing is not a hardware-normalized comparison. Public data exposure unknown. Verified means source integrity and matching inputs, not independent relabelling."
+}

@@ -1,0 +1,43 @@
+{
+  "created": "2026-10-01T08:03:27.389226+00:00",
+  "fixture_sha256": "7726ab88c63977be98ded59aa3cd9d4e37aa7cc1a870c0fcf04e240b00667f05",
+  "n": 17576,
+  "sources": {
+    "jev_fresh": {
+      "sha256": "42edfeea836817f5bcbd30dec7b7fd0fc62f196cfcde5d113e38b8d49f675679",
+      "n": 1264
+    },
+    "jev_verified": {
+      "sha256": "7747998e26856957763070d8fb6fbffd2b2aff8857e3ad6767874dccb492c58a",
+      "n": 300
+    },
+    "alternatives_claims": {
+      "sha256": "8825e4e9785f4f34dbaa996d8b4d1e313d095d8eafc8f865c966914fed85c5a7",
+      "n": 3271
+    },
+    "alternatives_typed": {
+      "sha256": "20777e876cb45f5a6d90c597802771fe6cfd432a3eb39590bc5787abccf787e5",
+      "n": 400
+    },
+    "alternatives": {
+      "sha256": "e9153b431a60ec1562c13d704126def5bbb53d5cc2e71ffa984069f4a1ccf324",
+      "n": 12341
+    }
+  },
+  "model": {
+    "model": "jev-1.13.0",
+    "resolved": "2026-10-01T07:57:48.329124+00:00",
+    "alias": "jev-latest",
+    "pricing_source": "https://typesafe.ai/",
+    "pricing_observed": "2026-10-01",
+    "usd_per_billion_input_tokens": 42,
+    "output_tokens_free_source": "https://api.typesafe.ai/openapi.json"
+  },
+  "planned_concurrency": 4,
+  "selection": "All rows from the five frozen common fixtures, including weak tasks and all failed local cases. Whole task groups, never only local successes. Strong-task selection is retrospective; fresh subset is separately frozen and reported.",
+  "requests": "Exact state, questions, option descriptions and order. Native boolean expansion for multi-label tasks matches other typed adapters; GLiNER native multi-label is identified separately. Raw payload and response retained without credentials.",
+  "scoring": "Shared argmax, ordered ties (lexical ties for public JevBench native score). Native selected labels also retained. Probability normalization only inside publisher tolerance 0.02; raw vectors retained. Errors stay in denominator. Per-suite metrics; no pooled leaderboard.",
+  "latency": "Concurrent client wall time includes internet transport and connection setup; not a hardware-normalized latency benchmark or proof of advertised speed ratios.",
+  "cost": "Billable input token totals times the dated published $42/billion price; output tokens free. $25 ledger cap with conservative pre-call reservation; unconfirmed attempts retain reservation. Account balance is not exposed by the API.",
+  "historic_comparison": "Fresh calls to resolved Jev 1.13.0; separate from published historical Jev 1.13.0 outcomes. Stable and preview aliases resolved to the same version in probes; not counted as distinct models."
+}
