@@ -60,6 +60,8 @@ def build(output):
     document = document.replace('ROWS', rows).replace('SUPERVISED', f"{evidence['supervised_baseline_accuracy']:.1%}").replace('SHARE', SHARE)
     (output/'index.html').write_text(document, encoding='utf-8')
     (output/'.nojekyll').write_text('', encoding='utf-8')
+    # This generated link must exist while the HTML link checker runs.
+    (output/'asset-manifest.json').write_text('{}\n', encoding='utf-8')
     local_only = []
     for path in output.rglob('*.html'):
         content=path.read_text(encoding='utf-8')
