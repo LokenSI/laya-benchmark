@@ -27,7 +27,28 @@ def expected_failure(error,torch):
     return isinstance(error,(ValueError,torch.OutOfMemoryError)) or isinstance(error,RuntimeError) and (
         'CUDA out of memory' in str(error) or str(error) == 'bad allocation')
 
-def run(name,batch_size=8,limit=None,suite=None,fixture='alternatives'):
+def native_recovery_ids(path,name,fixture,expected):
+    if not path:return set()
+    recovery=read_json(path)
+    assert name in {'plumb-4b','jevk5'}, 'Native question recovery requires the JevK5 adapter'
+    assert recovery['model']==name and recovery['fixture']==fixture
+    assert recovery['method']=='publisher-native-serial' and recovery['reason']
+    assert recovery['cases'], 'Recovery must identify exact frozen inputs'
+    for key,checksum in recovery['cases'].items():
+        assert key in expected and expected[key]['input_sha256']==checksum, key
+    return set(recovery['cases'])
+
+def evaluate_batch(adapter,batch,native_ids):
+    selected=[row['id'] in native_ids for row in batch]
+    if any(selected):
+        assert len(batch)==1, 'Explicit native recovery requires batch size one'
+        answers=adapter.native_questions(batch)
+        for answer in answers:answer['inference_path']='publisher-native-serial'
+        return answers
+    return adapter.batch(batch)
+
+def run(name,batch_size=8,limit=None,suite=None,fixture='alternatives',max_new_cases=None,
+        retry_runtime_errors=False,case_ids=None,attempt_dir=None,native_question_recovery=None):
     faulthandler.enable()
     faulthandler.dump_traceback_later(300,repeat=True)
     import torch
@@ -41,17 +62,18 @@ def run(name,batch_size=8,limit=None,suite=None,fixture='alternatives'):
     protocol=read_json(ROOT/('results/alternatives/protocol.json' if fixture=='alternatives' else f'results/alternatives/{fixture}-protocol.json'))
     assert digest(path)==protocol['fixture_sha256']
     rows=[json.loads(l) for l in path.read_text(encoding='utf-8').splitlines()]
+    expected={r['id']:r for r in rows}
+    native_ids=native_recovery_ids(native_question_recovery,name,fixture,expected)
+    if native_ids:assert batch_size==1 and attempt_dir, 'Native recovery requires a recorded batch-one worker'
     if suite:rows=[r for r in rows if r['suite'].startswith(suite)]
     if limit:rows=rows[:limit]
     runroot='runs' if fixture=='alternatives' else fixture
     out=ROOT/f'results/alternatives/{runroot}/{name}';out.mkdir(parents=True,exist_ok=True)
-    dest=out/'predictions.jsonl';done={}
-    if dest.exists():
-        for line in dest.read_text(encoding='utf-8').splitlines():
-            r=json.loads(line);assert r['id'] not in done;done[r['id']]=r
+    from .completion_state import load_records,select_pending,atomic_json
+    dest=out/'predictions.jsonl';done=load_records(dest,expected,repair_tail=bool(attempt_dir))
     for r in rows:
         if r['id'] in done:assert done[r['id']]['input_sha256']==r['input_sha256']
-    if name=='nimble-9b' and dest.exists() and (out/'metadata.json').exists():
+    if not attempt_dir and name=='nimble-9b' and dest.exists() and (out/'metadata.json').exists():
         previous=read_json(out/'metadata.json')
         failed=[k for k,p in done.items() if p.get('error','').endswith('choice_descriptions must map valid choice names to text.')]
         if failed and not previous.get('adapter',{}).get('choice_description_none_fallback'):
@@ -63,7 +85,7 @@ def run(name,batch_size=8,limit=None,suite=None,fixture='alternatives'):
             done={k:p for k,p in done.items() if k not in set(failed)}
             temp=out/'predictions.repair.tmp';temp.write_text(''.join(json.dumps(p,ensure_ascii=False)+'\n' for p in done.values()),encoding='utf-8');temp.replace(dest)
             print('Archived and queued',len(failed),'schema integration rejections',flush=True)
-    if name=='kev-4b' and dest.exists() and (out/'metadata.json').exists():
+    if not attempt_dir and name=='kev-4b' and dest.exists() and (out/'metadata.json').exists():
         previous=read_json(out/'metadata.json')
         failed=[k for k,p in done.items() if p.get('error','').startswith('OutOfMemoryError')]
         if failed and not previous.get('adapter',{}).get('explicit_row_budget'):
@@ -77,12 +99,28 @@ def run(name,batch_size=8,limit=None,suite=None,fixture='alternatives'):
             done={k:p for k,p in done.items() if k not in set(failed)}
             temp=out/'predictions.repair.tmp';temp.write_text(''.join(json.dumps(p,ensure_ascii=False)+'\n' for p in done.values()),encoding='utf-8');temp.replace(dest)
             print('Archived and queued',len(failed),'hardware failures after row-batching repair',flush=True)
-    todo=[r for r in rows if r['id'] not in done]
+    ids=read_json(case_ids) if case_ids else None
+    todo=select_pending(rows,done,max_new_cases,retry_runtime_errors,ids)
     if not todo:print(name,'already complete for this selection',flush=True);return
+    from pathlib import Path
+    attempt=Path(attempt_dir) if attempt_dir else None
+    if attempt:
+        attempt.mkdir(parents=True,exist_ok=True)
+        if (out/'metadata.json').exists():
+            (attempt/'previous-metadata.json').write_bytes((out/'metadata.json').read_bytes())
+        atomic_json(attempt/'selection.json',{'model':name,'fixture':fixture,'ids':[r['id'] for r in todo],
+                    'retry_runtime_errors':retry_runtime_errors,'batch_size':batch_size})
+    if retry_runtime_errors and attempt is None:
+        raise ValueError('Runtime retries require an isolated attempt directory')
+    output_dest=attempt/'retry-predictions.jsonl' if retry_runtime_errors else dest
     t=time.perf_counter();adapter=create(name)
     if hasattr(adapter,'close'):atexit.register(adapter.close)
     meta={'model':name,'fixture_sha256':digest(path),'adapter':adapter.metadata,'python':platform.python_version(),'torch':torch.__version__,'gpu':torch.cuda.get_device_name(0),'loaded_seconds':time.perf_counter()-t,'started':datetime.now(timezone.utc).isoformat()}
-    write_json(out/'metadata.json',meta)
+    if native_ids:
+        meta['native_question_recovery']={'manifest':str(native_question_recovery),
+            'manifest_sha256':digest(native_question_recovery),'case_ids':sorted(native_ids)}
+    metadata_path=(attempt/'metadata.json') if attempt else (out/'metadata.json')
+    write_json(metadata_path,meta)
     # Warm-up is deliberately outside measured task throughput.
     print(name,'warmup',flush=True)
     for probe in rows[:16]:
@@ -93,12 +131,12 @@ def run(name,batch_size=8,limit=None,suite=None,fixture='alternatives'):
             torch.cuda.empty_cache()
     torch.cuda.synchronize();torch.cuda.reset_peak_memory_stats()
     started=time.perf_counter();failures=0
-    with dest.open('a',encoding='utf-8') as f:
+    with output_dest.open('a',encoding='utf-8') as f:
         def evaluate(batch):
             nonlocal failures
             torch.cuda.synchronize();t=time.perf_counter()
             try:
-                ans=adapter.batch(batch);torch.cuda.synchronize()
+                ans=evaluate_batch(adapter,batch,native_ids);torch.cuda.synchronize()
                 assert len(ans)==len(batch)
                 for r,a in zip(batch,ans):
                     validate_answer(r,a)
@@ -120,13 +158,18 @@ def run(name,batch_size=8,limit=None,suite=None,fixture='alternatives'):
                 result['correct']=set(a['pred'])==set(r['gold']) and all(set(a['pred'][k])==set(g) for k,g in r['gold'].items())
                 f.write(json.dumps(result,ensure_ascii=False,allow_nan=False)+'\n')
         for start in range(0,len(todo),batch_size):
+            if attempt:atomic_json(attempt/'active-case.json',{'ids':[r['id'] for r in todo[start:start+batch_size]],'offset':start})
             evaluate(todo[start:start+batch_size]);f.flush()
+            if attempt:
+                import os
+                os.fsync(f.fileno())
             if start//batch_size%10==0 or start+batch_size>=len(todo):
                 print(name,f'{min(start+batch_size,len(todo))}/{len(todo)}',f'{time.perf_counter()-started:.1f}s',f'errors={failures}',todo[start]['suite'],flush=True)
-                write_json(out/'progress.json',{'completed_total':len(done)+min(start+batch_size,len(todo)),'requested_selection':len(rows),'new_errors':failures,'elapsed_seconds':time.perf_counter()-started,'peak_allocated_gib':torch.cuda.max_memory_allocated()/2**30})
+                write_json((attempt/'progress.json') if attempt else out/'progress.json',{'completed_total':len(done)+(0 if retry_runtime_errors else min(start+batch_size,len(todo))),'requested_selection':len(rows),'new_errors':failures,'elapsed_seconds':time.perf_counter()-started,'peak_allocated_gib':torch.cuda.max_memory_allocated()/2**30})
     meta['finished']=datetime.now(timezone.utc).isoformat();meta['peak_allocated_gib']=torch.cuda.max_memory_allocated()/2**30
-    meta['predictions_sha256']=digest(dest);write_json(out/'metadata.json',meta)
+    meta['predictions_sha256']=digest(output_dest);write_json(metadata_path,meta)
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('model');p.add_argument('--batch-size',type=int,default=8);p.add_argument('--limit',type=int);p.add_argument('--suite');p.add_argument('--fixture',default='alternatives');a=p.parse_args()
-    run(a.model,a.batch_size,a.limit,a.suite,a.fixture)
+    p=argparse.ArgumentParser();p.add_argument('model');p.add_argument('--batch-size',type=int,default=8);p.add_argument('--limit',type=int);p.add_argument('--suite');p.add_argument('--fixture',default='alternatives')
+    p.add_argument('--max-new-cases',type=int);p.add_argument('--retry-runtime-errors',action='store_true');p.add_argument('--case-ids');p.add_argument('--attempt-dir');p.add_argument('--native-question-recovery');a=p.parse_args()
+    run(a.model,a.batch_size,a.limit,a.suite,a.fixture,a.max_new_cases,a.retry_runtime_errors,a.case_ids,a.attempt_dir,a.native_question_recovery)

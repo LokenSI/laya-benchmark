@@ -1,8 +1,12 @@
 # Decision-model benchmark: English and Norwegian
 
+**Unofficial, independent testing — use as is, without warranty or vendor endorsement.** Validate suitability on your own data before production use.
+
+**Revision `completion-2026-10-04` (updated 5 October 2026):** all 31 local models now have results for the same 17,576 frozen cases, adding 76,658 previously missing records. Saved failures and native rejections remain visible. [Completion coverage and matched comparisons](https://lokensi.github.io/laya-benchmark/results/completion/report.html) give the recorded, answered, rejected and failed counts. [Revision methodology](docs/METHODOLOGY.md) explains the recovery and timing protocol.
+
 A local, reproducible benchmark that began with **convaiinnovations/laya** and **convaiinnovations/laya-multilingual**, then expanded to local decision models and a live Jev API reference. It measures classification quality, confidence reliability, speed, and the practical alternative of a simple trained classifier. It does not equate a publisher's confidence score with correctness.
 
-**Start with [the published business summary and reports](https://lokensi.github.io/laya-benchmark/).** The latest update includes four Decision 2.0 models, 70,304 saved predictions and 9,600 timed concurrent HTTP requests. [Accuracy](https://lokensi.github.io/laya-benchmark/results/alternatives/decision2.html), [stress testing](https://lokensi.github.io/laya-benchmark/results/decision2-stress/report.html), and [the local-versus-API comparison](https://lokensi.github.io/laya-benchmark/results/jev_live/report.html) retain their distinct scopes.
+**Start with [the published business summary and reports](https://lokensi.github.io/laya-benchmark/).** The shared comparison contains 544,856 local records and the existing 17,576-case Jev 1.13.0 reference. [Updated accuracy, latency and VRAM graphs](https://lokensi.github.io/laya-benchmark/results/linkedin/completion-tradeoffs/index.html) use complete task groups and separate controlled timing samples. The earlier four-model Decision 2.0 [accuracy](https://lokensi.github.io/laya-benchmark/results/alternatives/decision2.html) and 9,600-request [stress test](https://lokensi.github.io/laya-benchmark/results/decision2-stress/report.html) retain their distinct scopes.
 
 For sharing: [one-page business PNG](https://lokensi.github.io/laya-benchmark/results/share/decision2-2026-10-03/business-summary.png). On 2,948 public Norwegian routing-proxy cases, Nox 4B reached 80.3%, the tested hosted API 81.8%, and Decider 4B 82.0%. A supervised classifier reached 89.1% using labelled training data. These are measurements on public tests, not measured business savings or production acceptance criteria.
 
@@ -23,6 +27,19 @@ The full run evaluates all retained public test examples: **2,948 English + 2,94
 These models return decisions such as categories and probabilities; this is not a speech-recognition, translation, question-answering, or text-generation benchmark. MASSIVE tests **18 scenarios, not all 60 intents**. Norwegian review data does not expose a per-row language-variety tag. Nynorsk results therefore come only from authored diagnostics, pending independent native-speaker review.
 
 ## Local setup (Windows / PowerShell)
+
+To audit or resume this existing benchmark workspace after preparing the pinned models and frozen fixtures:
+
+```powershell
+.venv\Scripts\python.exe -m laya_bench.completion audit
+.venv\Scripts\python.exe -m laya_bench.completion prepare --models wald-4b-v12
+.venv\Scripts\python.exe -m laya_bench.completion run --models wald-4b-v12
+# Omit --models to process the approved completion queue in order.
+# After the whole queue has finished, verify evidence and cleanup before publication:
+.venv\Scripts\python.exe scripts/verify_completion.py
+```
+
+The controller uses the local cleanup/restoration manifest and existing model metadata. It preserves the Jev environment, Decider and Nox, keeps a 50 GiB disk reserve, and serializes GPU workers. Per-attempt evidence and protected-record baselines stay under ignored `results/completion/`; only aggregate reports are published.
 
 Python 3.11 and a project-local `.venv` are used. The setup script installs CUDA 12.8 PyTorch for NVIDIA GPUs, including the RTX 50 series. It does not change global Python packages.
 

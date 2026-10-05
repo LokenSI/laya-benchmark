@@ -1,6 +1,8 @@
 {
   "pages_url": "https://lokensi.github.io/laya-benchmark/",
   "scope": "MASSIVE Bokmål 18-scenario accuracy; identical 2,948 public test inputs.",
+  "revision": "completion-2026-10-04",
+  "updated": "2026-10-05T00:49:57.233828+00:00",
   "metrics": [
     {
       "model": "Decider 4B v2.1",
@@ -11,7 +13,7 @@
     {
       "model": "Jev 1.13.0",
       "deployment": "hosted API / zero-shot",
-      "accuracy": 0.8175033921302578,
+      "accuracy": 0.8181818181818182,
       "n": 2948
     },
     {
@@ -31,7 +33,7 @@
   "sources": {
     "decision2": {
       "path": "results/alternatives/decision2-summary.json",
-      "sha256": "5c1a8d526f49743a8e3914b46b430f8a99b2b8901c8b919a61d574217cb021fb"
+      "sha256": "d7c280930aeaaf8667086f285ea7301eedd790a416f06f8974b0aa4ec8822ed9"
     },
     "verification": {
       "path": "results/alternatives/decision2-verification.json",
@@ -39,7 +41,7 @@
     },
     "comparison": {
       "path": "results/jev_live/comparison.json",
-      "sha256": "f33ecc399da1076c407c29cc2bf829376d9376d984d8eacc98a99453adfab9fe"
+      "sha256": "82063bd8242f59de2ff413d9f54079c5170c7fe978235032fdd39f2ace0fa385"
     },
     "stress": {
       "path": "results/decision2-stress/summary.json",

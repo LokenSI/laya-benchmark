@@ -1,0 +1,317 @@
+{
+  "updated": "2026-10-05T00:49:24.464072+00:00",
+  "status": "verified_with_disclosed_failures",
+  "local_models": 31,
+  "cases_per_model": 17576,
+  "local_records": 544856,
+  "missing_cases": 0,
+  "protected_predictions_unchanged": true,
+  "remaining_runtime_failures_with_at_least_three_attempts": 235,
+  "runtime_failures_recovered": 847,
+  "original_retry_archives_verified": 19,
+  "historical_timing_blocks_unchanged": 285,
+  "completion_queue_timing": {
+    "wald-4b-v12": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "plumb-4b": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "cygnet-12b-nf4": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "jevk5": {
+      "status": "partial_unavailable",
+      "complete_groups": 11,
+      "unavailable_groups": {
+        "kev_claim/devtools-v1": "Developer-tool timing unavailable: three fresh workers failed native/batched probability parity during fixed warm-up (maximum difference 0.047281). Native-serial diagnostics changed 1 of 12 saved decisions, so alternative-path latency is withheld from comparison with the original accuracy score. No timing value is estimated; existing accuracy records are preserved."
+      }
+    },
+    "decision-4b-v12": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "imajev-2b": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "imajev-4b": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "intern-decision-4b": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "jev-omni-12b-nf4": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "clm-int8": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "gliner-decide-multi": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "gliner-decide": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "nimble-9b": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    },
+    "tev1": {
+      "status": "complete",
+      "complete_groups": 12,
+      "unavailable_groups": {}
+    }
+  },
+  "free_disk_gib": 362.1327819824219,
+  "temporary_restored_weights_removed": true,
+  "retained_model_weight_files": {
+    "decider-4b": 1,
+    "decision2-nox-4b": 6
+  },
+  "jev_and_local_environments_retained": true,
+  "audit_sha256": "07eef7743ade3622b5a03eff25d87058fae583e7bf5c024f93c800dfeb7c667c",
+  "prediction_sha256": {
+    "clm-int8": {
+      "alternatives": "10420c05bfb07f00762bd3bada620b159683c38e4bb990f330f371e8242ed5e2",
+      "alternatives_claims": "9ffdfc42f9720255bab6a26aa91937ee4a031d923e947e4e4f8b671743de2845",
+      "alternatives_typed": "59d72388f1f6bc25eb4c9e23c66853b5c759d70b3a9bdcfb92fe7dbe679dbff0",
+      "jev_verified": "8aa51931aad13b07aab660d5a2adda921234216cac16b9436a47329e32ef3b9c",
+      "jev_fresh": "69261872a8c95f75f02bfe0d1058c5e7404279ccfdffe04aa4ed8104581c55cb"
+    },
+    "cygnet-12b-nf4": {
+      "alternatives": "5f1c51c6666d3e82ce82d37d52584628c48de438bb30a55402b5200231763dbb",
+      "alternatives_claims": "8fdb0661901910883be5cdf32c5113c39f5537415fd2128b7a4ef2996c0cced0",
+      "alternatives_typed": "9ded0e608093e0421b19d788c9287a26d3cb916f9d2c1dc5561f60fb0e157246",
+      "jev_verified": "b113536cd2526dfe7ce55248abbc451a64aad093cc34e187ae83bfb05cd80791",
+      "jev_fresh": "b2337642734e4060bd260ac7d9b549368104e12609427a0a8e78de9280c42506"
+    },
+    "decider-08b": {
+      "alternatives": "b403a4186dc2252e0f3b17b6ff6cb9895cd444349d2edba774bd6aac19ea956e",
+      "alternatives_claims": "452b76ce897313f21eb3cd98df236c22442f7198b2d09236b8b9ef4d1664f7d3",
+      "alternatives_typed": "2c09d39e30cf0d8cd6bc5597e53704bc6b5a7baabca6950c5ba83d19afe74e74",
+      "jev_verified": "87be7ab66535108d07f1ead689dda85c794e02e12264ef065961ed277dfa3f23",
+      "jev_fresh": "54307b2a94ca12b5b258c82edc41ece4f13af8030d0e2b1c6921b235a447bb21"
+    },
+    "decider-2b": {
+      "alternatives": "acaa37d6fd8d3a9d42c06177394aa824d3ce2f0ec6a42ae35ca5b2b721f82cde",
+      "alternatives_claims": "8bef7a99d2c220a7c591a1d84a124f82a36ce6a5bd6a086aa6a1bc1bdf30eb59",
+      "alternatives_typed": "9fa5658b59fcbf41f3846ebe2e879e2d76e2231c458aba599aea9bebc98663f8",
+      "jev_verified": "ac714987be4de1dbfe570636c28ff720d42b32ff4d4bac9ac896243a336987ab",
+      "jev_fresh": "ff169432d4251ae8ed12e609c4aec982782255ce4b71443356e3d9918e6df90b"
+    },
+    "decider-4b": {
+      "alternatives": "ab7bd7a63cb9b3f6fe4458f847589059dcf96df954538e29717d2c95c9e6e016",
+      "alternatives_claims": "a57ce703c6457ee3a14b5947097cee68b37a226ce4c59f549dd54e55d4f19ed7",
+      "alternatives_typed": "8b41f02c17af83e9893c39cfd6e1292970f1bd89f82bbf2c97e9d323cb88ebfe",
+      "jev_verified": "a0c6c27dde1be9004bae144b55ccb90153ce513a48dfa42ba370526e8cf8f270",
+      "jev_fresh": "5c00f537bf7974731d073dc153bed60aae24289dd82b3c7d3e6f06f1d8df531d"
+    },
+    "decision-4b-v12": {
+      "alternatives": "8311f5f3ea587467f4270bea23f004c84f4fc6787c9e58ac561a4bcf7178537b",
+      "alternatives_claims": "284cc4b5a98036e06bf5c528ebaa9172a750c048c5e70c283308d62c5bd46afe",
+      "alternatives_typed": "3d641eaff7c3b14c5ddfc32eb7a80837fa17be1d9bce49f5322d3c1b048bfb5b",
+      "jev_verified": "f0dee1db526eafa3416a97fab71ec7c39f56c3e4ca029b22be6c3ae0695818cc",
+      "jev_fresh": "6050d856944099c616100523ed0dfe34e8dc754bbe31da2e64528685ddab4c6a"
+    },
+    "decision2-eos-08b": {
+      "alternatives": "d84eb3c26e6b9f9ec2e62046e2b917cab4ad7e4abc16cb22524a2817a7063adb",
+      "alternatives_claims": "ef171cf677e932df2f973deb649120a69b3b08764ad2e26fb9ba23061eb74a04",
+      "alternatives_typed": "b2c250db8dcc9a994a5288bad975f8b958a51b9292e0430f55d319d7d64eedac",
+      "jev_verified": "dd2c7a9439cbb035ff81599914e2efc361ef45fbfbc30e708285a291b71baa6d",
+      "jev_fresh": "5893d19bb9c192b46734db4179266067d5aade39a1e089eaaeb14aefdfabffde"
+    },
+    "decision2-kai-06b": {
+      "alternatives": "8435ec2b0997ff5fcb5c7d241bc76de52d9ee02f410d2f147d87d942889b6187",
+      "alternatives_claims": "641e266e1951d12b0e965ea7e27085b24f0f193db59cb507531e7e8dd4958eec",
+      "alternatives_typed": "30bf7462ec289533927b72549085c0779216c8854dcc7179e8f325c989eb568d",
+      "jev_verified": "98f124be2a8395a97788b6db32d9433fb52d2385a7edd8da7a5b55c70c1c5a5e",
+      "jev_fresh": "891d960b5192380d1ecf26aece509416903cb5b87f2a560a370a976f118639f4"
+    },
+    "decision2-nox-4b": {
+      "alternatives": "3f6407f83aee884e9df8017a0c8168640b3192f44b417346698cb6a6f96c87e6",
+      "alternatives_claims": "e6a311a1818b68c022d1390c19039b82e6ef9ad17f2674f03330f50f885297ed",
+      "alternatives_typed": "775db666659dd1049b73f4e9e5d525085b5156a2c2e43659f8012b95198940ad",
+      "jev_verified": "da509d78bd62b14231c1cb7128d2365b09e40899ed0404d35cbe4634c9373568",
+      "jev_fresh": "09279c65dc7e3565061325c3047f9dd95d74ae7cea37d9204c6b9be014dcde8b"
+    },
+    "decision2-sol-2b": {
+      "alternatives": "320eb502e1b1816a38aecbeef08507b61e0dce375a9b17aa97fe15766ade58f1",
+      "alternatives_claims": "f6439713d2fc11cfe4beb2fc05b57abb2afc5d89f9fa603eb1f5c9f7d97d24f9",
+      "alternatives_typed": "cfcf94bf65eb4ddafcc5a05be9a8505e23c7c0dbdf525aa0e209fbd1c27619da",
+      "jev_verified": "ef3a02da988274dd1e2f114d15844bb8046cd0914a73c21b4f91b783dca60035",
+      "jev_fresh": "0a9c9ecb8b24d974bb2ce896caab340d1853519984f351f00a47bd1c05dfcd2e"
+    },
+    "gliner-decide-1b": {
+      "alternatives": "8ed900dd01adfa0e4ba01bc08648cf00f25a6af3a15db672f71df27d6a765b24",
+      "alternatives_claims": "13a3dd772f277dfd0180804b6d2fa88c791a68fffa4b8ef6943ce5e8df8c542d",
+      "alternatives_typed": "559b046e19b84ddaa944ce7e55439a166333a8a16609ae6cd7426c9d87209a71",
+      "jev_verified": "2f74d1a214c08f9c0606ecfa09b155ca47145b8108711272037cb8f5f256dca6",
+      "jev_fresh": "c328d74d19a23e5b0acf0904797cf313edbc864170cede4dbfd677f43a63377d"
+    },
+    "gliner-decide-multi": {
+      "alternatives": "1528c3d72cfc6c876b336bd2d40149ade2d62c52167cb4e201c302b7373e2f9c",
+      "alternatives_claims": "68b8254767444587ef0d10e8695ff389853e5f21535c4f8f56a254726ad3a222",
+      "alternatives_typed": "aba7757e7535cbe9d12c24b09aa6d478e342c4dc58c785265f2a0270a43ffad3",
+      "jev_verified": "78fc5206e04a75ec3f6995f4f7b2d0bfd3fdba621500d3c5df755fab466bb8a0",
+      "jev_fresh": "b4f4c86f798dcb9e39f5fa1f8650cb2474a385dc300052a645b0e7bd100e7f5b"
+    },
+    "gliner-decide": {
+      "alternatives": "0a8d231dadb94de72faa35a4cf051f37f3364156196cbd3963a39eac0acbe0db",
+      "alternatives_claims": "59973d49564c1b5ffac978fc9b43f4d89ad9f9efd429c014510060d64cd20c21",
+      "alternatives_typed": "caee8b3ab0a6a9ee16ccfb8e74dc4e7f4c2f6d2dd54aefb3b126699aeabaadd5",
+      "jev_verified": "8d6c4796608c27e3dafbb4fd35382d1e48f3785e131088c8c8ba6ffd6a84d19f",
+      "jev_fresh": "eb9ff10a903e0dd094ebc619616b9d795b3e8d08256bc7d8aff41019dfffdd4a"
+    },
+    "imajev-2b": {
+      "alternatives": "e4da491b80b603924a40c07a4473865ae61818bc62a84258f304ba426c8d41b4",
+      "alternatives_claims": "c7fdd587835fe7cedd5913db590d7b342442360ca782f4d41c9075f3f7f2b0cf",
+      "alternatives_typed": "005ce7680bc3f78a79dabb91d32d5499aa9bd7cf974e78f20eafff1fdc593ffc",
+      "jev_verified": "70bfb59e54f5b3336d0b68bfaad275e1af73b1596060cd7982590a928975f67f",
+      "jev_fresh": "b677dc77d0db858d3378368dfcc5ae795747d072e0393480143cb1a331e50696"
+    },
+    "imajev-4b": {
+      "alternatives": "648cbaec471c4300187c4b0f51b07482b3166a0bddec324f77fd58ca4d1d95b0",
+      "alternatives_claims": "1f64bff66ca5063463ce56ded73b420d3cd1990acd5213fb22a97cbaeac09bf1",
+      "alternatives_typed": "55a0e0877a5e670eb7fbf7971161b3e26648426e5c01ab95ef0706e4b7299ca4",
+      "jev_verified": "25d6436d0a08af339bb69be42ef122ae10cd852b2a2b0975800a15c021ebc464",
+      "jev_fresh": "b4f6f7423d835ac4b434e411ddcae6720ca8bac641edf21b1828ed797eb45185"
+    },
+    "intern-decision-4b": {
+      "alternatives": "d8bec8079aec60e235085f0781ce9cf219262872591bcb8208db2d3de93b88bd",
+      "alternatives_claims": "16398bd107af7e26fd66927ac7153a58e65d6d99a809f7e761039099ff99144a",
+      "alternatives_typed": "371eea01feb3e3487f8e2cb638901065437ac0a495b4f0d5400940cde83f68c5",
+      "jev_verified": "e92ab93b1a7ca370a845d4ba81cfcb90bf4f76a36e19bb37513395d8753341c9",
+      "jev_fresh": "fc41f29a93176b01c1a02914eed60eca1c78886ab6866b7d4bf9c219fd556e4d"
+    },
+    "jev-omni-12b-nf4": {
+      "alternatives": "ff75f9fbae4739925e6deee58647dd8d7fb5b254833cd1ae3639763cc9fee3e4",
+      "alternatives_claims": "458b5dea05c9e671b77d5abf4d1743171b0d13d4b2402e715ac492d50917742a",
+      "alternatives_typed": "9b267bc7fd037eefc003c167643ce48ded863b2cd8e79552d06cab77ce425a0e",
+      "jev_verified": "926a707df73fac729e3251c2e7a2328306bd98f8fe31fc51ea9bc44960e7075e",
+      "jev_fresh": "951d65978b384426be06c94c85d77a4a0f7cf79fce4618d6c12b7573efd3e693"
+    },
+    "jevk5-2b": {
+      "alternatives": "65ad01426b02d944ebf54152bb4a6752d9d840f93c6d1f2d310099767f1be86a",
+      "alternatives_claims": "fa5fe873c58c0bd48e5150e40a28121a0ddc32cd1419b9fe4fef39a4f9c41d8b",
+      "alternatives_typed": "2a0cbf33b1d8861eb8ab2fb195855de4b5a36df86e93e446e13f9efe077d5cd8",
+      "jev_verified": "610a85a4075dec871a84c5dd42eb3c06dacaa78978bf877d517c057a7977d107",
+      "jev_fresh": "f8913b141d3532e8e0cdfc5b336c5695225800b174d2941f100340d5734a1542"
+    },
+    "jevk5": {
+      "alternatives": "a1ee4fc45317eb980abbcf165ec562ca2d8d9cb444314df7a0565ed832e9683d",
+      "alternatives_claims": "28c908d5ed0acf1fbe657bf0461639a5dc03fd431d609b81ba2ea140561d6e3f",
+      "alternatives_typed": "7cbd59b7397176248a6681c5463d4b664fa45ce884986070200fe0a712087e9d",
+      "jev_verified": "6e492d2487f20933b1738e3c97129cf2c94a2ae881eb8ab3367e646ab42f0dc0",
+      "jev_fresh": "273a7f3755f87d814c6993d8f6d4b20d449b182b19f88830837db56ec3dd9273"
+    },
+    "julia": {
+      "alternatives": "be8e959eb3fc15e0389f8a60f8a2fab096e289e89e594f9875acb4a352a54a67",
+      "alternatives_claims": "2f81a44c8b9147a96b1cd562a8b541aafc5326ff3c6e803d054b221a29e343b0",
+      "alternatives_typed": "ea0f5eca9cedcd515945ea2ef638e5b0a027dbcebae560b82e6a5597dbba5c1a",
+      "jev_verified": "4f4c416383dadadbf197261576d64f19890910894068d6de5a2e6ddbf3282fef",
+      "jev_fresh": "49a690626acbb785484a9606a2544f95ff3fcc7ef32808279f4a806f971e32c1"
+    },
+    "kev-08b": {
+      "alternatives": "050497d12dec4cd865f4b49a04aa76085f22b18701450791a7902a367acfcb42",
+      "alternatives_claims": "321219f8422414e1d007655f0d01517e573a6c4024229deab3606e54c8ac8ee1",
+      "alternatives_typed": "d3267aec402bf7838fb20f1430f2350b70ee6ca40462d1bc9704bfd65cf8f966",
+      "jev_verified": "58360970919d0b130560b366efb7d856bcd5485a510ba90fe0f20554cb678085",
+      "jev_fresh": "c58d657dd7394ddf6061fa50c9b808b9fc745c5059205d65306d93879ec1e1a9"
+    },
+    "kev-4b": {
+      "alternatives": "ee9af472e767c78bf25a75c11d3d90a000c804a66fe0711b6ae0d5a5aa1776ee",
+      "alternatives_claims": "f1a105e3b3698891f4b8cef30c2f78ba03a46b1481bbaeb6b99fe6e1443608f2",
+      "alternatives_typed": "a32b8bae0567be6f76c239d2c7710d9857ea0709dd70ca1f89b89cdfc5e5ee1d",
+      "jev_verified": "aa9d170dec42018423de4e8f10cd982856daa8192420f167f064eacbfe531f5d",
+      "jev_fresh": "c672bf2b712cbe4d1ba38fe3952c98bc5b261412b175b6f43dbc200ddea8e2c7"
+    },
+    "laya-multilingual": {
+      "alternatives": "9e9850804d9c9e2c7fa2247643cbbd21cf5d341911458c449ae37ae51a71c938",
+      "alternatives_claims": "637cb3a5da4b562b7490c89869a1cec08d894b7c7eaaea60104e0d416c0bad38",
+      "alternatives_typed": "79a773a502af8d45e7bd4aab2422872f4fba85dd7524ab933c2abf333ee5089e",
+      "jev_verified": "db7f7e3ee1396ca2f7fa3aaa05aad44fab026d81fea931110adf4ed52be80cdf",
+      "jev_fresh": "4766281c83848fb19cbced3cfde0f68a1ec09a231d547d7f85e58942af3be859"
+    },
+    "laya": {
+      "alternatives": "a0b3d2571c1e3e6b62e07a96e417f25961902496a28754e2245bdba14de54101",
+      "alternatives_claims": "e29d96d95a01362980c939a0bb4bd2e64e269166522e5e657768dbc0f7295775",
+      "alternatives_typed": "cc93b0fa58c35df05001299f6fcff699302ee0d7ddba1f76bad3e70696b95282",
+      "jev_verified": "7bf76dadb7729228e01a31342f2702861c54eefb8d94288986b01f7dee72609f",
+      "jev_fresh": "29d547e7ad2f269a6351547c45833abfaf4548ef6eb9d1bade224af8caac61d1"
+    },
+    "nev-2b": {
+      "alternatives": "fe63932575a63eec279c0c18c8623ebf2ddc1635bfbd5dd102441ddf61c9ed99",
+      "alternatives_claims": "31142c2ae662e3124f135263b959c94b91553664c139944fb6aaafbbb3e9ab51",
+      "alternatives_typed": "eec4c7807981d44d54990d750e7a4b785a45a568304effa358b62a22e44f1792",
+      "jev_verified": "7ce7fe7cffadda42f08c5820f5682594938a76f059ddf7f4b59a9d28501bba0e",
+      "jev_fresh": "6eddcb1e7411641295b9f52f3c820281c3a4d0c71ef15cb9a3f9631e041f8da0"
+    },
+    "nimble-9b": {
+      "alternatives": "d7af319d5dd5761e8752c43b5070cd3ba615c74a7274d85264259b13786a232f",
+      "alternatives_claims": "4292e3778a43bd4ef7b8773f60c59e2545cddfdf59df223542c2330deaf00b05",
+      "alternatives_typed": "8357f7a22098a09c0e24a77fe656c8248d700b13d1e20fc5a6aead348e38407b",
+      "jev_verified": "bdc072b70b68c55ba9d98d7d39b8fd1cdbb071e6a567bbd5eb5152b69e4de92b",
+      "jev_fresh": "e6605e96e63129bd094960621fb21c1030d3bc0ff1f001279c99af0c006a72b7"
+    },
+    "plumb-4b": {
+      "alternatives": "8e4ba7b734faf1c1fa59ec6a3331edd2c5b6138b928fdaea31d88f7ab6cff278",
+      "alternatives_claims": "05f775c8b05c3a10ae270863de9dde802aa189c5ee45c329b27db4a7d949ff60",
+      "alternatives_typed": "6ddc2f7145e91c940746b81d19a39cf29a200c0e49d77e64446ca6bc068c5ca1",
+      "jev_verified": "a37b12d4ec578b929bf0fc2675c7ed63fd29281d32736a4f47faa09bfb12ae5f",
+      "jev_fresh": "f0a5d1818adc305cd18e68888d24feb3e47fc80a26edcded55b5cbc24e1bd7f2"
+    },
+    "tev1": {
+      "alternatives": "3328b417b79cf1baf6840090402731752b18a02b1493c1aec418cc205bf4e5c6",
+      "alternatives_claims": "3aa74a7a198b3d4bdd15e15e599bbff59d4cb5b3f3534b7ef662e69f1a982607",
+      "alternatives_typed": "ff935bcba2c7e519832469cb5fceb0afb485ea927f3dac45a1f3725f4389a3bf",
+      "jev_verified": "e8d613607cbb66ebec81dcbf01748aa3495cbcc4b4a98cffbcf158998857a699",
+      "jev_fresh": "ee04d98fdfed091ff4907b540df2a23823484a239d92fc9b17bcffca0356b6be"
+    },
+    "von": {
+      "alternatives": "6bfe9cd78dc51490da3b8cb00819dbf6d05ea04a530b7ac6be846e5dd2f164c8",
+      "alternatives_claims": "739b51ceecf83064d2b8f2619c2692749ce7a1b994a9e9141f7b0da1e69ce028",
+      "alternatives_typed": "d35dbd4f044a388f1d2fb31e2bd02a59df154e64120ccdee3879d7041d1c0993",
+      "jev_verified": "ce55cb5fd69558e21f579752fe2a36096d19cbd0811f7fb9590f5c6940236123",
+      "jev_fresh": "c065080177c241c18afcce45a4d7d09c7213d7792095478dd54322f64002542d"
+    },
+    "wald-4b-v12": {
+      "alternatives": "f559b26c7c88aaa8f9c166274f68a4d91c07aad2a53072474a768671a3b91cd5",
+      "alternatives_claims": "832f36cd60e9b6c33c26b68373d587c5fbe3c14857489f41d472f0c6b76545b5",
+      "alternatives_typed": "cc95558017275485961c0fa367cd16bd2ca98bd9ff434f6d1b983f9af6868452",
+      "jev_verified": "9eb14a8d19d5d97ec97a52ae6f44ffc3c2cf474684b0ebd644edec2bb7504206",
+      "jev_fresh": "4de7fc7b845a4f57f6fd04c61134331f1d41cd4da597c967be1d4d405f5e9c0c"
+    },
+    "winnow-12b-q8": {
+      "alternatives": "15cd340bda1dbc62070a37d30433867b12fa3458ecab805c4146334a57752e45",
+      "alternatives_claims": "cc000b42ea65b36f295bf445ce3d2472131cb3ddc9c482b7e9cba8a95fd0ce47",
+      "alternatives_typed": "3daca1d75f43d2f6c94f84fb46ca7bc1fa37b520c93d2040a91f21d9e79c1573",
+      "jev_verified": "5279fbabef68add3416de09e445b6e7bc33b8ffa24a113e29286e039bd487ad4",
+      "jev_fresh": "d4736a9a336c76d5d9a78c0df45433c8330669c43ff85304fe1c5888a4294ce5"
+    }
+  },
+  "jev_predictions_sha256": "bf0b6e41bcc53968e9f174268a20a657383af17fc346108c39cd72b07929d213",
+  "verifier_sha256": "431526043173b4cc54a2eac9a5d20c5f56782a300321294de24b4d511d774a15",
+  "limits": "Saved runtime failures, native rejections and abstentions are not successful answers. JevK5 developer-tool timing is unavailable; seven historical Winnow timing gaps are outside the restoration queue. This verifies execution evidence, not label quality, training independence or production suitability."
+}

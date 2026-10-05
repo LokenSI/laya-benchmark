@@ -1,5 +1,9 @@
 # Public benchmark package
 
+**Unofficial, independent testing. Use as is, without warranty.** These results are not vendor-endorsed. Validate suitability on your own data before production use.
+
+**Revision `completion-2026-10-04` — updated 5 October 2026.** The completion pass retains the original five frozen fixtures, prompts, model revisions and scoring. It resumes missing local results in fresh workers, retries only recorded infrastructure failures, and extends controlled timing coverage on the original fixed samples. All 31 local models have 17,576 recorded cases each. The dated completion report states answered coverage and remaining failures; a saved rejection is not a successful answer. Historical API attempts and earlier timing evidence remain preserved.
+
 Repository: https://github.com/LokenSI/laya-benchmark
 
 Published reports: https://lokensi.github.io/laya-benchmark/
@@ -18,5 +22,7 @@ Build the public site without running inference:
 ```
 
 The share-card generator verifies complete source reports and records their SHA-256 hashes in the share package. It exports a 1080×1350 PNG, a 2160×2700 master, editable SVG and alt text. `build_pages.py` requires every public source to exist, builds the landing page from the recorded metrics, checks local report links and writes an asset checksum manifest. GitHub Actions repeats this check and deploys the static site on pushes to `main`.
+
+Before regeneration, `scripts/verify_completion.py` checks protected predictions, archived infrastructure retries, at least three retained attempts for each remaining memory failure, unchanged historical timing evidence, the pinned Jev reference and removal of temporary restored weights. Its [aggregate verification](../results/completion/final-verification.json) publishes counts and hashes, without case payloads. The Pages build rejects mismatches between those verified prediction hashes and the completion report.
 
 On a clean clone, the committed share card and aggregate results are sufficient to build the site with standard Python. Regenerating results requires datasets and models to be prepared locally. Model and dataset licences apply separately; this repository does not redistribute them.

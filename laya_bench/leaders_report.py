@@ -2,6 +2,7 @@
 import html
 from datetime import datetime, timezone
 from .common import ROOT, read_json, write_json, digest
+from .completion import FIXTURES
 
 OUT = ROOT / 'results/alternatives'
 ADDED = [
@@ -27,8 +28,17 @@ ADDED = [
 ]
 
 
+def shared_coverage(comparison, model):
+    available = comparison['models'].get(model, {}).get('fixtures', {})
+    groups = [available[name] for name in FIXTURES if name in available]
+    complete = len(groups) == len(FIXTURES) and all(g['complete'] for g in groups)
+    return {'complete': complete, 'recorded': sum(g['attempted'] for g in groups),
+            'saved_failures': sum(g['errors'] for g in groups)}
+
+
 def build():
     from .alternatives_report import lines, native_jev
+    comparison = read_json(OUT/'comparison.json')
     rows = lines(ROOT / 'data/prepared/alternatives_claims.jsonl')
     assert sum(r['suite'].startswith('jevbench_public/') for r in rows)==231, 'Wrong public JevBench fixture'
     source = ROOT / '.cache/leader_research/jevbench-v1.5.4.json'
@@ -39,10 +49,10 @@ def build():
               'selection': 'Union of top ten overall and top ten Jev-class capability entries, with duplicate versions identified.',
               'added': [],
               'existing': [
-                  {'name': 'JevK5 v0.3', 'status': 'Already in the queue; pinned checkpoint verified as v0.3.'},
-                  {'name': 'Plumb-4B', 'status': 'Already in the queue; native readout/calibration details retained.'},
-                  {'name': 'Imajev-4B', 'status': 'Already prepared and queued; publisher abstentions remain unanswered.'},
-                  {'name': 'Decider 4B', 'status': 'Already tested; local v2.1 differs from the leaderboard v2 checkpoint.'}],
+                  {'id': 'jevk5', 'name': 'JevK5 v0.3', 'status': 'Pinned checkpoint verified as v0.3; scoped native recovery disclosed in the completion report.'},
+                  {'id': 'plumb-4b', 'name': 'Plumb-4B', 'status': 'Native readout/calibration retained; scoped native recovery disclosed in the completion report.'},
+                  {'id': 'imajev-4b', 'name': 'Imajev-4B', 'status': 'Publisher abstentions remain unanswered.'},
+                  {'id': 'decider-4b', 'name': 'Decider 4B', 'status': 'Local v2.1 differs from the leaderboard v2 checkpoint.'}],
               'deferred': [
                   {'name': 'Surogate Rune 26B-A4B v3', 'license': 'Apache 2.0', 'source': 'https://huggingface.co/surogate/rune-26b-a4b-GGUF',
                    'reason': 'Official v3 weights are gated and require contact-information sharing; BF16 weights alone are about 51.6 GB. No gate accepted and no external compute provisioned.'},
@@ -51,6 +61,10 @@ def build():
                   {'name': 'Decision 4B v1.1', 'license': 'Apache 2.0', 'source': 'https://huggingface.co/flymy-ai/decision-4b-v1.1',
                    'reason': 'Older version of the same family; v1.2 selected to avoid duplicating the first expansion.'}],
               'closed': 'No new closed-source systems added. Existing paid Jev results remain the comparison reference.'}
+    for item in result['existing']:
+        item['coverage'] = shared_coverage(comparison, item['id'])
+        if item['coverage']['complete']:
+            item['status'] = f"All {item['coverage']['recorded']:,} shared cases recorded. " + item['status']
     jobs = []
     for state_name in ['queue-leaders-priority', 'queue-leaders-full']:
         path = OUT / f'{state_name}.json'
@@ -58,6 +72,7 @@ def build():
             state = read_json(path)
             jobs.extend(state.get('jobs', []))
             result[state_name] = state
+    result['queue_history_note'] = 'Earlier queue states are archival only; current coverage comes from saved fixture results.'
     for spec in ADDED:
         item = dict(spec)
         meta = OUT / f'models/{spec["id"]}.json'
@@ -77,6 +92,11 @@ def build():
             item['public_jevbench']['accuracy'] = correct / n
             item['public_jevbench']['matches_published_count'] = correct in spec['claim_correct']
             item['status'] = 'Public JevBench complete; see other suite progress'
+        item['shared_coverage'] = shared_coverage(comparison, spec['id'])
+        if item['shared_coverage']['complete']:
+            item['status'] = (f"All {item['shared_coverage']['recorded']:,} shared cases recorded; "
+                              f"{item['shared_coverage']['saved_failures']:,} saved failures or native rejections. "
+                              'Answered coverage is reported separately.')
         result['added'].append(item)
     write_json(OUT / 'leader-expansion.json', result)
     esc = html.escape
@@ -86,10 +106,10 @@ def build():
     claims = ''.join(f'<tr><td>{esc(x["name"])}</td><td>{" or ".join(map(str,x["claim_correct"]))}/231</td><td>{str(x["public_jevbench"]["correct"])+"/231" if x["public_jevbench"]["complete"] else "Pending — no partial score"}</td><td>{esc(x["claim_scope"])}</td></tr>' for x in result['added'])
     page = f'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Open-source leaderboard expansion</title>
 <style>body{{font:16px/1.55 Segoe UI,Arial,sans-serif;background:#f3f6f8;color:#162b3b;margin:0}}main{{max-width:1180px;margin:auto;padding:52px 32px}}h1{{font-size:38px;letter-spacing:-1px}}h2{{font-size:22px}}section{{background:white;padding:24px;margin:24px 0;border:1px solid #dce4ea}}table{{border-collapse:collapse;width:100%}}td,th{{padding:13px 10px;border-bottom:1px solid #e1e8ed;text-align:left;vertical-align:top}}th,small{{font-size:13px;color:#546979}}small{{display:block}}a{{color:#17657d}}li{{margin:12px 0}}.tag{{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#546979}}.note{{border-left:4px solid #3b7a8c;padding-left:18px}}</style>
-<main><div class="tag">Local software evaluation · 1 October 2026</div><h1>Testing the open-source leaders</h1><p class="note">Four additions to the shared comparison. Eligibility is verified separately from execution. An available checkpoint, successful build, or passing interface probe is not an accuracy result.</p>
+<main><div class="tag">Local software evaluation · {result["updated"][:10]} · Unofficial testing</div><h1>Testing the open-source leaders</h1><p class="note">Four additions to the shared comparison. Eligibility is verified separately from execution. An available checkpoint, successful build, or passing interface probe is not an accuracy result.</p>
 <p>Selection uses <a href="https://benchmarkheaven.com/jev-models">JevBench v1.5.4</a>, saved with SHA256 <code>{result['source_sha256']}</code>. Both overall and capability rankings were checked.</p>
-<section><h2>Added to the local queue</h2><table><tr><th>Model and license</th><th>Local configuration</th><th>Execution status</th></tr>{table}</table><p>Updated {esc(result['updated'])}. The runtime uses Python venvs and one GPU job at a time. Winnow uses a compiled native CUDA server controlled by the Python runner.</p></section>
-<section><h2>Fair comparison protocol</h2><p>The first checks cover 231 public JevBench cases plus the existing 300-case exact pilot, followed by the same frozen fresh English and Norwegian business/task fixtures used with live Jev. Full shared classification, industry and typed-decision suites are queued afterwards. Inputs and source hashes stay fixed; unsupported requests and model errors remain in denominators.</p><p>NF4 variants are labelled separately. They test practicality on this GPU and cannot establish that the published BF16 configurations reproduce or fail their claims. Confidence thresholds must come from development data. Batch run times are not the separate controlled response-time experiment.</p><p><a href="../jev_live/report.html">Live Jev comparison</a> · <a href="report.html">Full benchmark progress</a> · <a href="leader-expansion.json">Structured evidence and status</a> · <a href="leader-license-audit.json">Detailed publisher license audit</a></p></section>
+<section><h2>Models and verified coverage</h2><table><tr><th>Model and license</th><th>Local configuration</th><th>Execution status</th></tr>{table}</table><p>Updated {esc(result['updated'])}. The runtime uses Python venvs and one GPU job at a time. Winnow uses a compiled native CUDA server controlled by the Python runner.</p></section>
+<section><h2>Fair comparison protocol</h2><p>The first checks cover 231 public JevBench cases plus the existing 300-case exact pilot, followed by the same frozen fresh English and Norwegian business/task fixtures used with live Jev. The shared classification, industry and typed-decision suites use the same five frozen fixtures: 17,576 records per model. Recorded failures and native rejections remain visible. Inputs and source hashes stay fixed; unsupported requests and model errors remain in denominators.</p><p>NF4 variants are labelled separately. They test practicality on this GPU and cannot establish that the published BF16 configurations reproduce or fail their claims. Confidence thresholds must come from development data. Batch run times are not the separate controlled response-time experiment.</p><p><a href="../jev_live/report.html">Live Jev comparison</a> · <a href="report.html">Full benchmark progress</a> · <a href="leader-expansion.json">Structured evidence and status</a> · <a href="leader-license-audit.json">Detailed publisher license audit</a></p></section>
 <section><h2>Public accuracy claims</h2><table><tr><th>Model</th><th>Published correct</th><th>Local correct</th><th>Scope</th></tr>{claims}</table><p>The sealed leaderboard is not reproduced here. Public answer keys are source-verified; they have not been independently relabelled by domain experts.</p></section>
 <section><h2>Already covered</h2><ul>{existing}</ul></section><section><h2>Deferred</h2><ul>{deferred}</ul><p>{esc(result['closed'])}</p></section>
 <section><h2>What this can establish for a business</h2><p>We can compare routing and document decisions, Norwegian reliability, review coverage and error types under the same inputs. We cannot infer production safety or return on investment from a leaderboard position. Industrial examples remain small authored diagnostics until a domain expert reviews them.</p></section></main></html>'''

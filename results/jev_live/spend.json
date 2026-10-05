@@ -1,11 +1,11 @@
 {
-  "billable_input_tokens": 10916630,
-  "output_tokens": 1933781,
-  "completed_attempts": 18833,
-  "estimated_cost_usd": 0.45849846,
+  "billable_input_tokens": 10917751,
+  "output_tokens": 1934079,
+  "completed_attempts": 18835,
+  "estimated_cost_usd": 0.458545542,
   "unconfirmed_or_inflight_reserved_usd": 0.126,
-  "budget_accounted_usd": 0.58449846,
+  "budget_accounted_usd": 0.584545542,
   "cap_usd": 25.0,
   "price_per_million_input_tokens_usd": 0.041999999999999996,
-  "updated": "2026-10-01T14:18:28.348986+00:00"
+  "updated": "2026-10-04T18:00:04.235462+00:00"
 }

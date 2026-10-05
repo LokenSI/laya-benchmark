@@ -1,5 +1,19 @@
 # Evaluation protocol, version 1
 
+**Revision `completion-2026-10-04` — updated 5 October 2026: completion and recovery extension.** The original inputs, model revisions, native decision logic, context limits, precision and development/test splits remain fixed. This revision adds strict ID/input-hash verification, protected-record hashes, workers capped at 256 new cases with batch size one, and separate retries for recorded memory failures. Interrupted final output is archived before repair. Three failed attempts on a case retain the diagnostics and leave it explicitly unresolved while independent work continues. Incorrect answers, abstentions and native option-count rejections are not retried.
+
+Controlled latency retains the original timing fixture, eight warm-ups per task and three serial passes, separately from recovery-run timing. Added device VRAM is the sampled NVML device peak minus its idle baseline. Existing complete blocks remain unchanged. Jev's full reference is reused; only its two recorded HTTP errors are retried against pinned Jev 1.13.0, with original attempts preserved.
+
+Plumb exposed a question-batching integration failure on `kev_claim/devtools-v1/529`: the optimized BF16 batch differed from the publisher's per-question probabilities by up to 0.027925, exceeding the existing 0.025 parity tolerance in three fresh workers. Its recovery uses the publisher's serial `probabilities()` API for that exact input hash, retaining the original typed-question mapping, checkpoint, BF16 precision, prompts, calibration and option handling. The original assertion is unchanged; all other cases retain the existing adapter path. The recovered record is marked `publisher-native-serial`, with a separate manifest and preserved crash logs. This is an integration recovery, not a latency measurement or an accuracy-selected rerun.
+
+JevK5 required the same explicitly scoped recovery on `kev_claim/devtools-v1/445` and `kev_claim/devtools-v1/709`, after three fresh failures per case with maximum probability differences of 0.051146 and 0.025350 respectively. Separate input hashes and a recovery manifest identify these two cases; no successful saved answer is replaced and the original parity tolerance remains 0.025.
+
+JevK5 developer-tool latency is withheld. Three controlled timing workers failed the original parity check during the first fixed warm-up case (`kev_claim/devtools-v1/844`, difference 0.047281). A separate native-serial diagnostic answered all 12 timing cases but changed one decision compared with the saved accuracy predictions. We therefore do not pair that alternative implementation's latency with the original accuracy score. The affected timing group is explicitly unavailable, with no estimated median or plotted point; the other 11 groups and all original records remain intact. A hash-verified failure manifest accounts for this limitation so independent model work and temporary-weight cleanup can continue.
+
+Winnow 12B Q8 retains seven historical timing gaps: English and Norwegian MASSIVE, developer-tool decisions, and the four industrial routing/document groups. It already had full accuracy coverage and no recorded memory failures, so it was outside the approved restoration queue. Its existing five timing groups remain available; missing latency and VRAM points are not estimated. The completion report lists timing coverage separately from accuracy-case coverage.
+
+**Unofficial, independent testing. Use results and code as is, without warranty or vendor endorsement.** Public benchmark exposure and small authored business diagnostics limit generalization; validate your own workflow before production use.
+
 ## Primary questions, fixed before the scored run
 
 1. How accurate are the English and multilingual checkpoints on all 18 MASSIVE service categories in English and Bokmål?
