@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-03T15:36:37.497131</dc:date>
+    <dc:date>2026-10-05T02:50:48.776686</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -54,8 +54,8 @@ z
   </g>
   <g id="patch_5">
    <path d="M 330.48 443.232 
-L 578.399349 443.232 
-L 578.399349 423.792 
+L 578.605091 443.232 
+L 578.605091 423.792 
 L 330.48 423.792 
 z
 " style="fill: #4a789a"/>
@@ -168,12 +168,13 @@ z
   <g id="text_21">
    <text style="font-size: 10.5px; font-family: 'Segoe UI'; fill: #526671" transform="translate(54.432 888.405281)">Public test results ≠ production accuracy or proven ROI.</text>
    <text style="font-size: 10.5px; font-family: 'Segoe UI'; fill: #526671" transform="translate(54.432 900.825862)">Decision 2.0: 4 models · 70,304 saved predictions · RTX 5070 Ti 16 GB</text>
+   <text style="font-size: 10.5px; font-family: 'Segoe UI'; fill: #526671" transform="translate(54.432 913.333462)">Unofficial, independent testing. Use as is, without warranty.</text>
   </g>
   <g id="text_22">
    <text style="font-weight: 600; font-size: 14px; font-family: 'Segoe UI'; text-anchor: start; fill: #187c76" x="54.432" y="942.512375" transform="rotate(-0 54.432 942.512375)">lokensi.github.io/laya-benchmark</text>
   </g>
   <g id="text_23">
-   <text style="font-size: 10.5px; font-family: 'Segoe UI'; text-anchor: end; fill: #526671" x="723.168" y="939.921281" transform="rotate(-0 723.168 939.921281)">03 OCT 2026</text>
+   <text style="font-size: 10.5px; font-family: 'Segoe UI'; text-anchor: end; fill: #526671" x="723.168" y="939.921281" transform="rotate(-0 723.168 939.921281)">2026-10-05</text>
   </g>
  </g>
 </svg>

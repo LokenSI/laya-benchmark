@@ -131,6 +131,9 @@ def build(charts=False):
     report={'updated':now(),'jev_version':JEV,'status':'in_progress','case_count':len(rows),
             'api_progress':read_json(OUT/'progress.json'),'spend':read_json(OUT/'spend.json'),
             'fixture_sha256':digest(ROOT/'data/prepared/jev_live.jsonl'),'models':{},'paired_comparisons':{}}
+    report['api_progress']={**report['api_progress'],
+        'completed':len(predictions[JEV]), 'errors':sum(bool(p.get('error')) for p in predictions[JEV].values()),
+        'completion_source':'Verified saved prediction records; historical worker progress retained separately.'}
     from .industry import keyword_route
     report['keyword_baseline']={}
     for suite,items in groups.items():
@@ -219,7 +222,7 @@ def render(report,rows,predictions):
     sample_json=json.dumps(sample,ensure_ascii=False).replace('<','\\u003c')
     output=f'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jev and local models: business evaluation</title>
 <style>body{{margin:0;background:#f5f7fa;color:#152b40;font:16px/1.6 system-ui,sans-serif}}main{{max-width:1260px;margin:auto;padding:42px 30px}}h1{{font-size:38px;line-height:1.2;letter-spacing:-1px}}h2{{font-size:24px;line-height:1.3}}.eyebrow{{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#546c82}}section{{background:#fff;border:1px solid #dce3e9;padding:24px 28px;margin:24px 0}}.note{{padding:18px 22px;background:#e9eff4;border-left:4px solid #327f80}}table{{border-collapse:collapse;width:100%;font-size:14px}}th,td{{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid #e4eaf0}}th{{font-weight:550}}thead{{color:#587085;font-size:12px}}td strong,small{{display:block}}small{{font-size:11px;color:#5e7385}}a{{color:#166a79}}input,select{{font:inherit;padding:7px;border:1px solid #b9c8d3;border-radius:2px}}label{{display:inline-block;margin:8px 14px 8px 0}}input{{width:105px}}pre{{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f7fa;padding:16px}}.cards{{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}.cards div{{background:#eef3f6;padding:16px}}.cards strong{{font-size:26px;display:block}}@media(max-width:900px){{main{{padding:20px 10px}}section{{overflow-x:auto;padding:18px}}.cards{{grid-template-columns:1fr}}}}</style>
-<main><div class="eyebrow">Decision models in software · 1 October 2026</div><h1>Where can a local model compete with Jev?</h1>
+<main><div class="eyebrow">Decision models in software · {esc(report['updated'][:10])}</div><h1>Where can a local model compete with Jev?</h1><p>Unofficial, independent testing. Use as is, without warranty or vendor endorsement.</p>
 <p class="note"><strong>{'LIVE API RUN COMPLETE' if progress['completed']==progress['expected'] else 'RUN IN PROGRESS'}</strong> · {progress['completed']:,}/{progress['expected']:,} live requests completed. Local alternatives may still be running. Only complete task groups appear below.<br>Updated {esc(report['updated'])}. Fresh strong-task comparison: {'complete for the seven priority alternatives' if report['priority_comparison_complete'] else 'in progress'}.</p>
 <div class="cards"><div>Live reference<strong>Jev 1.13.0</strong>Exact version, current API calls</div><div>New public test cases<strong>800</strong>Plus 400 development examples</div><div>Estimated API spend<strong>${money:.4f}</strong>Reported input tokens × dated public price</div></div>
 <p><a href="figures/index.html">Open the shareable graphics: accuracy, response time, technology, confidence and business value</a></p>
@@ -268,7 +271,7 @@ def draw(report):
     fig.suptitle('Local decision models against live Jev',x=.035,y=.975,ha='left',fontsize=23,fontweight='bold',color='#153a55')
     fig.text(.035,.925,'Fresh public test cases · 200 per task · identical inputs and labels · 95% accuracy intervals',fontsize=12,color='#506777')
     qualifier='Seven priority alternatives complete' if len(selected)==7 else f'INTERIM · {len(selected)} of seven priority alternatives complete'
-    fig.text(.035,.034,qualifier+' · 1 October 2026\nTask training exposure: Laya reports spam/phishing; Von reports emotion. Exact test overlap unknown.\nNew cases from tasks selected for prior local strengths. Sampling intervals do not establish a general winner.',fontsize=10,color='#506777')
+    fig.text(.035,.034,qualifier+' · '+report['updated'][:10]+' · Unofficial testing\nTask training exposure: Laya reports spam/phishing; Von reports emotion. Exact test overlap unknown.\nNew cases from tasks selected for prior local strengths. Sampling intervals do not establish a general winner.',fontsize=10,color='#506777')
     fig.subplots_adjust(left=.2,right=.97,top=.86,bottom=.15,wspace=.72,hspace=.3)
     for ext in ['png','svg']:fig.savefig(target/f'fresh-local-vs-jev.{ext}',facecolor='white')
     plt.close(fig)
@@ -289,7 +292,7 @@ def draw(report):
         ax.grid(axis='x',alpha=.12);ax.set_axisbelow(True);ax.spines['left'].set_visible(False);ax.tick_params(axis='y',length=0)
     fig.suptitle('A business pilot: route requests and file documents',x=.035,y=.975,ha='left',fontsize=23,fontweight='bold',color='#153a55')
     fig.text(.035,.925,'English and Norwegian · same tasks, inputs and choices · accuracy with 95% intervals',fontsize=12,color='#506777')
-    fig.text(.035,.034,'Seven priority local alternatives · synthetic pilot · 1 October 2026\n68 paired scenario families; assistant-authored labels. Domain-expert validation remains necessary.\nEvaluate as staff suggestions first. These results do not validate equipment control or safety decisions.',fontsize=10,color='#506777')
+    fig.text(.035,.034,'Seven priority local alternatives · synthetic pilot · '+report['updated'][:10]+' · Unofficial testing\n68 paired scenario families; assistant-authored labels. Domain-expert validation remains necessary.\nEvaluate as staff suggestions first. These results do not validate equipment control or safety decisions.',fontsize=10,color='#506777')
     fig.subplots_adjust(left=.2,right=.97,top=.86,bottom=.15,wspace=.72,hspace=.3)
     for ext in ['png','svg']:fig.savefig(target/f'business-local-vs-jev.{ext}',facecolor='white')
     plt.close(fig)
@@ -311,7 +314,7 @@ def draw(report):
         ax.grid(axis='x',alpha=.12);ax.set_axisbelow(True);ax.spines['left'].set_visible(False);ax.tick_params(axis='y',length=0)
     fig.suptitle('Intent recognition across English and Norwegian',x=.035,y=.975,ha='left',fontsize=22,fontweight='bold',color='#153a55')
     fig.text(.035,.915,'MASSIVE · 18 intent scenarios · 2,948 test cases per language · 95% accuracy intervals',fontsize=12,color='#506777')
-    fig.text(.035,.034,f'INTERIM model matrix · {len(names)-1} completed local alternatives and live Jev 1.13.0 · 1 October 2026\nIdentical frozen requests. Local precision varies; failed requests count as incorrect.\nPublic task training exposure is unknown. This is language transfer evidence, not industrial-domain validation.',fontsize=10,color='#506777')
+    fig.text(.035,.034,f'Unofficial testing · {len(names)-1} complete local language groups and Jev 1.13.0 · {report["updated"][:10]}\nIdentical frozen requests. Local precision varies; failed requests count as incorrect.\nPublic task training exposure is unknown. This is language transfer evidence, not industrial-domain validation.',fontsize=10,color='#506777')
     fig.subplots_adjust(left=.23,right=.97,top=.84,bottom=.18,wspace=.78)
     for ext in ['png','svg']:fig.savefig(target/f'language-local-vs-jev.{ext}',facecolor='white')
     plt.close(fig)

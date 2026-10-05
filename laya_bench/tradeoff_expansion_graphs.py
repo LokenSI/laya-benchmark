@@ -33,6 +33,7 @@ DETAILS = {
  'kev-4b':('K4','Kev 4B'), 'intern-decision-4b':('IN','Intern-Decision 4B'),
  'wald-4b-v12':('WA','Wald 4B v1.2'), 'tev1':('TE','Tev1 4B'),
  'plumb-4b':('PL','Plumb 4B'), 'jevk5':('J54','JevK5 4B'), 'imajev-4b':('I4','Imajev 4B'),
+ 'decision2-nox-4b':('NX','Decision 2.0 Nox 4B'),
 }
 COMPACT = ['laya','laya-multilingual','julia','von','gliner-decide','gliner-decide-multi','gliner-decide-1b',
            'decider-08b','kev-08b','decider-2b','jevk5-2b','nev-2b','imajev-2b',JEV]
@@ -40,7 +41,7 @@ LARGER = [m for m in DETAILS if m not in COMPACT]+[JEV]
 PALETTE = ['#057B91','#4C9D97','#9872A7','#7541A3','#364CA2','#B98526','#C26842','#26333D',
            '#548931','#AA5B78','#447BC0','#937243','#49966A','#8B4C43','#6D8690',
            '#386C75','#8761AF','#A66A35','#B34862','#477490','#506D3C','#6F759D',
-           '#A76F83','#737534','#406D64','#89506C','#7B6571','#7582AF']
+           '#A76F83','#737534','#406D64','#89506C','#7B6571','#7582AF','#186F63']
 COLORS = dict(zip(DETAILS, PALETTE))
 CARDS = []
 
@@ -58,13 +59,14 @@ def evidence():
         for suite in groups:
             b=timing['groups'].get(suite,{})
             if not b.get('complete'):
-                pending.append({'model':model,'suite':suite,'reason':'Timing incomplete'});continue
+                pending.append({'model':model,'suite':suite,'reason':timing.get('unavailable_groups',{}).get(suite,'Timing incomplete')});continue
             raw_path=DATA/model/(suite.replace('/','--')+'.jsonl')
             assert digest(raw_path)==b['predictions_sha256']
             raw=[json.loads(s) for s in raw_path.read_text(encoding='utf-8').splitlines()]
             expected=protocol['groups'][suite]['timing_cases']*3
             assert len(raw)==b['calls']==expected
             assert len({(r['id'],r['pass']) for r in raw})==expected
+            assert {(r['id'],r['pass']) for r in raw} == {(r['id'],p) for r in fixture if r['timing_suite']==suite for p in [1,2,3]}
             assert all(r['input_sha256']==by_id[r['id']]['input_sha256'] for r in raw)
             times=[r['seconds']*1000 for r in raw if not r['error'] and not r['abstained']]
             assert len(times)==b['answered']
@@ -161,19 +163,25 @@ def chart(data, stem, title, panels, models, footnote):
         place_labels(fig,ax,subset)
     # Every model with data is listed, including unplotted unsupported blocks.
     visible=[m for m in models if any(r['model']==m for r in eligible)]
-    columns=4;step=.026 if not two else .032;start=.217 if not two else .272
+    columns=5 if len(visible)>24 else 4;step=.026 if not two else .032;start=.225 if not two else .272
+    legend_texts=[]
     for i,model in enumerate(visible):
-        code,name=DETAILS[model];x=.06+(i%columns)*.23;y=start-(i//columns)*step
+        code,name=DETAILS[model];x=.06+(i%columns)*(.92/columns);y=start-(i//columns)*step
         ram=[r['added_device_peak_gib'] for r in points if r['model']==model and r['added_device_peak_gib'] is not None]
         usage='hosted: unknown' if model==JEV else ((f'{min(ram):.1f} GiB' if round(min(ram),1)==round(max(ram),1) else f'{min(ram):.1f}–{max(ram):.1f} GiB') if ram else 'timing coverage <90%')
-        fig.text(x,y,f'{code}  {name}',fontsize=10.5,color=COLORS[model],weight='semibold',va='top')
-        fig.text(x,y-step*.46,usage,fontsize=9,color=MUTED,va='top')
+        legend_texts.append(fig.text(x,y,f'{code}  {name}',fontsize=10.5,color=COLORS[model],weight='semibold',va='top'))
+        legend_texts.append(fig.text(x,y-step*.46,usage,fontsize=9,color=MUTED,va='top'))
     missing=sum(not r['plottable'] for r in eligible)
+    unavailable=sum(p['model'] in models and p['suite'] in [s for s,_ in panels] for p in data['pending'])
     fig.text(.06,.059,'Accuracy: full completed test sets; bars: descriptive 95% intervals. Latency: 3 serial passes on fixed samples; model load and warm-up excluded.',fontsize=9.2,color=MUTED)
     fig.text(.06,.042,'VRAM: NVML device peak minus idle baseline; includes runtime/cache and external servers. Desktop noise is possible. RTX 5070 Ti 16 GB; Windows; batch 1.',fontsize=9.2,color=MUTED)
     fig.text(.06,.025,footnote,fontsize=9.2,color=MUTED)
-    fig.text(.06,.008,f'* Timed refusal/error/abstention or native truncation. {missing} completed blocks excluded for <90% answered timing calls. Jev includes network time; hosted VRAM unknown. 1 Oct 2026.',fontsize=9.2,color=MUTED)
+    revision=data['accuracy_snapshot_utc'][:10]
+    fig.text(.06,.008,f'* Error/refusal/truncation. {missing} blocks below 90% answered; {unavailable} timing blocks unavailable. Jev includes network; hosted VRAM unknown. Unofficial · {revision}.',fontsize=9.2,color=MUTED)
     fig.canvas.draw()
+    renderer=fig.canvas.get_renderer()
+    footer_top=max(text.get_window_extent(renderer).y1 for text in fig.texts[-4:])
+    assert min(text.get_window_extent(renderer).y0 for text in legend_texts)>footer_top+4, 'Legend overlaps the methodology footer'
     for ext in ['png','svg']:fig.savefig(OUT/f'{stem}.{ext}',facecolor='white')
     plt.close(fig)
     CARDS.append({'stem':stem,'title':title,'panels':[s for s,_ in panels],'models':visible,'plotted_points':len(points),'excluded_blocks':missing})
@@ -189,6 +197,9 @@ def package(data):
         values+=f'<tr><td>{html.escape(r["name"])}</td><td>{html.escape(r["suite"])}</td><td>{r["correct"]}/{r["n"]} ({100*r["accuracy"]:.1f}%)</td><td>{med}</td><td>{p95}</td><td>{ram}</td><td>{r["answered"]}/{r["calls"]}</td><td>{r["truncated_calls"]}</td></tr>'
     page='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Expanded model trade-off plots</title><style>body{font:16px/1.6 Segoe UI,Arial,sans-serif;color:#142d3c;margin:30px auto;padding:0 24px;max-width:1500px}img{width:100%;height:auto}a{color:#057b91}table{border-collapse:collapse;font-size:12px}td,th{padding:9px;text-align:left;border-bottom:1px solid #dce3e6}section{padding:20px 0}aside{background:#f0f4f5;padding:20px}</style><h1>Accuracy, latency and VRAM across more use cases</h1><p><a href="expanded-tradeoff-graphs.zip">Download graphs, SVGs and measurements</a> · <a href="measurements.json">Exact measurements</a></p><aside><p>Bubble area now uses added <b>whole-device VRAM measured by NVML</b>, including external model servers. The idle baseline is subtracted separately for each model. This differs from the earlier PyTorch-reserved-memory chart. Desktop memory changes remain a source of noise; values are not a minimum GPU specification.</p><p>Only complete timing blocks with at least 90% answered calls are plotted. Latency describes answered calls; raw failures, abstentions and native truncation remain in the table. Missing full accuracy suites are not estimated. Industrial cases are small authored diagnostics. Model training overlap with public data is unknown.</p></aside>'''+cards+'<h2>Exact values and coverage</h2><table><tr><th>Model</th><th>Task</th><th>Accuracy</th><th>Median ms</th><th>Added VRAM GiB</th><th>Timed answered</th><th>Truncated calls</th></tr>'+values+'</table></html>'
     page=page.replace('<th>Median ms</th>','<th>Median ms</th><th>P95 ms</th>')
+    if data['pending']:
+        pending=''.join('<li>'+html.escape(DETAILS[p['model']][1]+' / '+p['suite']+': '+p['reason'])+'</li>' for p in data['pending'])
+        page=page.replace('</html>','<h2>Unavailable timing groups</h2><ul>'+pending+'</ul></html>')
     (OUT/'index.html').write_text(page,encoding='utf-8')
     write_json(OUT/'figures.json',CARDS)
     if CARDS:
@@ -231,4 +242,14 @@ def build():
     print(len(CARDS),'figures;',len(data['rows']),'complete timing blocks;',len(data['pending']),'pending',flush=True)
 
 
-if __name__=='__main__':build()
+if __name__=='__main__':
+    import argparse
+    from pathlib import Path
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--data-root')
+    parser.add_argument('--output-root')
+    args=parser.parse_args()
+    if args.data_root: DATA=Path(args.data_root).resolve()
+    if args.output_root: OUT=Path(args.output_root).resolve()
+    assert DATA.is_relative_to(ROOT/'results') and OUT.is_relative_to(ROOT/'results')
+    build()

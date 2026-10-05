@@ -208,6 +208,20 @@ class JevK5:
         from jevk5 import JevK5 as Native
         self.model=Native(meta['path'],graphs=False)
         self.metadata={'precision':'bf16','interface':'publisher JevK5 runtime, native knockout above 16 choices; eager GPU','temperature':self.model.temperature,'knockout_temperature':self.model.knockout_temperature}
+    def native_questions(self,rows):
+        """Explicit recovery path using the publisher's scalar API for every question.
+
+        This is opt-in for documented integration failures. It preserves the
+        existing typed mapping, prompts, calibration and native knockout logic.
+        The normal batched implementation and its parity assertion stay intact.
+        """
+        out=[]
+        for row in rows:
+            questions,mapping=typed_questions(row['questions'])
+            answers={key:self.model.probabilities(row['state'],question)[0]
+                     for key,question in questions.items()}
+            out.append(decode_typed(answers,row['questions'],mapping))
+        return out
     def batch(self,rows):
         import torch
         import numpy as np

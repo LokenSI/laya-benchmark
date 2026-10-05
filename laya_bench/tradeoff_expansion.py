@@ -307,7 +307,11 @@ def queue(supervisor_pid):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','local','api','queue']);p.add_argument('--model');p.add_argument('--supervisor-pid',type=int);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','local','api','queue']);p.add_argument('--model');p.add_argument('--supervisor-pid',type=int);p.add_argument('--output-root');a=p.parse_args()
+    if a.output_root:
+        from pathlib import Path
+        OUT=Path(a.output_root).resolve()
+        assert OUT.is_relative_to(ROOT/'results'), 'Timing output must remain in project results'
     if a.action=='prepare':prepare()
     elif a.action=='local':local(a.model)
     elif a.action=='api':api()

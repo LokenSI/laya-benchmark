@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03T11:01:43.921452+00:00",
+  "updated": "2026-10-05T00:49:45.515129+00:00",
   "leaderboard_release": "v1.5.4",
   "source_url": "https://benchmarkheaven.com/jev-models",
   "source_sha256": "0cf210b76bf85084a5f3fb40fb109e9a2c2f93df42ff6628696377666e89db45",
@@ -20,7 +20,7 @@
       "business": "Ticket and document routing; compare accuracy and calibrated review thresholds.",
       "checkpoint_ready": true,
       "integration_passed": true,
-      "status": "Public JevBench complete; see other suite progress",
+      "status": "All 17,576 shared cases recorded; 300 saved failures or native rejections. Answered coverage is reported separately.",
       "public_jevbench": {
         "complete": true,
         "attempted": 231,
@@ -53,6 +53,11 @@
         },
         "accuracy": 0.8787878787878788,
         "matches_published_count": true
+      },
+      "shared_coverage": {
+        "complete": true,
+        "recorded": 17576,
+        "saved_failures": 300
       }
     },
     {
@@ -70,7 +75,7 @@
       "business": "Potentially stronger local decisions where data residency and offline operation matter.",
       "checkpoint_ready": true,
       "integration_passed": true,
-      "status": "Public JevBench complete; see other suite progress",
+      "status": "All 17,576 shared cases recorded; 200 saved failures or native rejections. Answered coverage is reported separately.",
       "public_jevbench": {
         "complete": true,
         "attempted": 231,
@@ -103,6 +108,11 @@
         },
         "accuracy": 0.8614718614718615,
         "matches_published_count": false
+      },
+      "shared_coverage": {
+        "complete": true,
+        "recorded": 17576,
+        "saved_failures": 200
       }
     },
     {
@@ -120,7 +130,7 @@
       "business": "Tests whether an untuned general model with constrained decisions is competitive locally.",
       "checkpoint_ready": true,
       "integration_passed": true,
-      "status": "Public JevBench complete; see other suite progress",
+      "status": "All 17,576 shared cases recorded; 300 saved failures or native rejections. Answered coverage is reported separately.",
       "public_jevbench": {
         "complete": true,
         "attempted": 231,
@@ -153,6 +163,11 @@
         },
         "accuracy": 0.8441558441558441,
         "matches_published_count": false
+      },
+      "shared_coverage": {
+        "complete": true,
+        "recorded": 17576,
+        "saved_failures": 300
       }
     },
     {
@@ -169,7 +184,7 @@
       "business": "Tests the value of a learned classifier head on a larger local backbone.",
       "checkpoint_ready": true,
       "integration_passed": true,
-      "status": "Public JevBench complete; see other suite progress",
+      "status": "All 17,576 shared cases recorded; 0 saved failures or native rejections. Answered coverage is reported separately.",
       "public_jevbench": {
         "complete": true,
         "attempted": 231,
@@ -202,25 +217,54 @@
         },
         "accuracy": 0.8571428571428571,
         "matches_published_count": false
+      },
+      "shared_coverage": {
+        "complete": true,
+        "recorded": 17576,
+        "saved_failures": 0
       }
     }
   ],
   "existing": [
     {
+      "id": "jevk5",
       "name": "JevK5 v0.3",
-      "status": "Already in the queue; pinned checkpoint verified as v0.3."
+      "status": "All 17,576 shared cases recorded. Pinned checkpoint verified as v0.3; scoped native recovery disclosed in the completion report.",
+      "coverage": {
+        "complete": true,
+        "recorded": 17576,
+        "saved_failures": 43
+      }
     },
     {
+      "id": "plumb-4b",
       "name": "Plumb-4B",
-      "status": "Already in the queue; native readout/calibration details retained."
+      "status": "All 17,576 shared cases recorded. Native readout/calibration retained; scoped native recovery disclosed in the completion report.",
+      "coverage": {
+        "complete": true,
+        "recorded": 17576,
+        "saved_failures": 42
+      }
     },
     {
+      "id": "imajev-4b",
       "name": "Imajev-4B",
-      "status": "Already prepared and queued; publisher abstentions remain unanswered."
+      "status": "All 17,576 shared cases recorded. Publisher abstentions remain unanswered.",
+      "coverage": {
+        "complete": true,
+        "recorded": 17576,
+        "saved_failures": 32
+      }
     },
     {
+      "id": "decider-4b",
       "name": "Decider 4B",
-      "status": "Already tested; local v2.1 differs from the leaderboard v2 checkpoint."
+      "status": "All 17,576 shared cases recorded. Local v2.1 differs from the leaderboard v2 checkpoint.",
+      "coverage": {
+        "complete": true,
+        "recorded": 17576,
+        "saved_failures": 0
+      }
     }
   ],
   "deferred": [
@@ -531,5 +575,6 @@
       }
     ],
     "finished": "2026-10-01T16:35:21.748701+00:00"
-  }
+  },
+  "queue_history_note": "Earlier queue states are archival only; current coverage comes from saved fixture results."
 }

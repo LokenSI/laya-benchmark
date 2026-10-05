@@ -6,7 +6,6 @@ import numpy as np
 from scipy.optimize import minimize_scalar
 from scipy.special import softmax
 from scipy.stats import binomtest
-from sklearn.metrics import classification_report, confusion_matrix, f1_score
 
 def probabilities(values):
     p = np.asarray(values, dtype=float)
@@ -43,6 +42,10 @@ def cluster_interval(values, groups, seed=20260926, repeats=2000):
     return np.quantile(estimates, [.025, .975]).tolist()
 
 def classification(y, pred, labels, groups=None):
+    # Aggregate decision reports use only Wilson intervals from this module.
+    # Avoid importing optional pandas extensions through sklearn at startup;
+    # Windows application-control policy may reject those unrelated binaries.
+    from sklearn.metrics import classification_report, confusion_matrix, f1_score
     y, pred = np.asarray(y), np.asarray(pred)
     if len(y) == 0 or len(y) != len(pred):
         raise ValueError("A nonempty aligned test set is required")

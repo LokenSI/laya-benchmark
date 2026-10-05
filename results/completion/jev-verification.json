@@ -1,0 +1,22 @@
+{
+  "model": "jev-1.13.0",
+  "targeted_errors": 2,
+  "recovered": 2,
+  "remaining_errors": 0,
+  "protected_predictions_unchanged": true,
+  "original_sha256": "c3ea8610f9e35aec22d1465852888296a13ee66b359edd88b85f315b4e682b26",
+  "predictions_sha256": "bf0b6e41bcc53968e9f174268a20a657383af17fc346108c39cd72b07929d213",
+  "original_attempts_preserved": true,
+  "fixture_sha256": "7726ab88c63977be98ded59aa3cd9d4e37aa7cc1a870c0fcf04e240b00667f05",
+  "budget": {
+    "billable_input_tokens": 10917751,
+    "output_tokens": 1934079,
+    "completed_attempts": 18835,
+    "estimated_cost_usd": 0.458545542,
+    "unconfirmed_or_inflight_reserved_usd": 0.126,
+    "budget_accounted_usd": 0.584545542,
+    "cap_usd": 25.0,
+    "price_per_million_input_tokens_usd": 0.041999999999999996,
+    "updated": "2026-10-04T18:00:05.611771+00:00"
+  }
+}

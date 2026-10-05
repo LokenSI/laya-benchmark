@@ -68,9 +68,9 @@ def build():
                                  facecolor=PALE, edgecolor='none'))
     text(.075, .245, 'PILOT THE WORKFLOW, THEN MEASURE THE VALUE', 11.5, TEAL, 'semibold')
     text(.075, .216, 'Local processing can keep messages in your environment.\nTrack time saved, corrections and the cost of mistakes.\nHigher load needs a serving plan — queueing grew in our tests.', 13.5)
-    text(.07, .094, 'Public test results ≠ production accuracy or proven ROI.\nDecision 2.0: 4 models · 70,304 saved predictions · RTX 5070 Ti 16 GB', 10.5, MUTED)
+    text(.07, .094, 'Public test results ≠ production accuracy or proven ROI.\nDecision 2.0: 4 models · 70,304 saved predictions · RTX 5070 Ti 16 GB\nUnofficial, independent testing. Use as is, without warranty.', 10.5, MUTED)
     text(.07, .041, 'lokensi.github.io/laya-benchmark', 14, TEAL, 'semibold')
-    text(.93, .041, '03 OCT 2026', 10.5, MUTED, ha='right')
+    text(.93, .041, evidence['comparison']['updated'][:10], 10.5, MUTED, ha='right')
     fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
     width, height = fig.canvas.get_width_height()
@@ -82,10 +82,10 @@ def build():
     with Image.open(OUT / 'business-summary-master.png') as image:
         assert image.size == (2160, 2700)
         image.convert('RGB').resize((1080, 1350), Image.Resampling.LANCZOS).save(OUT / 'business-summary.png')
+    observed = ', '.join(f'{label}: {metric["accuracy"]:.1%}' for label, _, metric in measures)
     alt = ('Business summary of local decision-model benchmarks. Norwegian Bokmål accuracy on '
-           '2,948 public MASSIVE test cases across 18 assistant-service scenarios: Decider 4B v2.1 '
-           '82.0%, Jev 1.13.0 hosted API 81.8%, Decision 2.0 Nox 4B 80.3%, Laya Multilingual '
-           '51.3%. A supervised TF-IDF/linear SVM reached 89.1% with labelled training data. '
+           '2,948 public MASSIVE test cases across 18 assistant-service scenarios: ' + observed + '. '
+           f'A supervised TF-IDF/linear SVM reached {supervised:.1%} with labelled training data. '
            'Suggested use: local category suggestions reviewed by staff; measure time saved and '
            'corrections. Queueing grew under load. Public results do not establish production '
            'accuracy or financial savings. Four Decision 2.0 models produced 70,304 saved predictions '
@@ -93,6 +93,7 @@ def build():
     (OUT / 'alt-text.txt').write_text(alt+'\n', encoding='utf-8')
     write_json(OUT / 'evidence.json', {
         'pages_url': PAGE, 'scope': 'MASSIVE Bokmål 18-scenario accuracy; identical 2,948 public test inputs.',
+        'revision': 'completion-2026-10-04', 'updated': evidence['comparison']['updated'],
         'metrics': [{'model': label, 'deployment': kind, 'accuracy': v['accuracy'], 'n': v.get('attempted', v.get('n'))} for label, kind, v in measures],
         'supervised_baseline_accuracy': supervised,
         'sources': {k: {'path': p, 'sha256': hashlib.sha256((ROOT/p).read_bytes()).hexdigest()} for k, p in inputs.items()},

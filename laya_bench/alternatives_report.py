@@ -98,7 +98,7 @@ def build(charts=False):
     report['complete_models']=len(completed);report['planned_models']=len(report['models'])
     from .alternatives_claim_audit import build as audit_claims
     report['claim_audit']=audit_claims(report)
-    if len(completed)==len(report['models']) and len(completed)>=23:report['status']='matrix_complete_pending_claim_review'
+    if len(completed)==len(report['models']) and len(completed)>=23:report['status']='shared_matrix_complete'
     write_json(OUT/'comparison.json',report)
     render(report)
     if charts:draw(report)
@@ -129,8 +129,8 @@ def render(report):
         metrics.append(f'<section><h2>{title}</h2><table><thead><tr><th>Completed suite</th><th>Accuracy</th><th>95% interval</th><th>Request coverage</th></tr></thead><tbody>{body}</tbody></table></section>')
     document=f'''<!doctype html><html lang="en"><meta charset="utf-8"><title>Local decision model benchmark</title>
 <style>body{{font:16px system-ui,sans-serif;color:#14273e;background:#f5f7fa;margin:0}}main{{max-width:1180px;margin:auto;padding:52px 36px}}h1{{font-size:38px;letter-spacing:-1px;margin:12px 0}}h2{{font-size:22px}}p{{max-width:900px;line-height:1.6}}.tag{{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:#4b647f}}.note{{background:#e7edf3;padding:18px 22px;border-left:4px solid #59758e}}section{{background:white;padding:24px 28px;margin:24px 0;border:1px solid #d9e1e9}}table{{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}}th,td{{padding:12px 10px;text-align:left;border-bottom:1px solid #e5eaf0}}thead{{color:#586b7e;font-size:13px}}small{{display:block;color:#6b7989;font-size:12px;margin-top:4px}}a{{color:#155972}}</style>
-<main><div class="tag">Local software evaluation · 1 October 2026</div><h1>Decision models under test</h1>
-<p class="note"><strong>INTERIM RESULTS — {report['complete_models']} of {report['planned_models']} models have finished all shared fixtures.</strong><br>Updated {esc(report['updated'])}. Partial runs are excluded from accuracy tables. Rebuild this file to refresh it.</p>
+<main><div class="tag">Unofficial local software evaluation · {esc(report['updated'][:10])}</div><h1>Decision models under test</h1>
+<p class="note"><strong>{report['complete_models']} of {report['planned_models']} models have recorded results for all shared fixtures.</strong><br>Updated {esc(report['updated'])}. Partial groups are excluded from accuracy tables. Native rejections and runtime failures remain in the denominator. Use as is, without warranty or vendor endorsement.</p>
 <p>The question is where a small local model makes software more useful: classifying documents, suggesting ticket queues, or screening engineering records. Public benchmark replication and independent task transfer answer different questions. There is no pooled winner across unrelated tasks.</p>
 <section><h2>Live and verified Jev comparisons</h2><p><a href="../jev_live/report.html">Current live Jev comparison and business findings</a> covers the shared fixtures and new disjoint test cases. <a href="jev_comparison.html">Historical Jev comparison on matching cases</a> uses 231 verified public per-case outcomes and a separate exact 300-case pilot. <a href="claim_audit.html">Claim-by-claim audit</a> separates reproduced, near-reproduced and unverifiable statements. Historical scores, current API calls and sealed leaderboard claims remain separate.</p></section>
 <section><h2>Execution status</h2><p>{esc(report['hardware'])}. Failed requests stay in accuracy denominators. An unfinished or failed adapter is not a measured zero.</p><table><thead><tr><th>Model</th><th>Practical cases</th><th>Public claim cases</th><th>Typed cases · 5 decisions each</th><th>Exact Jev pilot</th><th>Fresh cases · dev + test</th></tr></thead><tbody>{''.join(rows)}</tbody></table></section>
@@ -164,7 +164,7 @@ def draw(report):
     ax.set_xlabel('Accuracy · failed requests count as incorrect');ax.legend(frameon=False,loc='lower right')
     fig.suptitle('Does English performance transfer to Norwegian?',x=.035,ha='left',fontsize=20,fontweight='bold',color='#14273e',y=.97)
     fig.text(.035,.905,'MASSIVE · 18 intent scenarios · 2,948 test examples per language',fontsize=12,color='#516579')
-    fig.text(.035,.025,f'INTERIM · {len(selected)} completed model runs · Windows / RTX 5070 Ti 16 GB\nPinned inputs and checkpoints · full methodology: results/alternatives/report.html',fontsize=9,color='#516579')
+    fig.text(.035,.025,f'Unofficial testing · {len(selected)} completed language groups · Windows / RTX 5070 Ti 16 GB · {report["updated"][:10]}\nPinned inputs and checkpoints · full methodology: results/alternatives/report.html',fontsize=9,color='#516579')
     fig.subplots_adjust(left=.28,right=.97,bottom=.16,top=.82)
     path=OUT/'figures';path.mkdir(exist_ok=True)
     for ext in ['png','svg']:fig.savefig(path/f'language-transfer-interim.{ext}',facecolor='white')

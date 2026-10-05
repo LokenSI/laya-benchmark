@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03T13:09:26.594874+00:00",
+  "updated": "2026-10-05T00:49:41.843395+00:00",
   "scope": "231 public JevBench cases; original scoring. Separate from the sealed leaderboard and from full English/Norwegian evaluation.",
   "fixture_sha256": "8825e4e9785f4f34dbaa996d8b4d1e313d095d8eafc8f865c966914fed85c5a7",
   "models": {
@@ -5281,7 +5281,7 @@
         },
         "alternatives": {
           "expected": 12341,
-          "attempted": 6264,
+          "attempted": 12341,
           "evaluation_expected": 12341,
           "suites": {
             "industry/routing/en": {
@@ -6118,34 +6118,104 @@
             },
             "massive_en": {
               "expected": 2948,
-              "attempted": 992,
-              "complete": false,
-              "correct": 807,
-              "accuracy": 0.813508064516129,
+              "attempted": 2948,
+              "complete": true,
+              "correct": 2425,
+              "accuracy": 0.8225915875169606,
               "wilson95": [
-                0.7880769333463298,
-                0.8365204807205553
+                0.808384378706726,
+                0.8359591697302817
               ],
-              "head_correct": 807,
-              "heads": 992,
-              "head_accuracy": 0.813508064516129,
+              "head_correct": 2425,
+              "heads": 2948,
+              "head_accuracy": 0.8225915875169606,
               "coverage": 1.0,
-              "accuracy_on_successful": 0.813508064516129,
+              "accuracy_on_successful": 0.8225915875169606,
               "errors": {},
               "abstained_records": 0,
               "truncated_records": 0,
-              "macro_f1": 0.8049571706237235,
-              "answered_single_label_heads": 992,
-              "ece10": 0.05755715018078203,
-              "brier": 0.2549223101461426
+              "macro_f1": 0.8228500024039003,
+              "answered_single_label_heads": 2948,
+              "ece10": 0.0538127874017894,
+              "brier": 0.255273201654624
+            },
+            "massive_nb": {
+              "expected": 2948,
+              "attempted": 2948,
+              "complete": true,
+              "correct": 2150,
+              "accuracy": 0.7293080054274084,
+              "wilson95": [
+                0.712978241741253,
+                0.7450409367481446
+              ],
+              "head_correct": 2150,
+              "heads": 2948,
+              "head_accuracy": 0.7293080054274084,
+              "coverage": 1.0,
+              "accuracy_on_successful": 0.7293080054274084,
+              "errors": {},
+              "abstained_records": 0,
+              "truncated_records": 0,
+              "macro_f1": 0.7360007607799655,
+              "answered_single_label_heads": 2948,
+              "ece10": 0.04952763995026798,
+              "brier": 0.361293304462277
+            },
+            "norec_no": {
+              "expected": 1173,
+              "attempted": 1173,
+              "complete": true,
+              "correct": 787,
+              "accuracy": 0.670929241261722,
+              "wilson95": [
+                0.6435199563115449,
+                0.6972226279969987
+              ],
+              "head_correct": 787,
+              "heads": 1173,
+              "head_accuracy": 0.670929241261722,
+              "coverage": 1.0,
+              "accuracy_on_successful": 0.670929241261722,
+              "errors": {},
+              "abstained_records": 0,
+              "truncated_records": 0,
+              "macro_f1": 0.648782989087528,
+              "answered_single_label_heads": 1173,
+              "ece10": 0.026559757124330893,
+              "brier": 0.4459112564118246
             }
           }
         },
         "alternatives_typed": {
           "expected": 400,
-          "attempted": 0,
+          "attempted": 400,
           "evaluation_expected": 400,
-          "suites": {}
+          "suites": {
+            "intern_claim/typed_decisions-test": {
+              "expected": 400,
+              "attempted": 400,
+              "complete": true,
+              "correct": 69,
+              "accuracy": 0.1725,
+              "wilson95": [
+                0.13863520728428091,
+                0.2125953455046833
+              ],
+              "head_correct": 1339,
+              "heads": 2000,
+              "head_accuracy": 0.6695,
+              "coverage": 1.0,
+              "accuracy_on_successful": 0.1725,
+              "errors": {},
+              "abstained_records": 0,
+              "truncated_records": 0,
+              "macro_f1": null,
+              "answered_single_label_heads": 2000,
+              "ece10": 0.03939426459372043,
+              "brier": 0.44401039002460124
+            }
+          }
         }
       }
     }

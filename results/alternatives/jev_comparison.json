@@ -1639,41 +1639,41 @@
         },
         "hard": {
           "n": 111,
-          "local_correct": 35,
+          "local_correct": 42,
           "jev_correct": 81,
-          "local_accuracy": 0.3153153153153153,
+          "local_accuracy": 0.3783783783783784,
           "jev_accuracy": 0.7297297297297297,
-          "difference_pp": -41.44144144144144,
+          "difference_pp": -35.13513513513514,
           "paired_cluster_bootstrap95_pp": [
-            -53.153153153153156,
-            -29.72972972972973
+            -45.945945945945944,
+            -23.423423423423422
           ],
           "local_only_correct": 9,
-          "jev_only_correct": 55,
-          "both_correct": 26,
+          "jev_only_correct": 48,
+          "both_correct": 33,
           "both_wrong": 21,
           "independent_groups": 111,
           "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
-          "local_invalid": 18
+          "local_invalid": 0
         },
         "all": {
           "n": 231,
-          "local_correct": 124,
+          "local_correct": 131,
           "jev_correct": 200,
-          "local_accuracy": 0.5367965367965368,
+          "local_accuracy": 0.5670995670995671,
           "jev_accuracy": 0.8658008658008658,
-          "difference_pp": -32.900432900432904,
+          "difference_pp": -29.87012987012987,
           "paired_cluster_bootstrap95_pp": [
-            -40.25974025974026,
-            -25.10822510822511
+            -37.22943722943723,
+            -22.07792207792208
           ],
           "local_only_correct": 10,
-          "jev_only_correct": 86,
-          "both_correct": 114,
+          "jev_only_correct": 79,
+          "both_correct": 121,
           "both_wrong": 21,
           "independent_groups": 195,
           "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
-          "local_invalid": 18
+          "local_invalid": 0
         }
       },
       "pilot": {
@@ -1782,41 +1782,41 @@
         },
         "hard": {
           "n": 111,
-          "local_correct": 34,
+          "local_correct": 36,
           "jev_correct": 81,
-          "local_accuracy": 0.3063063063063063,
+          "local_accuracy": 0.32432432432432434,
           "jev_accuracy": 0.7297297297297297,
-          "difference_pp": -42.34234234234234,
+          "difference_pp": -40.54054054054054,
           "paired_cluster_bootstrap95_pp": [
-            -52.252252252252255,
-            -32.432432432432435
+            -50.450450450450454,
+            -30.63063063063063
           ],
           "local_only_correct": 3,
-          "jev_only_correct": 50,
-          "both_correct": 31,
+          "jev_only_correct": 48,
+          "both_correct": 33,
           "both_wrong": 27,
           "independent_groups": 111,
           "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
-          "local_invalid": 12
+          "local_invalid": 0
         },
         "all": {
           "n": 231,
-          "local_correct": 129,
+          "local_correct": 131,
           "jev_correct": 200,
-          "local_accuracy": 0.5584415584415584,
+          "local_accuracy": 0.5670995670995671,
           "jev_accuracy": 0.8658008658008658,
-          "difference_pp": -30.735930735930733,
+          "difference_pp": -29.87012987012987,
           "paired_cluster_bootstrap95_pp": [
-            -37.22943722943723,
-            -24.242424242424242
+            -36.36363636363637,
+            -23.376623376623378
           ],
           "local_only_correct": 4,
-          "jev_only_correct": 75,
-          "both_correct": 125,
+          "jev_only_correct": 73,
+          "both_correct": 127,
           "both_wrong": 27,
           "independent_groups": 195,
           "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
-          "local_invalid": 12
+          "local_invalid": 0
         }
       },
       "pilot": {
@@ -1882,9 +1882,86 @@
     },
     "imajev-2b": {
       "label": "Imajev 2B",
-      "public_attempted": 0,
-      "public_complete": false,
-      "public": {},
+      "public_attempted": 231,
+      "public_complete": true,
+      "public": {
+        "easy": {
+          "n": 48,
+          "local_correct": 47,
+          "jev_correct": 48,
+          "local_accuracy": 0.9791666666666666,
+          "jev_accuracy": 1.0,
+          "difference_pp": -2.083333333333333,
+          "paired_cluster_bootstrap95_pp": [
+            -6.25,
+            0.0
+          ],
+          "local_only_correct": 0,
+          "jev_only_correct": 1,
+          "both_correct": 47,
+          "both_wrong": 0,
+          "independent_groups": 48,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 1
+        },
+        "original": {
+          "n": 72,
+          "local_correct": 65,
+          "jev_correct": 71,
+          "local_accuracy": 0.9027777777777778,
+          "jev_accuracy": 0.9861111111111112,
+          "difference_pp": -8.333333333333332,
+          "paired_cluster_bootstrap95_pp": [
+            -16.666666666666668,
+            -2.7777777777777777
+          ],
+          "local_only_correct": 0,
+          "jev_only_correct": 6,
+          "both_correct": 65,
+          "both_wrong": 1,
+          "independent_groups": 36,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 1
+        },
+        "hard": {
+          "n": 111,
+          "local_correct": 62,
+          "jev_correct": 81,
+          "local_accuracy": 0.5585585585585585,
+          "jev_accuracy": 0.7297297297297297,
+          "difference_pp": -17.117117117117118,
+          "paired_cluster_bootstrap95_pp": [
+            -27.027027027027028,
+            -7.207207207207207
+          ],
+          "local_only_correct": 7,
+          "jev_only_correct": 26,
+          "both_correct": 55,
+          "both_wrong": 23,
+          "independent_groups": 111,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 2
+        },
+        "all": {
+          "n": 231,
+          "local_correct": 174,
+          "jev_correct": 200,
+          "local_accuracy": 0.7532467532467533,
+          "jev_accuracy": 0.8658008658008658,
+          "difference_pp": -11.255411255411255,
+          "paired_cluster_bootstrap95_pp": [
+            -16.883116883116884,
+            -6.0606060606060606
+          ],
+          "local_only_correct": 7,
+          "jev_only_correct": 33,
+          "both_correct": 167,
+          "both_wrong": 24,
+          "independent_groups": 195,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 4
+        }
+      },
       "pilot": {
         "agnews": {
           "n": 100,
@@ -1948,9 +2025,86 @@
     },
     "imajev-4b": {
       "label": "Imajev 4B",
-      "public_attempted": 0,
-      "public_complete": false,
-      "public": {},
+      "public_attempted": 231,
+      "public_complete": true,
+      "public": {
+        "easy": {
+          "n": 48,
+          "local_correct": 48,
+          "jev_correct": 48,
+          "local_accuracy": 1.0,
+          "jev_accuracy": 1.0,
+          "difference_pp": 0.0,
+          "paired_cluster_bootstrap95_pp": [
+            0.0,
+            0.0
+          ],
+          "local_only_correct": 0,
+          "jev_only_correct": 0,
+          "both_correct": 48,
+          "both_wrong": 0,
+          "independent_groups": 48,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        },
+        "original": {
+          "n": 72,
+          "local_correct": 70,
+          "jev_correct": 71,
+          "local_accuracy": 0.9722222222222222,
+          "jev_accuracy": 0.9861111111111112,
+          "difference_pp": -1.3888888888888888,
+          "paired_cluster_bootstrap95_pp": [
+            -4.166666666666667,
+            0.0
+          ],
+          "local_only_correct": 0,
+          "jev_only_correct": 1,
+          "both_correct": 70,
+          "both_wrong": 1,
+          "independent_groups": 36,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 1
+        },
+        "hard": {
+          "n": 111,
+          "local_correct": 80,
+          "jev_correct": 81,
+          "local_accuracy": 0.7207207207207207,
+          "jev_accuracy": 0.7297297297297297,
+          "difference_pp": -0.9009009009009009,
+          "paired_cluster_bootstrap95_pp": [
+            -7.207207207207207,
+            5.405405405405405
+          ],
+          "local_only_correct": 6,
+          "jev_only_correct": 7,
+          "both_correct": 74,
+          "both_wrong": 24,
+          "independent_groups": 111,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        },
+        "all": {
+          "n": 231,
+          "local_correct": 198,
+          "jev_correct": 200,
+          "local_accuracy": 0.8571428571428571,
+          "jev_accuracy": 0.8658008658008658,
+          "difference_pp": -0.8658008658008658,
+          "paired_cluster_bootstrap95_pp": [
+            -3.896103896103896,
+            2.1645021645021645
+          ],
+          "local_only_correct": 6,
+          "jev_only_correct": 8,
+          "both_correct": 192,
+          "both_wrong": 25,
+          "independent_groups": 195,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 1
+        }
+      },
       "pilot": {
         "agnews": {
           "n": 100,
@@ -2014,9 +2168,86 @@
     },
     "intern-decision-4b": {
       "label": "Intern-Decision 4B",
-      "public_attempted": 0,
-      "public_complete": false,
-      "public": {},
+      "public_attempted": 231,
+      "public_complete": true,
+      "public": {
+        "easy": {
+          "n": 48,
+          "local_correct": 48,
+          "jev_correct": 48,
+          "local_accuracy": 1.0,
+          "jev_accuracy": 1.0,
+          "difference_pp": 0.0,
+          "paired_cluster_bootstrap95_pp": [
+            0.0,
+            0.0
+          ],
+          "local_only_correct": 0,
+          "jev_only_correct": 0,
+          "both_correct": 48,
+          "both_wrong": 0,
+          "independent_groups": 48,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        },
+        "original": {
+          "n": 72,
+          "local_correct": 71,
+          "jev_correct": 71,
+          "local_accuracy": 0.9861111111111112,
+          "jev_accuracy": 0.9861111111111112,
+          "difference_pp": 0.0,
+          "paired_cluster_bootstrap95_pp": [
+            -4.166666666666667,
+            4.166666666666667
+          ],
+          "local_only_correct": 1,
+          "jev_only_correct": 1,
+          "both_correct": 70,
+          "both_wrong": 0,
+          "independent_groups": 36,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        },
+        "hard": {
+          "n": 111,
+          "local_correct": 82,
+          "jev_correct": 81,
+          "local_accuracy": 0.7387387387387387,
+          "jev_accuracy": 0.7297297297297297,
+          "difference_pp": 0.9009009009009009,
+          "paired_cluster_bootstrap95_pp": [
+            -8.108108108108109,
+            9.90990990990991
+          ],
+          "local_only_correct": 12,
+          "jev_only_correct": 11,
+          "both_correct": 70,
+          "both_wrong": 18,
+          "independent_groups": 111,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        },
+        "all": {
+          "n": 231,
+          "local_correct": 201,
+          "jev_correct": 200,
+          "local_accuracy": 0.8701298701298701,
+          "jev_accuracy": 0.8658008658008658,
+          "difference_pp": 0.4329004329004329,
+          "paired_cluster_bootstrap95_pp": [
+            -3.463203463203463,
+            4.761904761904762
+          ],
+          "local_only_correct": 13,
+          "jev_only_correct": 12,
+          "both_correct": 188,
+          "both_wrong": 18,
+          "independent_groups": 195,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        }
+      },
       "pilot": {
         "agnews": {
           "n": 100,
@@ -2356,9 +2587,86 @@
     },
     "jevk5": {
       "label": "JevK5 4B",
-      "public_attempted": 0,
-      "public_complete": false,
-      "public": {},
+      "public_attempted": 231,
+      "public_complete": true,
+      "public": {
+        "easy": {
+          "n": 48,
+          "local_correct": 48,
+          "jev_correct": 48,
+          "local_accuracy": 1.0,
+          "jev_accuracy": 1.0,
+          "difference_pp": 0.0,
+          "paired_cluster_bootstrap95_pp": [
+            0.0,
+            0.0
+          ],
+          "local_only_correct": 0,
+          "jev_only_correct": 0,
+          "both_correct": 48,
+          "both_wrong": 0,
+          "independent_groups": 48,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        },
+        "original": {
+          "n": 72,
+          "local_correct": 68,
+          "jev_correct": 71,
+          "local_accuracy": 0.9444444444444444,
+          "jev_accuracy": 0.9861111111111112,
+          "difference_pp": -4.166666666666666,
+          "paired_cluster_bootstrap95_pp": [
+            -12.5,
+            2.7777777777777777
+          ],
+          "local_only_correct": 1,
+          "jev_only_correct": 4,
+          "both_correct": 67,
+          "both_wrong": 0,
+          "independent_groups": 36,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        },
+        "hard": {
+          "n": 111,
+          "local_correct": 86,
+          "jev_correct": 81,
+          "local_accuracy": 0.7747747747747747,
+          "jev_accuracy": 0.7297297297297297,
+          "difference_pp": 4.504504504504505,
+          "paired_cluster_bootstrap95_pp": [
+            -2.7027027027027026,
+            11.711711711711711
+          ],
+          "local_only_correct": 12,
+          "jev_only_correct": 7,
+          "both_correct": 74,
+          "both_wrong": 18,
+          "independent_groups": 111,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        },
+        "all": {
+          "n": 231,
+          "local_correct": 202,
+          "jev_correct": 200,
+          "local_accuracy": 0.8744588744588745,
+          "jev_accuracy": 0.8658008658008658,
+          "difference_pp": 0.8658008658008658,
+          "paired_cluster_bootstrap95_pp": [
+            -3.463203463203463,
+            4.761904761904762
+          ],
+          "local_only_correct": 13,
+          "jev_only_correct": 11,
+          "both_correct": 189,
+          "both_wrong": 18,
+          "independent_groups": 195,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        }
+      },
       "pilot": {
         "agnews": {
           "n": 100,
@@ -3303,41 +3611,41 @@
         },
         "hard": {
           "n": 111,
-          "local_correct": 61,
+          "local_correct": 65,
           "jev_correct": 81,
-          "local_accuracy": 0.5495495495495496,
+          "local_accuracy": 0.5855855855855856,
           "jev_accuracy": 0.7297297297297297,
-          "difference_pp": -18.01801801801802,
+          "difference_pp": -14.414414414414415,
           "paired_cluster_bootstrap95_pp": [
-            -27.027027027027028,
-            -9.90990990990991
+            -22.52252252252252,
+            -6.306306306306307
           ],
           "local_only_correct": 4,
-          "jev_only_correct": 24,
-          "both_correct": 57,
+          "jev_only_correct": 20,
+          "both_correct": 61,
           "both_wrong": 26,
           "independent_groups": 111,
           "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
-          "local_invalid": 9
+          "local_invalid": 0
         },
         "all": {
           "n": 231,
-          "local_correct": 177,
+          "local_correct": 181,
           "jev_correct": 200,
-          "local_accuracy": 0.7662337662337663,
+          "local_accuracy": 0.7835497835497836,
           "jev_accuracy": 0.8658008658008658,
-          "difference_pp": -9.956709956709958,
+          "difference_pp": -8.225108225108226,
           "paired_cluster_bootstrap95_pp": [
-            -15.151515151515152,
-            -5.194805194805195
+            -13.41991341991342,
+            -3.463203463203463
           ],
           "local_only_correct": 5,
-          "jev_only_correct": 28,
-          "both_correct": 172,
+          "jev_only_correct": 24,
+          "both_correct": 176,
           "both_wrong": 26,
           "independent_groups": 195,
           "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
-          "local_invalid": 9
+          "local_invalid": 0
         }
       },
       "pilot": {
@@ -3589,41 +3897,41 @@
         },
         "hard": {
           "n": 111,
-          "local_correct": 53,
+          "local_correct": 57,
           "jev_correct": 81,
-          "local_accuracy": 0.4774774774774775,
+          "local_accuracy": 0.5135135135135135,
           "jev_accuracy": 0.7297297297297297,
-          "difference_pp": -25.225225225225223,
+          "difference_pp": -21.62162162162162,
           "paired_cluster_bootstrap95_pp": [
-            -34.234234234234236,
-            -16.216216216216218
+            -29.72972972972973,
+            -13.513513513513514
           ],
           "local_only_correct": 3,
-          "jev_only_correct": 31,
-          "both_correct": 50,
+          "jev_only_correct": 27,
+          "both_correct": 54,
           "both_wrong": 27,
           "independent_groups": 111,
           "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
-          "local_invalid": 15
+          "local_invalid": 0
         },
         "all": {
           "n": 231,
-          "local_correct": 170,
+          "local_correct": 174,
           "jev_correct": 200,
-          "local_accuracy": 0.7359307359307359,
+          "local_accuracy": 0.7532467532467533,
           "jev_accuracy": 0.8658008658008658,
-          "difference_pp": -12.987012987012985,
+          "difference_pp": -11.255411255411255,
           "paired_cluster_bootstrap95_pp": [
-            -18.181818181818183,
-            -8.225108225108226
+            -16.450216450216452,
+            -6.926406926406926
           ],
           "local_only_correct": 4,
-          "jev_only_correct": 34,
-          "both_correct": 166,
+          "jev_only_correct": 30,
+          "both_correct": 170,
           "both_wrong": 27,
           "independent_groups": 195,
           "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
-          "local_invalid": 15
+          "local_invalid": 0
         }
       },
       "pilot": {
@@ -3822,9 +4130,86 @@
     },
     "wald-4b-v12": {
       "label": "Wald 4B v1.2",
-      "public_attempted": 0,
-      "public_complete": false,
-      "public": {},
+      "public_attempted": 231,
+      "public_complete": true,
+      "public": {
+        "easy": {
+          "n": 48,
+          "local_correct": 48,
+          "jev_correct": 48,
+          "local_accuracy": 1.0,
+          "jev_accuracy": 1.0,
+          "difference_pp": 0.0,
+          "paired_cluster_bootstrap95_pp": [
+            0.0,
+            0.0
+          ],
+          "local_only_correct": 0,
+          "jev_only_correct": 0,
+          "both_correct": 48,
+          "both_wrong": 0,
+          "independent_groups": 48,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        },
+        "original": {
+          "n": 72,
+          "local_correct": 72,
+          "jev_correct": 71,
+          "local_accuracy": 1.0,
+          "jev_accuracy": 0.9861111111111112,
+          "difference_pp": 1.3888888888888888,
+          "paired_cluster_bootstrap95_pp": [
+            0.0,
+            4.166666666666667
+          ],
+          "local_only_correct": 1,
+          "jev_only_correct": 0,
+          "both_correct": 71,
+          "both_wrong": 0,
+          "independent_groups": 36,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 0
+        },
+        "hard": {
+          "n": 111,
+          "local_correct": 77,
+          "jev_correct": 81,
+          "local_accuracy": 0.6936936936936937,
+          "jev_accuracy": 0.7297297297297297,
+          "difference_pp": -3.6036036036036037,
+          "paired_cluster_bootstrap95_pp": [
+            -12.612612612612613,
+            5.405405405405405
+          ],
+          "local_only_correct": 11,
+          "jev_only_correct": 15,
+          "both_correct": 66,
+          "both_wrong": 19,
+          "independent_groups": 111,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 10
+        },
+        "all": {
+          "n": 231,
+          "local_correct": 197,
+          "jev_correct": 200,
+          "local_accuracy": 0.8528138528138528,
+          "jev_accuracy": 0.8658008658008658,
+          "difference_pp": -1.2987012987012987,
+          "paired_cluster_bootstrap95_pp": [
+            -5.627705627705628,
+            3.0303030303030303
+          ],
+          "local_only_correct": 12,
+          "jev_only_correct": 15,
+          "both_correct": 185,
+          "both_wrong": 19,
+          "independent_groups": 195,
+          "interval_note": "Descriptive paired bootstrap, 2000 resamples, stratified by public tier and clustered by provided paraphrase group; not adjusted for multiple model comparisons.",
+          "local_invalid": 10
+        }
+      },
       "pilot": {
         "agnews": {
           "n": 100,
