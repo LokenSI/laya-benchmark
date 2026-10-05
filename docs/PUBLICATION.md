@@ -6,6 +6,8 @@
 
 Repository: https://github.com/LokenSI/laya-benchmark
 
+**Presentation revision `overview-2026-10-05` — 5 October 2026.** The opening page now leads with task-specific local accuracy leaders against Jev and an explorer covering every model and published scored group. It retains exact ties, includes unsuccessful requests in accuracy denominators, and supports sorting by controlled median response time and measured added VRAM. Timing is shown only for complete groups with at least 90% answered calls; missing values stay unavailable. Fastest and lowest-VRAM callouts state the model's accuracy and the number of measured candidates, without an accuracy filter. These descriptive rankings do not establish statistical superiority or a universal winner. The selected four-model sections and model-family spotlight are removed from the opening pages; the all-model comparison is the main entry point. No predictions, scoring, aggregate measurements or benchmark evidence hashes change in this presentation revision.
+
 Published reports: https://lokensi.github.io/laya-benchmark/
 
 `public-files.json` is the explicit allowlist for the Pages site. It contains aggregate reports, protocols, source/model hashes, verification summaries, historical process failures, and graphics. The historical supervisor's failure status is retained; the final verification establishes completed prediction coverage. Results and model/data caches are ignored by default. Only the reviewed publication files are committed from `results/`.
@@ -21,7 +23,7 @@ Build the public site without running inference:
 .venv\Scripts\python.exe scripts/build_pages.py --output .cache/pages-site
 ```
 
-The share-card generator verifies complete source reports and records their SHA-256 hashes in the share package. It exports a 1080×1350 PNG, a 2160×2700 master, editable SVG and alt text. `build_pages.py` requires every public source to exist, builds the landing page from the recorded metrics, checks local report links and writes an asset checksum manifest. GitHub Actions repeats this check and deploys the static site on pushes to `main`.
+The historical share-card generator verifies complete source reports and records their SHA-256 hashes in the share package. It exports a 1080×1350 PNG, a 2160×2700 master, editable SVG and alt text. `build_pages.py` requires every public source to exist, builds the all-model landing page from the committed accuracy and controlled-timing aggregates, checks matching case counts and timing accuracy, checks local report links and writes an asset checksum manifest. The page works without JavaScript as a complete Norwegian routing table; JavaScript enables task selection and sorting. GitHub Actions repeats this check and deploys the static site on pushes to `main`.
 
 Before regeneration, `scripts/verify_completion.py` checks protected predictions, archived infrastructure retries, at least three retained attempts for each remaining memory failure, unchanged historical timing evidence, the pinned Jev reference and removal of temporary restored weights. Its [aggregate verification](../results/completion/final-verification.json) publishes counts and hashes, without case payloads. The Pages build rejects mismatches between those verified prediction hashes and the completion report.
 

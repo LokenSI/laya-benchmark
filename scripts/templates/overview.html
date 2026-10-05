@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Decision-model benchmark — compare every model by task</title>
+<meta name="description" content="Compare 31 local decision models and Jev on matched tasks: accuracy, answered coverage, controlled latency and measured VRAM.">
+<meta property="og:title" content="Which decision model fits the task?">
+<meta property="og:description" content="All 31 local models and Jev, with task-specific accuracy, latency and VRAM. Independent testing, with limitations and failures included.">
+<meta property="og:image" content="https://lokensi.github.io/laya-benchmark/results/linkedin/completion-tradeoffs/03-english-norwegian.png">
+<meta property="og:url" content="https://lokensi.github.io/laya-benchmark/">
+<style>
+:root{--ink:#152d3b;--teal:#187c76;--muted:#526671;--pale:#edf3f3;--line:#d7e0e3}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:#fcfdfc;color:var(--ink);font:16px/1.65 system-ui,sans-serif}
+main{max-width:1240px;margin:auto;padding:44px 28px}h1{font-size:clamp(36px,5.5vw,64px);line-height:1.08;letter-spacing:-2px;max-width:950px;margin:24px 0}h2{font-size:28px;line-height:1.2;margin:0 0 18px}h3{font-size:19px;line-height:1.3}p{max-width:960px}a{color:var(--teal);text-underline-offset:4px}a:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #4a789a;outline-offset:4px}
+.eyebrow{font-size:12px;color:var(--teal);font-weight:650;letter-spacing:1.2px;text-transform:uppercase}.lead{font-size:21px;color:var(--muted);max-width:920px}.notice{font-size:13px;color:var(--muted)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}.button{display:inline-block;padding:10px 17px;border:1px solid var(--teal);border-radius:5px;text-decoration:none}.primary{color:white;background:var(--teal)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:32px 0}.stats div,.cards article{padding:20px 24px;background:var(--pale);border-radius:7px}.stats strong{display:block;font-size:29px;line-height:1.3}.stats span{display:block;color:var(--muted);font-size:14px}section{margin:54px 0}.scroll{overflow:auto;border:1px solid var(--line);border-radius:6px}table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.45}caption{text-align:left;padding:16px;font-weight:650}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}thead th{background:var(--pale);font-size:12px;letter-spacing:.3px}tbody th{font-weight:550}tbody tr:last-child>*{border-bottom:0}.number{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}small{display:block;font-size:12px;color:var(--muted);margin-top:4px}.muted{color:var(--muted);font-size:14px}.controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px;margin:24px 0}label{display:block;font-weight:600;font-size:13px}select{display:block;width:100%;padding:11px 12px;margin-top:7px;border:1px solid #82969e;border-radius:4px;background:white;color:var(--ink);font:14px system-ui}.task-note{padding:16px 20px;background:var(--pale);font-size:14px}.timing-note{min-width:175px;max-width:220px;font-size:12px;color:var(--muted)}.table-status{font-size:14px;color:var(--muted)}.tradeoffs{font-size:14px;max-width:1100px}.tradeoffs p{margin:8px 0}.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}.cards article p{font-size:14px;margin-bottom:0}.cards h3{margin-top:0}details{margin:20px 0;padding:20px;border:1px solid var(--line);border-radius:5px}summary{cursor:pointer;font-weight:650}.graphs img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:5px}footer{border-top:1px solid var(--line);padding:24px 0;font-size:13px;color:var(--muted)}.api-row{background:#f0f5f8}
+@media(max-width:740px){main{padding:26px 16px}h1{letter-spacing:-1px}.stats{gap:8px}.stats div{padding:15px 12px}.stats strong{font-size:24px}.stats span{font-size:12px}.controls,.cards{grid-template-columns:1fr}.controls{gap:12px}th,td{padding:11px 12px}.lead{font-size:18px}section{margin:40px 0}}
+</style>
+</head>
+<body><main>
+<div class="eyebrow">Independent benchmark · @@REVISION@@ · 5 October 2026</div>
+<h1>Which decision model<br>fits the task?</h1>
+<p class="lead">Compare every tested model on the same inputs. See where accuracy is strongest, how quickly models respond, and how much GPU memory they use.</p>
+<p class="notice"><strong>Unofficial, independent testing. Use as is, without warranty or vendor endorsement.</strong></p>
+<div class="actions"><a class="button primary" href="#compare">Compare all models</a><a class="button" href="results/linkedin/completion-tradeoffs/index.html">Accuracy, latency &amp; VRAM graphs</a><a class="button" href="results/completion/report.html">Coverage &amp; verification</a></div>
+<div class="stats"><div><strong>@@LOCAL_MODELS@@ + 1</strong><span>Local models + Jev API reference</span></div><div><strong>17,576</strong><span>Frozen cases per model, including development cases</span></div><div><strong>@@TIMED@@ / @@TIMING_TOTAL@@</strong><span>Controlled timing groups complete</span></div></div>
+
+<section id="leaders"><h2>The highest score depends on the task</h2>
+<p>These are the highest observed local accuracy scores across all @@LOCAL_MODELS@@ local models, with Jev shown alongside. Exact ties are retained. Small differences do not establish a statistically reliable lead, and there is no single overall ranking.</p>
+<div class="scroll"><table><caption>Task leaders from complete scored groups</caption><thead><tr><th scope="col">Use case / benchmark</th><th scope="col">Highest-scoring local model(s)</th><th scope="col" class="number">Local accuracy</th><th scope="col" class="number">Jev accuracy</th><th scope="col" class="number">Scored cases</th></tr></thead><tbody>@@LEADERS@@</tbody></table></div>
+<p class="muted">Routing uses public assistant-service categories as a proxy for a business inbox. Public training overlap is unknown. Spam and phishing are reported Laya training tasks; these scores do not demonstrate unseen-domain security performance. All failures and abstentions count against accuracy.</p>
+</section>
+
+<section id="compare"><h2>Compare all models by use case</h2>
+<p>Choose a task, then sort by accuracy, median response time or added VRAM. Every model stays in the accuracy comparison even when controlled timing is unavailable. Model names identify the tested size or quantized variant where available.</p>
+<div class="controls" id="controls" hidden>
+<label for="task">Task<select id="task"></select></label>
+<label for="sort">Sort by<select id="sort"><option value="accuracy">Accuracy — highest first</option><option value="median_ms">Response time — lowest first</option><option value="vram_gib">Added VRAM — lowest first</option><option value="name">Model name</option></select></label>
+<label for="deployment">Deployment<select id="deployment"><option value="all">All models + Jev</option><option value="local">Local models only</option><option value="api">Jev API only</option></select></label>
+</div>
+<p class="task-note" id="task-note">Norwegian routing: 2,948 public Bokmål test inputs, covering 18 assistant-service categories. This measures a routing proxy, not production support-ticket accuracy.</p>
+<div class="tradeoffs" id="tradeoffs"></div>
+<p class="table-status" id="table-status" aria-live="polite">32 models · sorted by accuracy · Norwegian request routing</p>
+<div class="scroll"><table id="comparison"><caption id="table-caption">Norwegian request routing — all tested models</caption><thead><tr><th scope="col">Model / tested variant</th><th scope="col">Deployment</th><th scope="col" class="number">Accuracy</th><th scope="col" class="number">Answered</th><th scope="col" class="number">Median ms</th><th scope="col" class="number">Added VRAM GiB</th><th scope="col">Timing coverage</th></tr></thead><tbody>@@ROWS@@</tbody></table></div>
+<noscript><p>Enable JavaScript to change the task or sorting. The complete Norwegian routing comparison is shown above; <a href="results/jev_live/report.html">all other task results are available in the full report</a>.</p></noscript>
+<p class="muted">Accuracy uses the full scored group under the original split rules. “Answered” includes correct and incorrect answers; its shortfall includes failures, native rejections and abstentions. Timing uses separate fixed samples, batch size one, three serial passes and excluded warm-ups. Medians cover answered calls; blocks with fewer than 90% answered calls are withheld. Counts and native truncation remain visible.</p>
+<p class="muted">VRAM is the sampled whole-device peak above idle on an RTX 5070 Ti 16 GB, not the model file size or isolated process memory. Desktop activity can affect small differences. Jev response times include network transport; its server VRAM is unknown. Missing measurements are never estimated. CLM timing reuses precomputed candidate embeddings for the fixed workload.</p>
+</section>
+
+<section class="graphs"><h2>See the accuracy, latency and memory trade-offs</h2>
+<p>The bubble plots use complete task groups and controlled measurements. They cover 29 configurations. Kai, Eos and Sol were outside this timing protocol; Eos and Sol have separate serving tests.</p>
+<a href="results/linkedin/completion-tradeoffs/index.html"><img src="results/linkedin/completion-tradeoffs/03-english-norwegian.png" width="2880" height="1840" loading="lazy" alt="Measured English and Norwegian routing accuracy against response time, with bubble size showing added VRAM. Open all graphs and their evidence."></a>
+<p><a href="results/linkedin/completion-tradeoffs/index.html">Explore all five graph sets</a> · <a href="results/linkedin/completion-tradeoffs/expanded-tradeoff-graphs.zip">Download the publication graphics</a></p>
+</section>
+
+<section><h2>What this means for a business pilot</h2>
+<div class="cards"><article><h3>Start with the actual workflow</h3><p>Routing requests, tagging engineering documents and selecting developer tools favour different models. Use the matched task results to shortlist candidates, then validate on your own examples and costs of mistakes.</p></article><article><h3>Include the simpler baseline</h3><p>A supervised TF-IDF + linear SVM reached @@BASELINE@@ on Norwegian routing using labelled training data. The decision models here had no task-specific fitting. If labels are available, include a trained classifier in the pilot.</p></article></div>
+<p>Industrial routing and document examples are small authored diagnostics, not expert-validated industry benchmarks. These tests do not measure staff-time savings, production safety or return on investment.</p>
+</section>
+
+<section><h2>Coverage and verification</h2>
+<p>All 17,576 cases per local model are accounted for. @@FAILURES@@ runtime failures remain after repeated attempts; native rejections and abstentions are reported separately. Eight controlled timing groups are unavailable. The benchmark evidence is unchanged by this presentation revision.</p>
+<div class="cards"><article><h3><a href="results/jev_live/report.html">Full matched results</a></h3><p>Every scored task, all local models and the pinned Jev 1.13.0 reference, with confidence and coverage details.</p></article><article><h3><a href="results/completion/report.html">Completion and verification</a></h3><p>All-model coverage, recorded failures and recovery evidence.</p></article><article><h3><a href="results/alternatives/claim_audit.html">Publisher claim audit</a></h3><p>What was reproduced, where configurations differed and what could not be tested.</p></article><article><h3><a href="docs/METHODOLOGY.md">Methodology</a></h3><p>Frozen fixtures, original scoring, pinned revisions and the distinction between accuracy runs and controlled timings.</p></article></div>
+
+</section>
+<footer>Presentation revision @@REVISION@@ · 5 October 2026. Benchmark evidence: completion-2026-10-04, updated 5 October 2026. Unofficial, independent testing; use as is.<br><a href="https://github.com/LokenSI/laya-benchmark">Source code</a> · <a href="docs/PUBLICATION.md">Publication scope</a> · <a href="results/completion/final-verification.json">Final verification</a> · <a href="asset-manifest.json">Published asset hashes</a></footer>
+</main>
+<script id="benchmark-data" type="application/json">@@DATA@@</script>
+<script>
+const data=JSON.parse(document.getElementById('benchmark-data').textContent);
+const taskSelect=document.getElementById('task'), sortSelect=document.getElementById('sort'), deploymentSelect=document.getElementById('deployment');
+const pct=value=>(100*value).toFixed(1)+'%', count=value=>value.toLocaleString('en-US');
+for(const groupName of [...new Set(data.tasks.map(t=>t.group))]){
+  const group=document.createElement('optgroup');group.label=groupName;
+  for(const task of data.tasks.filter(t=>t.group===groupName)){const option=document.createElement('option');option.value=task.id;option.textContent=task.label;group.append(option);}
+  taskSelect.append(group);
+}
+taskSelect.value='massive_nb';document.getElementById('controls').hidden=false;
+function note(task){
+  if(task.id==='massive_en'||task.id==='massive_nb')return 'Public MASSIVE test inputs across 18 assistant-service categories. This is a routing proxy, not production support-ticket accuracy.';
+  if(task.id==='norec_no')return 'Human-labelled Norwegian review sentiment. Sentences from the same review are related; see the full report for source-group intervals.';
+  if(task.id.startsWith('industry/')||task.id.startsWith('fresh_business/'))return 'Small authored industry diagnostics, not expert-validated examples or a production acceptance test. Reversed variants are option-order checks.';
+  if(task.id==='fresh/spam'||task.id==='fresh/phishing')return 'Spam and phishing are reported Laya training tasks. Public training overlap is unknown; these scores do not prove unseen-domain security performance.';
+  if(task.id==='public_jevbench'||task.id.startsWith('jevbench_public/'))return 'Public JevBench cases with original scoring. Related paraphrases and unknown training exposure limit generalisation; small differences are descriptive.';
+  if(task.group==='Other published tasks and diagnostics')return 'An additional published task or protocol diagnostic. Names ending in “dev”, “claim” or “replication” retain their original scope; this is not necessarily an independent held-out test. See the full report and methodology before drawing business conclusions.';
+  return 'Complete scored task groups with original split rules. Public training overlap is unknown. Use these results to choose candidates for testing on your own data.';
+}
+function update(){
+  const task=data.tasks.find(t=>t.id===taskSelect.value), field=sortSelect.value;
+  const rows=task.rows.filter(r=>deploymentSelect.value==='all'||(deploymentSelect.value==='api')===(r.id===data.api));
+  rows.sort((a,b)=>{
+    if(field==='name')return data.names[a.id].localeCompare(data.names[b.id]);
+    if(a[field]===null&&b[field]!==null)return 1;if(b[field]===null&&a[field]!==null)return -1;
+    return ((a[field]??0)-(b[field]??0))*(field==='accuracy'?-1:1)||data.names[a.id].localeCompare(data.names[b.id]);
+  });
+  const body=document.querySelector('#comparison tbody');body.replaceChildren();
+  for(const row of rows){
+    const tr=document.createElement('tr');if(row.id===data.api)tr.className='api-row';
+    const values=[data.names[row.id],row.id===data.api?'Hosted API':'Local',row.accuracy===null?'Withheld':pct(row.accuracy),row.n?count(row.answered)+'/'+count(row.n):'Incomplete',row.median_ms===null?'Unavailable':row.median_ms.toFixed(1),row.vram_gib===null?(row.id===data.api?'Unknown':'Unavailable'):row.vram_gib.toFixed(2),row.timing_note];
+    values.forEach((value,i)=>{const cell=document.createElement(i===0?'th':'td');if(i===0)cell.scope='row';if(i>=2&&i<=5)cell.className='number';if(i===6)cell.className='timing-note';cell.textContent=value;if(i===2&&row.n){const small=document.createElement('small');small.textContent=count(row.correct)+'/'+count(row.n)+' correct';cell.append(small);}tr.append(cell);});body.append(tr);
+  }
+  document.getElementById('task-note').textContent=note(task);
+  document.getElementById('table-caption').textContent=task.label;
+  document.getElementById('table-status').textContent=rows.length+' models · '+sortSelect.selectedOptions[0].textContent+' · '+task.label;
+  const tradeoffs=document.getElementById('tradeoffs');tradeoffs.replaceChildren();
+  if(deploymentSelect.value!=='api')for(const [key,label,unit] of [['median_ms','Fastest measured local response',' ms'],['vram_gib','Lowest measured local VRAM',' GiB']]){
+    const eligible=task.rows.filter(r=>r.id!==data.api&&r[key]!==null);if(!eligible.length)continue;
+    const best=Math.min(...eligible.map(r=>r[key]));const winners=eligible.filter(r=>r[key]===best);
+    const p=document.createElement('p');p.textContent=label+': '+winners.map(r=>data.names[r.id]+' — '+best.toFixed(key==='median_ms'?1:2)+unit+', '+pct(r.accuracy)+' accuracy').join('; ')+'. Among '+eligible.length+' local models with eligible measurements; accuracy is not used as a filter.';tradeoffs.append(p);
+  }
+}
+for(const select of [taskSelect,sortSelect,deploymentSelect])select.addEventListener('change',update);
+update();
+</script>
+</body></html>
